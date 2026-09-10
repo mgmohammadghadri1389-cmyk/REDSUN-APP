@@ -1,140 +1,828 @@
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#6d3aa8">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="REDSUN">
-<title>REDSUN | قیمت محصولات</title>
+<meta name="theme-color" content="#25282B">
+<title>OBCH | لیست محصولات</title>
 <style>
-*{box-sizing:border-box} body{margin:0;background:#f5f3f7;color:#222;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif}
-.wrap{max-width:1000px;margin:auto;padding:18px 12px 40px}
-header{background:linear-gradient(135deg,#6d3aa8,#8b5cc4);color:#fff;border-radius:18px;padding:20px 18px;margin-bottom:14px;box-shadow:0 8px 25px #00000018}
-h1{margin:0 0 5px;font-size:24px} .sub{opacity:.9;font-size:13px}
-.ratebox{background:#fff;border-radius:16px;padding:14px;margin-bottom:14px;box-shadow:0 3px 14px #0000000d}
-label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}
-input{width:100%;height:46px;border:1px solid #ddd;border-radius:11px;padding:0 12px;font-size:16px;outline:none;background:#fff}
-input:focus{border-color:#7b4ab4;box-shadow:0 0 0 3px #7b4ab422}
-.actions{display:flex;gap:8px;margin:12px 0;flex-wrap:wrap}
-button{border:0;border-radius:11px;padding:11px 15px;font-size:14px;font-weight:700;cursor:pointer}
-.primary{background:#6d3aa8;color:#fff}.secondary{background:#fff;color:#6d3aa8;border:1px solid #d9c9e8}
-.danger{background:#fff0f0;color:#c62828;border:1px solid #ffd0d0}.edit{background:#f2ecf8;color:#5d2c91}
-.tablewrap{background:#fff;border-radius:16px;overflow:auto;box-shadow:0 3px 14px #0000000d}
-table{width:100%;border-collapse:collapse;min-width:720px} th,td{padding:12px 10px;border-bottom:1px solid #eee;text-align:right;font-size:14px}
-th{background:#faf8fc;color:#5d2c91;position:sticky;top:0} td.num,th.num{text-align:center}
-.empty{text-align:center;padding:30px;color:#777}
-.modalback{display:none;position:fixed;inset:0;background:#0008;z-index:20;align-items:center;justify-content:center;padding:18px}
-.modal{width:min(440px,100%);background:#fff;border-radius:18px;padding:20px;box-shadow:0 20px 60px #0008}
-.modal h2{margin:0 0 16px;font-size:20px}.field{margin-bottom:13px}
-.modal-actions{display:flex;gap:8px;margin-top:16px}.modal-actions button{flex:1}
-.close{float:left;background:#eee;color:#555;padding:7px 11px}
-.hint{font-size:12px;color:#777;margin-top:7px}
-@media(max-width:600px){.wrap{padding:12px 9px 30px}header{padding:17px 15px}h1{font-size:21px}}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;min-height:100%;font-family:Tahoma,Arial,sans-serif}
+body{background:#F4F4F4;color:#25282B}
+button,input{font:inherit}
+button{cursor:pointer}
+.wrap{max-width:1100px;margin:auto;padding:18px}
+.header{background:linear-gradient(135deg,#25282B,#3A3E42);color:#fff;border-radius:20px;padding:22px 20px;margin-bottom:14px;box-shadow:0 8px 24px #25282B22}
+.brand{font-size:30px;font-weight:900;letter-spacing:2px}
+.subtitle{margin-top:5px;font-size:14px;opacity:.95}
+.card{background:#fff;border:1px solid #D9D9D9;border-radius:18px;padding:16px;margin-bottom:14px;box-shadow:0 5px 18px #74b5d91c}
+label{display:block;font-size:14px;font-weight:700;margin-bottom:7px;color:#3A3E42}
+input{width:100%;border:1px solid #C8C8C8;border-radius:11px;padding:12px;background:#FFFFFF;color:#25282B;outline:none}
+input:focus{border-color:#25282B;box-shadow:0 0 0 3px #25282B22}
+.rateRow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:14px}
+.btn{border:0;border-radius:11px;padding:11px 15px;font-weight:700}
+.primary{background:#25282B;color:#fff}
+.secondary{background:#F4F4F4;color:#25282B;border:1px solid #C8C8C8}
+.danger{background:#FDECEC;color:#C62828;border:1px solid #E6A3A3}
+.small{padding:8px 11px;font-size:13px}
+.editBtn{background:#EAF7EE;color:#218838;border:1px solid #A9D8B5}
+.tableWrap{overflow:auto;border:1px solid #D9D9D9;border-radius:14px}
+table{width:100%;border-collapse:collapse;min-width:760px}
+th,td{padding:12px 10px;border-bottom:1px solid #D9D9D9;text-align:right;white-space:nowrap}
+th{background:#E9E9E9;color:#3A3E42;font-size:14px}
+td{text-align:center}
+td.product{text-align:right;white-space:normal}
+tr:last-child td{border-bottom:0}
+.empty{text-align:center;color:#70757A;padding:30px}
+.modalBack{position:fixed;inset:0;background:#25282B88;display:none;align-items:center;justify-content:center;padding:18px;z-index:20}
+.modalBack.show{display:flex}
+.modal{width:min(460px,100%);background:#fff;border-radius:18px;padding:20px;box-shadow:0 20px 60px #25282B55;position:relative}
+.modal h2{margin:0 0 16px;color:#25282B;font-size:20px}
+.close{position:absolute;left:14px;top:10px;border:0;background:transparent;font-size:28px;color:#666666}
+.field{margin-bottom:13px}
+.modalActions{display:flex;gap:8px;justify-content:flex-start;margin-top:16px}
+.note{font-size:12px;color:#70757A;margin-top:6px}
+.footer{text-align:center;color:#70757A;font-size:12px;padding:4px 0 15px}
+@media(max-width:600px){
+.wrap{padding:10px}.header{padding:18px;border-radius:16px}.brand{font-size:25px}
+.rateRow{grid-template-columns:1fr}.actions .btn{flex:1}
+}
+@media print{
+body{background:#fff;color:#111}
+.wrap{max-width:none;padding:0}
+.header{background:#fff;color:#111;box-shadow:none;border:0;padding:0 0 10px}
+.brand{color:#25282B}.subtitle{color:#555}
+.rateCard,.actions,.footer,.noPrint,.ops{display:none!important}
+.card{border:0;box-shadow:none;padding:0}
+.tableWrap{overflow:visible;border:1px solid #bbb}
+table{min-width:0;width:100%}
+th{background:#EEEEEE!important;color:#111}
+th,td{border-color:#bbb;color:#111}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header><h1>REDSUN</h1><div class="sub">محاسبه قیمت محصولات بر اساس نرخ دلار</div></header>
 
-<section class="ratebox">
+<header class="header">
+<div class="brand">OBCH</div>
+<div class="subtitle">مدیریت و محاسبه قیمت محصولات</div>
+</header>
+
+<section class="card rateCard">
+<div class="rateRow">
+<div>
 <label for="rate">قیمت دلار به تومان</label>
-<input id="rate" type="number" inputmode="decimal" step="1" value="234000">
-<div class="hint">قیمت محصول = قیمت دلاری × نرخ دلار</div>
+<input id="rate" type="number" inputmode="numeric" min="0" step="1" value="234000">
+</div>
+<button class="btn secondary" id="settingsBtn" type="button">⚙ تنظیمات رمز</button>
+</div>
+<div class="note">قیمت محصول = قیمت دلاری × نرخ دلار</div>
 </section>
 
+<section class="card">
 <div class="actions">
-<button class="primary" id="addBtn">＋ افزودن محصول</button>
-<button class="secondary" id="resetBtn">بازگردانی اطلاعات اولیه</button>
+<button class="btn primary" id="addBtn" type="button">＋ افزودن محصول</button>
+<button class="btn secondary" id="pdfBtn" type="button">↓ خروجی PDF لیست</button>
 </div>
 
-<div class="tablewrap">
+<div class="tableWrap">
 <table>
-<thead><tr><th class="num">ردیف</th><th>محصول</th><th class="num">دلار</th><th class="num">قیمت به تومان</th><th class="num">عملیات</th></tr></thead>
+<thead>
+<tr>
+<th>ردیف</th>
+<th>محصول</th>
+<th>دلار</th>
+<th>قیمت به تومان</th>
+<th class="ops">عملیات</th>
+</tr>
+</thead>
 <tbody id="tbody"></tbody>
 </table>
+<div id="empty" class="empty" style="display:none">محصولی ثبت نشده است.</div>
+</div>
+</section>
+
+<div class="footer">اطلاعات در همین مرورگر ذخیره می‌شود.</div>
+</div>
+
+<!-- Add/Edit -->
+<div class="modalBack" id="productModal">
+<div class="modal">
+<button class="close" data-close="productModal" type="button">×</button>
+<h2 id="productTitle">افزودن محصول</h2>
+
+<div class="field">
+<label for="nameInput">نام محصول</label>
+<input id="nameInput" type="text" autocomplete="off">
+</div>
+
+<div class="field">
+<label for="usdInput">قیمت به دلار</label>
+<input id="usdInput" type="number" inputmode="decimal" min="0" step="0.001">
+</div>
+
+<div class="modalActions">
+<button class="btn primary" id="saveProduct" type="button">ثبت</button>
+<button class="btn secondary" data-close="productModal" type="button">انصراف</button>
+</div>
 </div>
 </div>
 
-<div class="modalback" id="modalBack">
-<div class="modal" role="dialog" aria-modal="true">
-<button class="close" id="closeBtn">×</button>
-<h2 id="modalTitle">افزودن محصول</h2>
-<div class="field"><label for="nameInput">نام محصول</label><input id="nameInput" type="text" autocomplete="off"></div>
-<div class="field"><label for="usdInput">قیمت محصول به دلار</label><input id="usdInput" type="number" inputmode="decimal" step="0.001"></div>
-<div class="modal-actions">
-<button class="secondary" id="cancelBtn">انصراف</button>
-<button class="primary" id="saveBtn">ثبت</button>
+<!-- Password -->
+<div class="modalBack" id="passwordModal">
+<div class="modal">
+<button class="close" data-close="passwordModal" type="button">×</button>
+<h2>رمز عبور ویرایش</h2>
+
+<div class="field">
+<label for="passwordInput">رمز فعلی</label>
+<input id="passwordInput" type="password" inputmode="numeric" autocomplete="current-password">
+</div>
+
+<div class="modalActions">
+<button class="btn primary" id="passwordOk" type="button">تأیید</button>
+<button class="btn secondary" data-close="passwordModal" type="button">انصراف</button>
+</div>
+</div>
+</div>
+
+<!-- Delete -->
+<div class="modalBack" id="deleteModal">
+<div class="modal">
+<button class="close" data-close="deleteModal" type="button">×</button>
+<h2>حذف محصول</h2>
+<div id="deleteMessage" style="line-height:1.9"></div>
+
+<div class="modalActions">
+<button class="btn danger" id="deleteOk" type="button">حذف</button>
+<button class="btn secondary" data-close="deleteModal" type="button">انصراف</button>
+</div>
+</div>
+</div>
+
+<!-- Settings -->
+<div class="modalBack" id="settingsModal">
+<div class="modal">
+<button class="close" data-close="settingsModal" type="button">×</button>
+<h2>تغییر رمز ویرایش</h2>
+
+<div class="field">
+<label for="oldPass">رمز فعلی</label>
+<input id="oldPass" type="password" inputmode="numeric" autocomplete="current-password">
+</div>
+
+<div class="field">
+<label for="newPass">رمز جدید</label>
+<input id="newPass" type="password" inputmode="numeric" autocomplete="new-password">
+</div>
+
+<div class="field">
+<label for="repeatPass">تکرار رمز جدید</label>
+<input id="repeatPass" type="password" inputmode="numeric" autocomplete="new-password">
+</div>
+
+<div class="modalActions">
+<button class="btn primary" id="changePass" type="button">ثبت رمز جدید</button>
+<button class="btn secondary" data-close="settingsModal" type="button">انصراف</button>
 </div>
 </div>
 </div>
 
 <script>
-const INITIAL_PRODUCTS = [{"name": "لامپ اشکی 7 وات", "usd": 0.72}, {"name": "لامپ حبابی 9 وات", "usd": 0.725}, {"name": "لامپ حبابی 12 وات", "usd": 0.912}, {"name": "لامپ حبابی 15 وات", "usd": 1.28}, {"name": "لامپ حبابی 20 وات", "usd": 1.7}, {"name": "لامپ حبابی 25 وات", "usd": 2.25}, {"name": "لامپ استوانه ای 25 وات", "usd": 2.59}, {"name": "لامپ استوانه ای 30 وات", "usd": 2.84}, {"name": "لامپ استوانه ای 40 وات", "usd": 3.82}, {"name": "لامپ استوانه ای 50 وات", "usd": 4.821}, {"name": "پنل توکار سایز شو 10وات", "usd": 1.8}, {"name": "پنل توکار سایز شو 18 وات", "usd": 2.714}, {"name": "پنل توکار سایز شو 24 وات", "usd": 3.84}, {"name": "پنل توکار سایز شو 36 وات", "usd": 5.908}, {"name": "پنل روکار 18وات", "usd": 3.513}, {"name": "پنل روکار 24وات", "usd": 4.872}, {"name": "پنل روکار 36 وات", "usd": 6.74}];
-const INITIAL_RATE = 234000;
-const KEY_PRODUCTS = "redsun_products_v2";
-const KEY_RATE = "redsun_rate_v2";
-let products = [];
-let editIndex = -1;
+"use strict";
 
 const $ = id => document.getElementById(id);
-function load(){
-  try{
-    const p=JSON.parse(localStorage.getItem(KEY_PRODUCTS)||"null");
-    products=Array.isArray(p)?p.filter(x=>x && typeof x.name==="string" && isFinite(Number(x.usd))).map(x=>({name:x.name,usd:Number(x.usd)})):structuredClone(INITIAL_PRODUCTS);
-  }catch(e){products=structuredClone(INITIAL_PRODUCTS)}
-  const r=Number(localStorage.getItem(KEY_RATE)); $("rate").value=isFinite(r)&&r>0?r:INITIAL_RATE;
-  render();
+
+const PRODUCTS_KEY = "obch_products_v1";
+const RATE_KEY = "obch_rate_v1";
+const PASS_KEY = "obch_edit_password_v1";
+
+const DEFAULT_RATE = 234000;
+const DEFAULT_PASS = "1234";
+
+const defaultProducts = [
+["لامپ اشکی 7 وات",0.72],
+["لامپ حبابی 9 وات",0.725],
+["لامپ حبابی 12 وات",0.912],
+["لامپ حبابی 15 وات",1.28],
+["لامپ حبابی 20 وات",1.7],
+["لامپ حبابی 25 وات",2.25],
+["لامپ استوانه ای 25 وات",2.59],
+["لامپ استوانه ای 30 وات",2.84],
+["لامپ استوانه ای 40 وات",3.82],
+["لامپ استوانه ای 50 وات",4.821],
+["پنل توکار سایز شو 10وات",1.8],
+["پنل توکار سایز شو 18 وات",2.714],
+["پنل توکار سایز شو 24 وات",3.84],
+["پنل توکار سایز شو 36 وات",5.908],
+["پنل روکار 18وات",3.513],
+["پنل روکار 24وات",4.872],
+["پنل روکار 36 وات",6.74]
+];
+
+let products = loadProducts();
+let editIndex = -1;
+let pendingEditIndex = -1;
+let deleteIndex = -1;
+
+function loadProducts(){
+try{
+const raw = localStorage.getItem(PRODUCTS_KEY);
+
+if(raw){
+const parsed = JSON.parse(raw);
+
+if(Array.isArray(parsed)) return parsed;
 }
-function save(){localStorage.setItem(KEY_PRODUCTS,JSON.stringify(products));localStorage.setItem(KEY_RATE,String(Number($("rate").value)||INITIAL_RATE));}
-function money(n){return new Intl.NumberFormat("fa-IR",{maximumFractionDigits:0}).format(Math.round(n));}
-function decimal(n){return new Intl.NumberFormat("en-US",{maximumFractionDigits:3}).format(n);}
+}catch(e){}
+
+return defaultProducts.map(x=>({
+name:x[0],
+usd:x[1]
+}));
+}
+
+function saveProducts(){
+localStorage.setItem(
+PRODUCTS_KEY,
+JSON.stringify(products)
+);
+}
+
+function getRate(){
+return Number($("rate").value) || 0;
+}
+
+function formatNumber(n){
+return Number(n).toLocaleString("fa-IR");
+}
+
+function esc(s){
+return String(s).replace(
+/[&<>"']/g,
+ch => ({
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#39;"
+}[ch])
+);
+}
+
+function openModal(id){
+$(id).classList.add("show");
+}
+
+function closeModal(id){
+$(id).classList.remove("show");
+}
+
 function render(){
-  const rate=Number($("rate").value)||0, body=$("tbody");
-  body.innerHTML="";
-  if(!products.length){body.innerHTML='<tr><td colspan="5" class="empty">محصولی ثبت نشده است.</td></tr>';return}
-  products.forEach((p,i)=>{
-    const tr=document.createElement("tr");
-    tr.innerHTML=`<td class="num">${i+1}</td><td>${esc(p.name)}</td><td class="num">${decimal(p.usd)}</td><td class="num">${money(p.usd*rate)}</td><td class="num"><button class="edit" data-edit="${i}">ویرایش</button> <button class="danger" data-del="${i}">حذف</button></td>`;
-    body.appendChild(tr);
-  });
-}
-function esc(s){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
-function openModal(index=-1){
-  editIndex=index;
-  $("modalTitle").textContent=index<0?"افزودن محصول":"ویرایش محصول";
-  $("nameInput").value=index<0?"":products[index].name;
-  $("usdInput").value=index<0?"":products[index].usd;
-  $("modalBack").style.display="flex";
-  setTimeout(()=>$("nameInput").focus(),50);
-}
-function closeModal(){$("modalBack").style.display="none";editIndex=-1}
-$("addBtn").onclick=()=>openModal();
-$("closeBtn").onclick=closeModal;$("cancelBtn").onclick=closeModal;
-$("modalBack").addEventListener("click",e=>{if(e.target===$("modalBack"))closeModal()});
-$("saveBtn").onclick=()=>{
-  const name=$("nameInput").value.trim(), usd=Number($("usdInput").value);
-  if(!name){alert("لطفاً نام محصول را وارد کنید.");$("nameInput").focus();return}
-  if(!isFinite(usd)||usd<0){alert("قیمت دلار محصول را درست وارد کنید.");$("usdInput").focus();return}
-  if(editIndex<0)products.push({name,usd}); else products[editIndex]={name,usd};
-  save();render();closeModal();
-};
-$("tbody").addEventListener("click",e=>{
-  const ed=e.target.closest("[data-edit]"), de=e.target.closest("[data-del]");
-  if(ed)openModal(Number(ed.dataset.edit));
-  if(de){
-    const i=Number(de.dataset.del);
-    if(confirm(`محصول «${products[i].name}» حذف شود؟`)){products.splice(i,1);save();render()}
-  }
+
+const body=$("tbody");
+
+body.innerHTML="";
+
+$("empty").style.display =
+products.length ? "none" : "block";
+
+products.forEach((p,i)=>{
+
+const price =
+Math.round(
+Number(p.usd) * getRate()
+);
+
+const tr=document.createElement("tr");
+
+tr.innerHTML =
+"<td>"+formatNumber(i+1)+"</td>"+
+'<td class="product">'+
+esc(p.name)+
+"</td>"+
+"<td>"+formatNumber(p.usd)+"</td>"+
+"<td>"+formatNumber(price)+"</td>"+
+'<td class="ops">'+
+'<button class="btn small secondary editBtn" type="button" data-i="'+i+'">ویرایش</button> '+
+'<button class="btn small danger deleteBtn" type="button" data-i="'+i+'">حذف</button>'+
+"</td>";
+
+body.appendChild(tr);
+
 });
-$("rate").addEventListener("input",()=>{localStorage.setItem(KEY_RATE,String(Number($("rate").value)||0));render()});
-$("resetBtn").onclick=()=>{
-  if(confirm("اطلاعات محصولات و نرخ دلار به حالت اولیه برگردد؟")){
-    products=structuredClone(INITIAL_PRODUCTS);$("rate").value=INITIAL_RATE;save();render();
-  }
+}
+
+function openAdd(){
+
+editIndex=-1;
+
+$("productTitle").textContent="افزودن محصول";
+
+$("nameInput").value="";
+$("usdInput").value="";
+
+openModal("productModal");
+
+setTimeout(
+()=>$("nameInput").focus(),
+50
+);
+}
+
+function openEdit(i){
+
+pendingEditIndex=i;
+
+$("passwordInput").value="";
+
+openModal("passwordModal");
+
+setTimeout(
+()=>$("passwordInput").focus(),
+50
+);
+}
+
+function showEditForm(i){
+
+editIndex=i;
+
+$("productTitle").textContent="ویرایش محصول";
+
+$("nameInput").value=
+products[i].name;
+
+$("usdInput").value=
+products[i].usd;
+
+openModal("productModal");
+
+setTimeout(
+()=>$("nameInput").focus(),
+50
+);
+}
+
+$("addBtn").addEventListener(
+"click",
+openAdd
+);
+
+$("saveProduct").addEventListener(
+"click",
+()=>{
+
+const name=
+$("nameInput").value.trim();
+
+const usd=
+Number($("usdInput").value);
+
+if(!name){
+alert("نام محصول را وارد کنید.");
+return;
+}
+
+if(!Number.isFinite(usd)||usd<0){
+alert("قیمت دلار را درست وارد کنید.");
+return;
+}
+
+if(editIndex===-1){
+
+products.push({
+name:name,
+usd:usd
+});
+
+}else{
+
+products[editIndex]={
+name:name,
+usd:usd
 };
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();if(e.key==="Enter"&&$("modalBack").style.display==="flex"&&document.activeElement!==$("saveBtn"))$("saveBtn").click()});
-load();
+
+}
+
+saveProducts();
+
+render();
+
+closeModal("productModal");
+
+}
+);
+
+$("tbody").addEventListener(
+"click",
+e=>{
+
+const edit=
+e.target.closest(".editBtn");
+
+const del=
+e.target.closest(".deleteBtn");
+
+if(edit){
+
+openEdit(
+Number(edit.dataset.i)
+);
+
+}
+
+if(del){
+
+deleteIndex=
+Number(del.dataset.i);
+
+$("deleteMessage").textContent=
+"آیا محصول «"+
+products[deleteIndex].name+
+"» حذف شود؟";
+
+openModal("deleteModal");
+
+}
+
+}
+);
+
+$("passwordOk").addEventListener(
+"click",
+()=>{
+
+const saved=
+localStorage.getItem(PASS_KEY) ||
+DEFAULT_PASS;
+
+if(
+$("passwordInput").value!==saved
+){
+
+alert("رمز عبور اشتباه است.");
+
+return;
+}
+
+closeModal("passwordModal");
+
+showEditForm(
+pendingEditIndex
+);
+
+}
+);
+
+$("deleteOk").addEventListener(
+"click",
+()=>{
+
+if(deleteIndex>=0){
+
+products.splice(
+deleteIndex,
+1
+);
+
+saveProducts();
+
+render();
+
+}
+
+deleteIndex=-1;
+
+closeModal("deleteModal");
+
+}
+);
+
+$("settingsBtn").addEventListener(
+"click",
+()=>{
+
+$("oldPass").value="";
+$("newPass").value="";
+$("repeatPass").value="";
+
+openModal("settingsModal");
+
+setTimeout(
+()=>$("oldPass").focus(),
+50
+);
+
+}
+);
+
+$("changePass").addEventListener(
+"click",
+()=>{
+
+const saved=
+localStorage.getItem(PASS_KEY) ||
+DEFAULT_PASS;
+
+const old=
+$("oldPass").value;
+
+const np=
+$("newPass").value;
+
+const rp=
+$("repeatPass").value;
+
+if(old!==saved){
+
+alert("رمز فعلی اشتباه است.");
+
+return;
+}
+
+if(!np){
+
+alert("رمز جدید را وارد کنید.");
+
+return;
+}
+
+if(np!==rp){
+
+alert("تکرار رمز جدید یکسان نیست.");
+
+return;
+}
+
+localStorage.setItem(
+PASS_KEY,
+np
+);
+
+closeModal("settingsModal");
+
+alert(
+"رمز ویرایش با موفقیت تغییر کرد."
+);
+
+}
+);
+
+$("rate").value =
+localStorage.getItem(RATE_KEY) ||
+DEFAULT_RATE;
+
+$("rate").addEventListener(
+"input",
+()=>{
+
+localStorage.setItem(
+RATE_KEY,
+String(getRate())
+);
+
+render();
+
+}
+);
+
+/* خروجی PDF */
+
+$("pdfBtn").addEventListener(
+"click",
+()=>{
+
+const popup=
+window.open(
+"",
+"_blank"
+);
+
+if(!popup){
+
+alert(
+"باز شدن پنجره جدید توسط مرورگر مسدود شده است. اجازه Pop-up را برای سایت فعال کنید."
+);
+
+return;
+}
+
+const rate=getRate();
+
+const rows=
+products.map(
+(p,i)=>{
+
+const price=
+Math.round(
+Number(p.usd)*rate
+);
+
+return "<tr>"+
+"<td>"+
+formatNumber(i+1)+
+"</td>"+
+"<td>"+
+esc(p.name)+
+"</td>"+
+"<td>"+
+formatNumber(p.usd)+
+"</td>"+
+"<td>"+
+formatNumber(price)+
+"</td>"+
+"</tr>";
+
+}
+).join("");
+
+popup.document.open();
+
+popup.document.write(
+`<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>OBCH - لیست محصولات</title>
+
+<style>
+
+@page{
+size:A4;
+margin:12mm
+}
+
+body{
+font-family:Tahoma,Arial,sans-serif;
+color:#25282B;
+margin:0
+}
+
+h1{
+text-align:center;
+font-size:25px;
+margin:0 0 8px;
+color:#25282B
+}
+
+.meta{
+text-align:center;
+color:#666666;
+font-size:13px;
+margin-bottom:18px
+}
+
+table{
+width:100%;
+border-collapse:collapse
+}
+
+th,td{
+border:1px solid #B8B8B8;
+padding:9px;
+font-size:13px
+}
+
+th{
+background:#EEEEEE
+}
+
+td{
+text-align:center
+}
+
+td:nth-child(2){
+text-align:right
+}
+
+.buttons{
+text-align:center;
+margin:22px
+}
+
+button{
+border:0;
+background:#25282B;
+color:white;
+padding:11px 20px;
+border-radius:8px;
+font-family:Tahoma;
+cursor:pointer
+}
+
+@media print{
+.buttons{
+display:none
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>OBCH</h1>
+
+<div class="meta">
+لیست محصولات &nbsp; | &nbsp;
+نرخ دلار:
+${formatNumber(rate)}
+تومان
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+<th>ردیف</th>
+<th>محصول</th>
+<th>دلار</th>
+<th>قیمت به تومان</th>
+</tr>
+
+</thead>
+
+<tbody>
+${rows}
+</tbody>
+
+</table>
+
+<div class="buttons">
+<button onclick="window.print()">
+چاپ / ذخیره به PDF
+</button>
+</div>
+
+</body>
+</html>`
+);
+
+popup.document.close();
+
+}
+);
+
+document.querySelectorAll(
+"[data-close]"
+).forEach(
+btn=>{
+
+btn.addEventListener(
+"click",
+()=>closeModal(
+btn.dataset.close
+)
+);
+
+}
+);
+
+document.querySelectorAll(
+".modalBack"
+).forEach(
+back=>{
+
+back.addEventListener(
+"click",
+e=>{
+
+if(e.target===back){
+
+closeModal(back.id);
+
+}
+
+}
+);
+
+}
+);
+
+document.addEventListener(
+"keydown",
+e=>{
+
+if(e.key==="Escape"){
+
+document.querySelectorAll(
+".modalBack.show"
+).forEach(
+m=>closeModal(m.id)
+);
+
+}
+
+}
+);
+
+render();
+
 </script>
-</body></html>
+
+</body>
+</html>
