@@ -560,6 +560,11 @@ function loadProducts(){
 function saveProducts(){ localStorage.setItem(PRODUCTS_KEY, JSON.stringify(products)); }
 function getRate(){ return Number($("rate").value) || 0; }
 function formatNumber(n){ return Number(n).toLocaleString("fa-IR"); }
+function formatPdfNumber(n){
+  const en = Number(n).toLocaleString("en-US");
+  const faDigits = "۰۱۲۳۴۵۶۷۸۹";
+  return en.replace(/\d/g, d => faDigits[d]);
+}
 function esc(s){
   return String(s).replace(/[&<>"']/g, ch => ({
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
@@ -703,9 +708,9 @@ $("pdfBtn").addEventListener("click",()=>{
   const rows=products.map((p,i)=>{
     const price=Math.round(Number(p.usd)*rate);
     return "<tr>"+
-      "<td>"+formatNumber(i+1)+"</td>"+
+      "<td>"+formatPdfNumber(i+1)+"</td>"+
       "<td>"+esc(p.name)+"</td>"+
-      "<td>"+formatNumber(price)+"</td>"+
+      "<td>"+formatPdfNumber(price)+"</td>"+
       "</tr>";
   }).join("");
 
