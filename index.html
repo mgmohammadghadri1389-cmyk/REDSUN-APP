@@ -311,8 +311,8 @@ tr:last-child td{border-bottom:0}
   th,td{border-color:#bbb;color:#111}
 }
 
-/* ===== REDSUN Text Intro ===== */
-.logoSplash{
+/* ===== REDSUN Text Intro - CSS Only ===== */
+.textSplash{
   position:fixed;
   inset:0;
   z-index:9999;
@@ -320,116 +320,78 @@ tr:last-child td{border-bottom:0}
   align-items:center;
   justify-content:center;
   background:
-    radial-gradient(circle at 50% 38%,rgba(141,89,212,.30),transparent 30%),
-    radial-gradient(circle at 50% 70%,rgba(109,59,192,.18),transparent 38%),
+    radial-gradient(circle at 50% 35%,rgba(151,96,225,.32),transparent 30%),
     linear-gradient(145deg,#21102f 0%,#3a1758 48%,#170b23 100%);
-  overflow:hidden;
-  transition:opacity .7s ease,visibility .7s ease;
+  animation:splashOut .65s ease 2.65s forwards;
 }
-.logoSplash.hide{
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-}
-.logoSplash::before,
-.logoSplash::after{
-  content:"";
-  position:absolute;
-  border-radius:50%;
-  filter:blur(45px);
-  opacity:.45;
-  animation:floatGlow 3s ease-in-out infinite alternate;
-}
-.logoSplash::before{
-  width:300px;height:300px;
-  background:#8e5bd1;
-  top:-140px;right:-90px;
-}
-.logoSplash::after{
-  width:260px;height:260px;
-  background:#5b2a86;
-  left:-100px;bottom:-110px;
-  animation-delay:.8s;
-}
-.textIntroBox{
-  position:relative;
-  width:min(90vw,560px);
+.textSplashBox{
   text-align:center;
   color:#fff;
-  padding:28px 20px;
+  padding:24px;
 }
-.introFa{
+.textSplashFa{
   font-size:36px;
   font-weight:900;
   opacity:0;
-  transform:translateY(18px) scale(.96);
-  animation:textRise .7s cubic-bezier(.2,.8,.2,1) .15s forwards;
-  text-shadow:0 0 24px rgba(220,190,255,.30);
+  transform:translateY(16px);
+  animation:introUp .6s ease .15s forwards;
 }
-.introEn{
-  margin-top:6px;
-  font-size:30px;
+.textSplashEn{
+  margin-top:7px;
+  font-size:28px;
   font-weight:900;
-  letter-spacing:9px;
+  letter-spacing:8px;
   color:#f4eaff;
   opacity:0;
-  transform:translateY(18px);
-  animation:textRise .7s cubic-bezier(.2,.8,.2,1) .55s forwards;
+  transform:translateY(16px);
+  animation:introUp .6s ease .55s forwards;
 }
-.introLine{
+.textSplashLine{
   width:0;
   height:2px;
-  margin:17px auto 0;
-  border-radius:5px;
+  margin:16px auto 0;
   background:linear-gradient(90deg,transparent,#d6b8ff,transparent);
-  box-shadow:0 0 14px rgba(214,184,255,.55);
-  animation:lineGrow .7s ease .9s forwards;
+  box-shadow:0 0 12px rgba(214,184,255,.55);
+  animation:introLine .65s ease .95s forwards;
 }
-.introWelcome{
-  margin-top:16px;
+.textSplashWelcome{
+  margin-top:15px;
   font-size:15px;
   font-weight:700;
-  color:#e8d8fa;
+  color:#eadcff;
   opacity:0;
-  transform:translateY(10px);
-  animation:welcomeIn .55s ease 1.25s forwards;
+  animation:introFade .5s ease 1.3s forwards;
 }
-@keyframes textRise{
-  to{opacity:1;transform:translateY(0) scale(1)}
-}
-@keyframes welcomeIn{
+@keyframes introUp{
   to{opacity:1;transform:translateY(0)}
 }
-@keyframes lineGrow{
-  to{width:230px}
+@keyframes introFade{
+  to{opacity:1}
 }
-@keyframes floatGlow{
-  to{transform:translate(18px,16px) scale(1.07)}
+@keyframes introLine{
+  to{width:220px}
+}
+@keyframes splashOut{
+  0%{opacity:1;visibility:visible;pointer-events:auto}
+  99%{opacity:0;visibility:visible;pointer-events:none}
+  100%{opacity:0;visibility:hidden;pointer-events:none}
 }
 @media(max-width:600px){
-  .introFa{font-size:31px}
-  .introEn{font-size:24px;letter-spacing:7px}
+  .textSplashFa{font-size:31px}
+  .textSplashEn{font-size:24px;letter-spacing:6px}
 }
-@media(prefers-reduced-motion:reduce){
-  .introFa,.introEn,.introLine,.introWelcome{
-    animation-duration:.01ms!important;
-    animation-delay:0ms!important;
-  }
-}
-
 
 </style>
 </head>
 <body>
 
-<div class="logoSplash" id="logoSplash" aria-label="REDSUN intro">
-  <div class="textIntroBox">
-    <div class="introFa">ردسان</div>
-    <div class="introEn">REDSUN</div>
-    <div class="introLine"></div>
-    <div class="introWelcome">خوش آمدید</div>
+<div class="textSplash" aria-hidden="true">
+  <div class="textSplashBox">
+    <div class="textSplashFa">ردسان</div>
+    <div class="textSplashEn">REDSUN</div>
+    <div class="textSplashLine"></div>
+    <div class="textSplashWelcome">خوش آمدید</div>
   </div>
-</div>
 </div>
 
 <div class="wrap">
@@ -755,8 +717,9 @@ th,td{border:1px solid #B9AFC1;padding:9px;font-size:13px}
 th{background:#EEE7F2}
 td{text-align:center}
 td:nth-child(2){text-align:right}
-.buttons{text-align:center;margin:22px}
+.buttons{text-align:center;margin:22px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 button{border:0;background:#5B2A86;color:white;padding:11px 20px;border-radius:8px;font-family:Tahoma;cursor:pointer}
+.backBtn{background:#EFE7F5;color:#5B2A86;border:1px solid #CDBED6}
 @media print{.buttons{display:none}}
 </style>
 </head>
@@ -767,7 +730,10 @@ button{border:0;background:#5B2A86;color:white;padding:11px 20px;border-radius:8
 <thead><tr><th>ردیف</th><th>محصول</th><th>قیمت مصرف‌کننده</th></tr></thead>
 <tbody>${rows}</tbody>
 </table>
-<div class="buttons"><button onclick="window.print()">چاپ / ذخیره به PDF</button></div>
+<div class="buttons">
+<button onclick="window.print()">چاپ / ذخیره به PDF</button>
+<button class="backBtn" onclick="if(window.opener){window.opener.focus();} window.close();">بازگشت</button>
+</div>
 </body>
 </html>`
   );
@@ -790,14 +756,6 @@ document.addEventListener("keydown",e=>{
   }
 });
 
-
-
-window.addEventListener("load",()=>{
-  const splash=document.getElementById("logoSplash");
-  if(!splash) return;
-  setTimeout(()=>splash.classList.add("hide"),2600);
-  setTimeout(()=>splash.remove(),3350);
-});
 
 render();
 </script>
