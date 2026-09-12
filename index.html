@@ -6,12 +6,21 @@
 <meta name="theme-color" content="#6D3BC0">
 <title>REDSUN | لیست محصولات</title>
 <style>
+
+@font-face{
+  font-family:'IRANSansX';
+  src:url('IRANSansX-Black.ttf') format('truetype');
+  font-weight:900;
+  font-style:normal;
+  font-display:swap;
+}
+
 *{box-sizing:border-box}
 html,body{
   margin:0;
   padding:0;
   min-height:100%;
-  font-family:Tahoma,Arial,sans-serif;
+  font-family:'IRANSansX',Tahoma,Arial,sans-serif;
 }
 body{
   color:#241833;
@@ -42,7 +51,7 @@ body::after{
   right:-110px;bottom:-90px;
   background:rgba(184,128,255,.22);
 }
-button,input{font:inherit}
+button,input{font:inherit;font-family:'IRANSansX',Tahoma,Arial,sans-serif}
 button{cursor:pointer}
 .wrap{max-width:1100px;margin:auto;padding:18px}
 
@@ -709,7 +718,7 @@ $("pdfBtn").addEventListener("click",()=>{
 <title>REDSUN - لیست محصولات</title>
 <style>
 @page{size:A4;margin:12mm}
-body{font-family:Tahoma,Arial,sans-serif;color:#5B2A86;margin:0}
+body{font-family:'IRANSansX',Tahoma,Arial,sans-serif;color:#5B2A86;margin:0}
 h1{text-align:center;font-size:25px;margin:0 0 8px;color:#5B2A86}
 .meta{text-align:center;color:#6F6875;font-size:13px;margin-bottom:18px}
 table{width:100%;border-collapse:collapse}
@@ -718,7 +727,7 @@ th{background:#EEE7F2}
 td{text-align:center}
 td:nth-child(2){text-align:right}
 .buttons{text-align:center;margin:22px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-button{border:0;background:#5B2A86;color:white;padding:11px 20px;border-radius:8px;font-family:Tahoma;cursor:pointer}
+button{border:0;background:#5B2A86;color:white;padding:11px 20px;border-radius:8px;font-family:'IRANSansX',Tahoma,Arial,sans-serif;cursor:pointer}
 .backBtn{background:#EFE7F5;color:#5B2A86;border:1px solid #CDBED6}
 @media print{.buttons{display:none}}
 </style>
