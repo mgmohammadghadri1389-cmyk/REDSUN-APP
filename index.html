@@ -3,16 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#6D3BC0">
-<title>REDSUN | لیست محصولات</title>
+<meta name="theme-color" content="#6C2FA3">
+<title>REDSUN | ظ…ط¯غŒط±غŒطھ ظ‚غŒظ…طھ ظ…ط­طµظˆظ„ط§طھ</title>
 <style>
-
 @font-face{
   font-family:'IRANSansX';
   src:url('IRANSansX-Black.ttf') format('truetype');
   font-weight:900;
   font-style:normal;
   font-display:swap;
+}
+
+:root{
+  --red:#6C2FA3;
+  --red-dark:#4B1F73;
+  --red-soft:#F4ECFA;
+  --silver-1:#F8F8F8;
+  --silver-2:#F0EBF4;
+  --silver-3:#DED4E6;
+  --silver-4:#C7BBD1;
+  --ink:#241B2C;
+  --ink-soft:#71687A;
+  --white:#FFFFFF;
+  --green:#1F9D55;
+  --green-soft:#EAF8F0;
+  --danger:#A93A73;
+  --danger-soft:#F8EEF5;
+  --shadow:0 18px 48px rgba(30,33,40,.12);
 }
 
 *{box-sizing:border-box}
@@ -23,304 +40,19 @@ html,body{
   font-family:'IRANSansX',Tahoma,Arial,sans-serif;
 }
 body{
-  color:#241833;
+  color:var(--ink);
   background:
-    radial-gradient(circle at 15% 12%,rgba(173,120,255,.34),transparent 28%),
-    radial-gradient(circle at 88% 8%,rgba(116,80,220,.28),transparent 30%),
-    radial-gradient(circle at 50% 100%,rgba(216,184,255,.38),transparent 36%),
-    linear-gradient(145deg,#f7f2ff 0%,#eee6fb 48%,#f9f7ff 100%);
-  background-attachment:fixed;
+    radial-gradient(circle at top right, rgba(108,47,163,.10), transparent 26%),
+    radial-gradient(circle at bottom left, rgba(180,180,188,.26), transparent 28%),
+    linear-gradient(145deg,#FCFCFD 0%,#F2F3F6 50%,#FBFBFC 100%);
   overflow-x:hidden;
 }
-body::before,
-body::after{
-  content:"";
-  position:fixed;
-  border-radius:50%;
-  filter:blur(26px);
-  pointer-events:none;
-  z-index:-1;
-}
-body::before{
-  width:240px;height:240px;
-  top:-70px;left:-70px;
-  background:rgba(126,70,220,.24);
-}
-body::after{
-  width:280px;height:280px;
-  right:-110px;bottom:-90px;
-  background:rgba(184,128,255,.22);
-}
+
 button,input{font:inherit;font-family:'IRANSansX',Tahoma,Arial,sans-serif}
 button{cursor:pointer}
-.wrap{max-width:1100px;margin:auto;padding:18px}
 
-.header{
-  position:relative;
-  overflow:hidden;
-  color:#fff;
-  border:1px solid rgba(255,255,255,.46);
-  border-radius:24px;
-  padding:24px 22px;
-  margin-bottom:16px;
-  background:
-    linear-gradient(135deg,rgba(102,51,170,.88),rgba(123,63,190,.66)),
-    rgba(255,255,255,.14);
-  backdrop-filter:blur(22px) saturate(165%);
-  -webkit-backdrop-filter:blur(22px) saturate(165%);
-  box-shadow:
-    0 18px 45px rgba(84,42,145,.24),
-    inset 0 1px 0 rgba(255,255,255,.30),
-    0 0 32px rgba(143,82,230,.18);
-}
-.header::after{
-  content:"";
-  position:absolute;
-  width:170px;height:170px;
-  left:-45px;top:-70px;
-  border-radius:50%;
-  background:rgba(255,255,255,.16);
-  filter:blur(2px);
-}
-.brand{
-  position:relative;
-  z-index:1;
-  font-size:31px;
-  font-weight:900;
-  letter-spacing:2px;
-  text-shadow:0 3px 16px rgba(55,19,101,.32);
-}
-.subtitle{
-  position:relative;
-  z-index:1;
-  margin-top:6px;
-  font-size:14px;
-  opacity:.96;
-}
+.wrap{max-width:1140px;margin:auto;padding:18px}
 
-.card{
-  background:rgba(255,255,255,.58);
-  border:1px solid rgba(255,255,255,.82);
-  border-radius:22px;
-  padding:17px;
-  margin-bottom:15px;
-  backdrop-filter:blur(20px) saturate(160%);
-  -webkit-backdrop-filter:blur(20px) saturate(160%);
-  box-shadow:
-    0 14px 38px rgba(91,42,134,.11),
-    inset 0 1px 0 rgba(255,255,255,.95);
-}
-
-label{
-  display:block;
-  font-size:14px;
-  font-weight:700;
-  margin-bottom:7px;
-  color:#4f3470;
-}
-input{
-  width:100%;
-  border:1px solid rgba(108,72,153,.22);
-  border-radius:14px;
-  padding:13px;
-  background:rgba(255,255,255,.70);
-  color:#241833;
-  outline:none;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.90);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-}
-input:focus{
-  border-color:#8e5bd1;
-  box-shadow:0 0 0 4px rgba(142,91,209,.14),0 0 24px rgba(142,91,209,.10);
-}
-.rateRow{
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:10px;
-  align-items:end;
-}
-.actions{
-  display:flex;
-  gap:9px;
-  flex-wrap:wrap;
-  margin-bottom:14px;
-}
-.btn{
-  border-radius:14px;
-  padding:11px 15px;
-  font-weight:700;
-  transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
-}
-.btn:active{transform:scale(.98)}
-.primary{
-  border:1px solid rgba(255,255,255,.30);
-  color:#fff;
-  background:linear-gradient(135deg,#6d3bc0,#8d59d4);
-  box-shadow:0 8px 20px rgba(109,59,192,.22),0 0 18px rgba(149,91,230,.15);
-}
-.primary:hover{
-  box-shadow:0 10px 26px rgba(109,59,192,.28),0 0 24px rgba(149,91,230,.20);
-}
-.secondary{
-  color:#5b3382;
-  border:1px solid rgba(109,72,153,.20);
-  background:rgba(255,255,255,.58);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.90);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-}
-.danger{
-  background:rgba(255,244,247,.82);
-  color:#c62845;
-  border:1px solid rgba(198,40,69,.20);
-}
-.small{padding:8px 11px;font-size:13px}
-.editBtn{
-  background:rgba(236,250,240,.82);
-  color:#218838;
-  border:1px solid rgba(33,136,56,.20);
-}
-
-.tableWrap{
-  overflow:auto;
-  border:1px solid rgba(255,255,255,.86);
-  border-radius:18px;
-  background:rgba(255,255,255,.30);
-  backdrop-filter:blur(14px) saturate(150%);
-  -webkit-backdrop-filter:blur(14px) saturate(150%);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.85);
-}
-table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:760px;
-}
-th,td{
-  padding:12px 10px;
-  border-bottom:1px solid rgba(111,76,150,.12);
-  text-align:right;
-  white-space:nowrap;
-}
-th{
-  background:rgba(113,69,170,.10);
-  color:#4d316b;
-  font-size:14px;
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-}
-td{
-  text-align:center;
-  background:rgba(255,255,255,.34);
-}
-tbody tr:hover td{
-  background:rgba(255,255,255,.54);
-}
-td.product{
-  text-align:right;
-  white-space:normal;
-}
-tr:last-child td{border-bottom:0}
-.empty{text-align:center;color:#746783;padding:30px}
-
-.modalBack{
-  position:fixed;
-  inset:0;
-  background:rgba(55,28,83,.35);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:18px;
-  z-index:20;
-  backdrop-filter:blur(9px);
-  -webkit-backdrop-filter:blur(9px);
-}
-.modalBack.show{display:flex}
-.modal{
-  width:min(460px,100%);
-  background:rgba(255,255,255,.72);
-  border:1px solid rgba(255,255,255,.90);
-  border-radius:24px;
-  padding:21px;
-  box-shadow:
-    0 24px 70px rgba(71,34,106,.28),
-    inset 0 1px 0 rgba(255,255,255,.95),
-    0 0 35px rgba(137,79,214,.12);
-  position:relative;
-  backdrop-filter:blur(26px) saturate(175%);
-  -webkit-backdrop-filter:blur(26px) saturate(175%);
-}
-.modal h2{
-  margin:0 0 16px;
-  color:#4f2878;
-  font-size:20px;
-}
-.close{
-  position:absolute;
-  left:14px;
-  top:10px;
-  border:0;
-  background:transparent;
-  font-size:28px;
-  color:#765d89;
-}
-.field{margin-bottom:13px}
-.modalActions{
-  display:flex;
-  gap:8px;
-  justify-content:flex-start;
-  margin-top:16px;
-}
-.note{font-size:12px;color:#786c82;margin-top:6px}
-.footer{text-align:center;color:#776a82;font-size:12px;padding:4px 0 15px}
-
-@media(max-width:600px){
-  .wrap{padding:10px}
-  .header{padding:19px;border-radius:20px}
-  .brand{font-size:26px}
-  .rateRow{grid-template-columns:1fr}
-  .actions .btn{flex:1}
-  .card{border-radius:19px}
-}
-
-@media print{
-  body{background:#fff;color:#111}
-  body::before,body::after{display:none!important}
-  .wrap{max-width:none;padding:0}
-  .header{
-    background:#fff;
-    color:#111;
-    box-shadow:none;
-    border:0;
-    padding:0 0 10px;
-    backdrop-filter:none;
-    -webkit-backdrop-filter:none;
-  }
-  .brand{color:#5b2a86;text-shadow:none}
-  .subtitle{color:#555}
-  .rateCard,.actions,.footer,.noPrint,.ops{display:none!important}
-  .card{
-    border:0;
-    box-shadow:none;
-    padding:0;
-    background:#fff;
-    backdrop-filter:none;
-    -webkit-backdrop-filter:none;
-  }
-  .tableWrap{
-    overflow:visible;
-    border:1px solid #bbb;
-    background:#fff;
-    backdrop-filter:none;
-    -webkit-backdrop-filter:none;
-  }
-  table{min-width:0;width:100%}
-  th{background:#eee!important;color:#111}
-  td{background:#fff!important}
-  th,td{border-color:#bbb;color:#111}
-}
-
-/* ===== REDSUN Text Intro - CSS Only ===== */
 .textSplash{
   position:fixed;
   inset:0;
@@ -329,246 +61,502 @@ tr:last-child td{border-bottom:0}
   align-items:center;
   justify-content:center;
   background:
-    radial-gradient(circle at 50% 35%,rgba(151,96,225,.32),transparent 30%),
-    linear-gradient(145deg,#21102f 0%,#3a1758 48%,#170b23 100%);
-  animation:splashOut .65s ease 2.65s forwards;
+    radial-gradient(circle at 50% 35%, rgba(108,47,163,.16), transparent 32%),
+    linear-gradient(140deg,#E9E9ED 0%,#C9CBD2 45%,#9DA3AE 100%);
+  animation:splashOut .65s ease 2.6s forwards;
 }
-.textSplashBox{
-  text-align:center;
-  color:#fff;
-  padding:24px;
-}
-.textSplashFa{
-  font-size:36px;
-  font-weight:900;
-  opacity:0;
-  transform:translateY(16px);
-  animation:introUp .6s ease .15s forwards;
-}
+.textSplashBox{text-align:center;color:var(--ink);padding:24px}
 .textSplashEn{
-  margin-top:7px;
-  font-size:28px;
+  font-size:34px;
   font-weight:900;
   letter-spacing:8px;
-  color:#f4eaff;
+  color:var(--red);
   opacity:0;
-  transform:translateY(16px);
-  animation:introUp .6s ease .55s forwards;
+  transform:translateY(14px);
+  animation:introUp .6s ease .15s forwards;
 }
 .textSplashLine{
-  width:0;
-  height:2px;
-  margin:16px auto 0;
-  background:linear-gradient(90deg,transparent,#d6b8ff,transparent);
-  box-shadow:0 0 12px rgba(214,184,255,.55);
-  animation:introLine .65s ease .95s forwards;
+  width:0;height:3px;margin:16px auto 0;border-radius:99px;
+  background:linear-gradient(90deg,transparent,var(--red),transparent);
+  box-shadow:0 0 14px rgba(108,47,163,.24);
+  animation:introLine .6s ease .6s forwards;
 }
 .textSplashWelcome{
   margin-top:15px;
   font-size:15px;
   font-weight:700;
-  color:#eadcff;
+  color:#5A5F69;
   opacity:0;
-  animation:introFade .5s ease 1.3s forwards;
+  animation:introFade .5s ease 1s forwards;
 }
-@keyframes introUp{
-  to{opacity:1;transform:translateY(0)}
-}
-@keyframes introFade{
-  to{opacity:1}
-}
-@keyframes introLine{
-  to{width:220px}
-}
+@keyframes introUp{to{opacity:1;transform:translateY(0)}}
+@keyframes introLine{to{width:210px}}
+@keyframes introFade{to{opacity:1}}
 @keyframes splashOut{
   0%{opacity:1;visibility:visible;pointer-events:auto}
   99%{opacity:0;visibility:visible;pointer-events:none}
   100%{opacity:0;visibility:hidden;pointer-events:none}
 }
-@media(max-width:600px){
-  .textSplashFa{font-size:31px}
-  .textSplashEn{font-size:24px;letter-spacing:6px}
+
+.header{
+  position:relative;
+  overflow:hidden;
+  border-radius:28px;
+  padding:26px 24px;
+  margin-bottom:16px;
+  color:var(--white);
+  background:
+    linear-gradient(135deg, rgba(34,37,44,.92), rgba(95,101,112,.84)),
+    linear-gradient(135deg, #F3F3F6, #C6CAD3);
+  border:1px solid rgba(255,255,255,.48);
+  box-shadow:0 22px 60px rgba(33,36,43,.18);
+}
+.header::before{
+  content:"";
+  position:absolute;
+  inset:auto -40px -70px auto;
+  width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle, rgba(108,47,163,.92) 0%, rgba(108,47,163,.34) 42%, transparent 72%);
+  filter:blur(8px);
+  opacity:.72;
+}
+.header::after{
+  content:"";
+  position:absolute;
+  inset:-40px auto auto -40px;
+  width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(circle, rgba(255,255,255,.16) 0%, transparent 70%);
+}
+.brand{position:relative;z-index:1;font-size:33px;font-weight:900;letter-spacing:3px}
+.subtitle{position:relative;z-index:1;margin-top:8px;font-size:14px;opacity:.96}
+.brandTag{
+  position:relative;z-index:1;display:inline-flex;gap:8px;align-items:center;
+  margin-top:14px;padding:8px 14px;border-radius:999px;
+  background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);
+  font-size:12px;
 }
 
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,.95), rgba(248,248,249,.92));
+  border:1px solid var(--silver-3);
+  border-radius:24px;
+  padding:18px;
+  margin-bottom:15px;
+  box-shadow:var(--shadow);
+}
+label{display:block;font-size:14px;font-weight:700;margin-bottom:8px;color:#383D46}
+input{
+  width:100%;
+  border:1px solid var(--silver-4);
+  border-radius:16px;
+  padding:13px 14px;
+  background:#fff;
+  color:var(--ink);
+  outline:none;
+  transition:border-color .2s ease, box-shadow .2s ease, transform .15s ease;
+}
+input:focus{
+  border-color:var(--red);
+  box-shadow:0 0 0 4px rgba(108,47,163,.10);
+}
+
+.rateRow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}
+.dateRow{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:12px;
+}
+select{
+  width:100%;
+  border:1px solid var(--silver-4);
+  border-radius:16px;
+  padding:13px 14px;
+  background:#fff;
+  color:var(--ink);
+  outline:none;
+  font:inherit;
+  font-family:'IRANSansX',Tahoma,Arial,sans-serif;
+}
+select:focus{
+  border-color:var(--red);
+  box-shadow:0 0 0 4px rgba(108,47,163,.10);
+}
+@media(max-width:700px){
+  .dateRow{grid-template-columns:1fr}
+}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+
+.btn{
+  border:0;
+  border-radius:15px;
+  padding:11px 16px;
+  font-weight:700;
+  transition:transform .15s ease,box-shadow .2s ease,opacity .2s ease;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:scale(.98)}
+
+.primary{
+  color:#fff;
+  background:linear-gradient(135deg,var(--red),var(--red-dark));
+  box-shadow:0 10px 22px rgba(108,47,163,.22);
+}
+.secondary{
+  color:#2D323B;
+  background:linear-gradient(135deg,#FFFFFF,#F0EBF4);
+  border:1px solid var(--silver-3);
+  box-shadow:0 8px 18px rgba(80,85,95,.08);
+}
+.danger{
+  color:var(--danger);
+  background:var(--danger-soft);
+  border:1px solid rgba(201,31,55,.20);
+}
+.small{padding:8px 12px;font-size:13px}
+.editBtn{
+  background:var(--green-soft);
+  color:var(--green);
+  border:1px solid rgba(31,157,85,.22);
+}
+
+.note{font-size:12px;color:var(--ink-soft);margin-top:7px}
+
+.tableWrap{
+  overflow:auto;
+  border:1px solid var(--silver-3);
+  border-radius:18px;
+  background:#fff;
+}
+table{width:100%;border-collapse:collapse;min-width:920px}
+th,td{
+  padding:13px 10px;
+  border-bottom:1px solid #ECECF0;
+  white-space:nowrap;
+}
+th{
+  background:linear-gradient(180deg,#FAFAFB,#F0EBF4);
+  color:#3A3F48;
+  font-size:14px;
+  text-align:center;
+}
+td{
+  text-align:center;
+  background:#fff;
+}
+tbody tr:hover td{background:#FBF8FD}
+td.product{text-align:right;white-space:normal}
+tr:last-child td{border-bottom:0}
+.empty{text-align:center;color:#737986;padding:30px}
+
+.productThumb{
+  width:52px;height:52px;object-fit:cover;border-radius:12px;
+  border:1px solid #DDDDE3;background:#fff;display:block;margin:auto;
+  box-shadow:0 4px 14px rgba(80,85,95,.10);
+}
+.productThumbPlaceholder{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:52px;height:52px;border-radius:12px;background:#F4F4F6;color:#8A909D;border:1px solid #E0E0E5;
+  margin:auto;font-size:12px
+}
+.imagePreviewWrap{margin-top:10px;display:flex;justify-content:flex-start}
+.imagePreview{
+  width:94px;height:94px;object-fit:cover;border-radius:16px;
+  border:1px solid #DDDDE3;background:#fff;display:none;box-shadow:0 6px 16px rgba(80,85,95,.11);
+}
+.imageHint{font-size:12px;color:#717783;margin-top:6px}
+
+.modalBack{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+  padding:18px;z-index:20;background:rgba(36,40,48,.40);backdrop-filter:blur(8px);
+}
+.modalBack.show{display:flex}
+.modal{
+  width:min(480px,100%);position:relative;
+  background:linear-gradient(180deg,#FFFFFF,#F6F6F8);
+  border:1px solid #E3E3E8;border-radius:26px;padding:22px;
+  box-shadow:0 24px 70px rgba(26,30,38,.18);
+}
+.modal h2{margin:0 0 16px;color:#343942;font-size:20px}
+.close{
+  position:absolute;left:14px;top:10px;border:0;background:transparent;
+  font-size:28px;color:#7D8390
+}
+.field{margin-bottom:13px}
+.modalActions{display:flex;gap:8px;justify-content:flex-start;margin-top:16px}
+.footer{text-align:center;color:#737986;font-size:12px;padding:4px 0 15px}
+
+@media(max-width:700px){
+  .wrap{padding:10px}
+  .header{padding:21px 18px;border-radius:22px}
+  .brand{font-size:28px}
+  .rateRow{grid-template-columns:1fr}
+  .actions .btn{flex:1}
+  .card{border-radius:20px}
+}
+@media print{
+  body{background:#fff;color:#111}
+  .textSplash,.rateCard,.actions,.footer,.noPrint,.ops{display:none!important}
+  th:nth-child(2),td:nth-child(2){display:none!important}
+  .wrap{max-width:none;padding:0}
+  .header{background:#fff;color:#111;box-shadow:none;border:0;padding:0 0 10px}
+  .header::before,.header::after{display:none}
+  .brand{color:var(--red)}
+  .subtitle{color:#555}
+  .card{border:0;box-shadow:none;padding:0;background:#fff}
+  .tableWrap{overflow:visible;border:1px solid #bbb;background:#fff}
+  table{min-width:0;width:100%}
+  th{background:#eee!important;color:#111}
+  td{background:#fff!important}
+  th,td{border-color:#bbb;color:#111}
+}
 </style>
 </head>
 <body>
 
 <div class="textSplash" aria-hidden="true">
   <div class="textSplashBox">
-    <div class="textSplashFa">ردسان</div>
     <div class="textSplashEn">REDSUN</div>
     <div class="textSplashLine"></div>
-    <div class="textSplashWelcome">خوش آمدید</div>
+    <div class="textSplashWelcome">ط®ظˆط´ ط¢ظ…ط¯غŒط¯</div>
   </div>
 </div>
 
 <div class="wrap">
   <header class="header">
     <div class="brand">REDSUN</div>
-    <div class="subtitle">مدیریت و محاسبه قیمت محصولات</div>
+    <div class="subtitle">ظ…ط¯غŒط±غŒطھ ظˆ ظ…ط­ط§ط³ط¨ظ‡ ظ‚غŒظ…طھ ظ…ط­طµظˆظ„ط§طھ</div>
+    
   </header>
 
   <section class="card rateCard">
     <div class="rateRow">
       <div>
-        <label for="rate">قیمت دلار به تومان</label>
+        <label for="rate">ظ‚غŒظ…طھ ط¯ظ„ط§ط± ط¨ظ‡ طھظˆظ…ط§ظ†</label>
         <input id="rate" type="number" inputmode="numeric" min="0" step="1" value="234000">
       </div>
-      <button class="btn secondary" id="settingsBtn" type="button">⚙ تنظیمات رمز</button>
+      <button class="btn secondary" id="settingsBtn" type="button">âڑ™ طھظ†ط¸غŒظ…ط§طھ ط±ظ…ط²</button>
     </div>
-    <div class="note">قیمت محصول = قیمت دلاری × نرخ دلار</div>
+
+    <div class="dateRow">
+      <div>
+        <label for="priceMonth">ظ…ط§ظ‡ ظ„غŒط³طھ ظ‚غŒظ…طھ</label>
+        <select id="priceMonth">
+          <option value="ظپط±ظˆط±ط¯غŒظ†">ظپط±ظˆط±ط¯غŒظ†</option>
+          <option value="ط§ط±ط¯غŒط¨ظ‡ط´طھ">ط§ط±ط¯غŒط¨ظ‡ط´طھ</option>
+          <option value="ط®ط±ط¯ط§ط¯">ط®ط±ط¯ط§ط¯</option>
+          <option value="طھغŒط±">طھغŒط±</option>
+          <option value="ظ…ط±ط¯ط§ط¯">ظ…ط±ط¯ط§ط¯</option>
+          <option value="ط´ظ‡ط±غŒظˆط±">ط´ظ‡ط±غŒظˆط±</option>
+          <option value="ظ…ظ‡ط±">ظ…ظ‡ط±</option>
+          <option value="ط¢ط¨ط§ظ†">ط¢ط¨ط§ظ†</option>
+          <option value="ط¢ط°ط±">ط¢ط°ط±</option>
+          <option value="ط¯غŒ">ط¯غŒ</option>
+          <option value="ط¨ظ‡ظ…ظ†">ط¨ظ‡ظ…ظ†</option>
+          <option value="ط§ط³ظپظ†ط¯">ط§ط³ظپظ†ط¯</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="priceYear">ط³ط§ظ„ ظ„غŒط³طھ ظ‚غŒظ…طھ</label>
+        <input id="priceYear" type="number" inputmode="numeric" min="1300" max="1600" step="1" value="1405">
+      </div>
+    </div>
+
+    <div class="note">ط¹ظ†ظˆط§ظ† PDF ط¨ظ‡â€Œطµظˆط±طھ ط®ظˆط¯ع©ط§ط± ط§ط² ظ…ط§ظ‡ ظˆ ط³ط§ظ„ ط§ظ†طھط®ط§ط¨â€Œط´ط¯ظ‡ ط³ط§ط®طھظ‡ ظ…غŒâ€Œط´ظˆط¯.</div>
+    <div class="note">ظ‚غŒظ…طھ ظ…ط­طµظˆظ„ = ظ‚غŒظ…طھ ط¯ظ„ط§ط±غŒ أ— ظ†ط±ط® ط¯ظ„ط§ط±</div>
   </section>
 
   <section class="card">
     <div class="actions">
-      <button class="btn primary" id="addBtn" type="button">＋ افزودن محصول</button>
-      <button class="btn secondary" id="pdfBtn" type="button">↓ خروجی PDF لیست</button>
+      <button class="btn primary" id="addBtn" type="button">ï¼‹ ط§ظپط²ظˆط¯ظ† ظ…ط­طµظˆظ„</button>
+      <button class="btn secondary" id="pdfBtn" type="button">â†“ ط®ط±ظˆط¬غŒ PDF ظ„غŒط³طھ</button>
     </div>
+
     <div class="tableWrap">
       <table>
         <thead>
           <tr>
-            <th>ردیف</th><th>محصول</th><th>دلار</th><th>قیمت به تومان</th><th class="ops">عملیات</th>
+            <th>ط±ط¯غŒظپ</th>
+            <th>طھطµظˆغŒط±</th>
+            <th>ظ…ط­طµظˆظ„</th>
+            <th>ط¯ظ„ط§ط±</th>
+            <th>ظ‚غŒظ…طھ ط¨ظ‡ طھظˆظ…ط§ظ†</th>
+            <th class="ops">ط¹ظ…ظ„غŒط§طھ</th>
           </tr>
         </thead>
         <tbody id="tbody"></tbody>
       </table>
-      <div id="empty" class="empty" style="display:none">محصولی ثبت نشده است.</div>
+      <div id="empty" class="empty" style="display:none">ظ…ط­طµظˆظ„غŒ ط«ط¨طھ ظ†ط´ط¯ظ‡ ط§ط³طھ.</div>
     </div>
   </section>
-  <div class="footer">اطلاعات در همین مرورگر ذخیره می‌شود.</div>
+
+  <div class="footer">ط§ط·ظ„ط§ط¹ط§طھطŒ ط±ظ…ط² ظˆ ط¹ع©ط³â€Œظ‡ط§ ط¯ط± ظ‡ظ…غŒظ† ظ…ط±ظˆط±ع¯ط± ط°ط®غŒط±ظ‡ ظ…غŒâ€Œط´ظˆظ†ط¯.</div>
 </div>
 
-<!-- Add/Edit -->
 <div class="modalBack" id="productModal">
   <div class="modal">
-    <button class="close" data-close="productModal" type="button">×</button>
-    <h2 id="productTitle">افزودن محصول</h2>
+    <button class="close" data-close="productModal" type="button">أ—</button>
+    <h2 id="productTitle">ط§ظپط²ظˆط¯ظ† ظ…ط­طµظˆظ„</h2>
+
     <div class="field">
-      <label for="nameInput">نام محصول</label>
+      <label for="nameInput">ظ†ط§ظ… ظ…ط­طµظˆظ„</label>
       <input id="nameInput" type="text" autocomplete="off">
     </div>
+
     <div class="field">
-      <label for="usdInput">قیمت به دلار</label>
+      <label for="usdInput">ظ‚غŒظ…طھ ط¨ظ‡ ط¯ظ„ط§ط±</label>
       <input id="usdInput" type="number" inputmode="decimal" min="0" step="0.001">
     </div>
+
+    <div class="field">
+      <label for="imageInput">ط¹ع©ط³ ظ…ط­طµظˆظ„</label>
+      <input id="imageInput" type="file" accept="image/*">
+      <div class="imageHint">ط¹ع©ط³ ط¯ط± ظ‡ظ…غŒظ† ظ…ط±ظˆط±ع¯ط± ط°ط®غŒط±ظ‡ ظ…غŒâ€Œط´ظˆط¯.</div>
+      <div class="imagePreviewWrap">
+        <img id="imagePreview" class="imagePreview" alt="ظ¾غŒط´â€Œظ†ظ…ط§غŒط´ ط¹ع©ط³ ظ…ط­طµظˆظ„">
+      </div>
+    </div>
+
     <div class="modalActions">
-      <button class="btn primary" id="saveProduct" type="button">ثبت</button>
-      <button class="btn secondary" data-close="productModal" type="button">انصراف</button>
+      <button class="btn primary" id="saveProduct" type="button">ط«ط¨طھ</button>
+      <button class="btn secondary" data-close="productModal" type="button">ط§ظ†طµط±ط§ظپ</button>
     </div>
   </div>
 </div>
 
-<!-- Password -->
 <div class="modalBack" id="passwordModal">
   <div class="modal">
-    <button class="close" data-close="passwordModal" type="button">×</button>
-    <h2>رمز عبور ویرایش</h2>
+    <button class="close" data-close="passwordModal" type="button">أ—</button>
+    <h2>ط±ظ…ط² ط¹ط¨ظˆط± ظˆغŒط±ط§غŒط´</h2>
     <div class="field">
-      <label for="passwordInput">رمز فعلی</label>
+      <label for="passwordInput">ط±ظ…ط² ظپط¹ظ„غŒ</label>
       <input id="passwordInput" type="password" inputmode="numeric" autocomplete="current-password">
     </div>
     <div class="modalActions">
-      <button class="btn primary" id="passwordOk" type="button">تأیید</button>
-      <button class="btn secondary" data-close="passwordModal" type="button">انصراف</button>
+      <button class="btn primary" id="passwordOk" type="button">طھط£غŒغŒط¯</button>
+      <button class="btn secondary" data-close="passwordModal" type="button">ط§ظ†طµط±ط§ظپ</button>
     </div>
   </div>
 </div>
 
-<!-- Delete -->
 <div class="modalBack" id="deleteModal">
   <div class="modal">
-    <button class="close" data-close="deleteModal" type="button">×</button>
-    <h2>حذف محصول</h2>
+    <button class="close" data-close="deleteModal" type="button">أ—</button>
+    <h2>ط­ط°ظپ ظ…ط­طµظˆظ„</h2>
     <div id="deleteMessage" style="line-height:1.9"></div>
     <div class="modalActions">
-      <button class="btn danger" id="deleteOk" type="button">حذف</button>
-      <button class="btn secondary" data-close="deleteModal" type="button">انصراف</button>
+      <button class="btn danger" id="deleteOk" type="button">ط­ط°ظپ</button>
+      <button class="btn secondary" data-close="deleteModal" type="button">ط§ظ†طµط±ط§ظپ</button>
     </div>
   </div>
 </div>
 
-<!-- Settings -->
 <div class="modalBack" id="settingsModal">
   <div class="modal">
-    <button class="close" data-close="settingsModal" type="button">×</button>
-    <h2>تغییر رمز ویرایش</h2>
+    <button class="close" data-close="settingsModal" type="button">أ—</button>
+    <h2>طھط؛غŒغŒط± ط±ظ…ط² ظˆغŒط±ط§غŒط´</h2>
+
     <div class="field">
-      <label for="oldPass">رمز فعلی</label>
+      <label for="oldPass">ط±ظ…ط² ظپط¹ظ„غŒ</label>
       <input id="oldPass" type="password" inputmode="numeric" autocomplete="current-password">
     </div>
+
     <div class="field">
-      <label for="newPass">رمز جدید</label>
+      <label for="newPass">ط±ظ…ط² ط¬ط¯غŒط¯</label>
       <input id="newPass" type="password" inputmode="numeric" autocomplete="new-password">
     </div>
+
     <div class="field">
-      <label for="repeatPass">تکرار رمز جدید</label>
+      <label for="repeatPass">طھع©ط±ط§ط± ط±ظ…ط² ط¬ط¯غŒط¯</label>
       <input id="repeatPass" type="password" inputmode="numeric" autocomplete="new-password">
     </div>
+
     <div class="modalActions">
-      <button class="btn primary" id="changePass" type="button">ثبت رمز جدید</button>
-      <button class="btn secondary" data-close="settingsModal" type="button">انصراف</button>
+      <button class="btn primary" id="changePass" type="button">ط«ط¨طھ ط±ظ…ط² ط¬ط¯غŒط¯</button>
+      <button class="btn secondary" data-close="settingsModal" type="button">ط§ظ†طµط±ط§ظپ</button>
     </div>
   </div>
 </div>
 
 <script>
 "use strict";
+
 const $ = id => document.getElementById(id);
-const PRODUCTS_KEY = "redsun_products_v1";
-const RATE_KEY = "redsun_rate_v1";
-const PASS_KEY = "redsun_edit_password_v1";
+
+const PRODUCTS_KEY = "redsun_products_v4";
+const RATE_KEY = "redsun_rate_v4";
+const PASS_KEY = "redsun_edit_password_v4";
+const MONTH_KEY = "redsun_price_month_v1";
+const YEAR_KEY = "redsun_price_year_v1";
 const DEFAULT_RATE = 234000;
 const DEFAULT_PASS = "1234";
 
 const defaultProducts = [
-  ["لامپ اشکی 7 وات",0.72],
-  ["لامپ حبابی 9 وات",0.725],
-  ["لامپ حبابی 12 وات",0.912],
-  ["لامپ حبابی 15 وات",1.28],
-  ["لامپ حبابی 20 وات",1.7],
-  ["لامپ حبابی 25 وات",2.25],
-  ["لامپ استوانه ای 25 وات",2.59],
-  ["لامپ استوانه ای 30 وات",2.84],
-  ["لامپ استوانه ای 40 وات",3.82],
-  ["لامپ استوانه ای 50 وات",4.821],
-  ["پنل توکار سایز شو 10وات",1.8],
-  ["پنل توکار سایز شو 18 وات",2.714],
-  ["پنل توکار سایز شو 24 وات",3.84],
-  ["پنل توکار سایز شو 36 وات",5.908],
-  ["پنل روکار 18وات",3.513],
-  ["پنل روکار 24وات",4.872],
-  ["پنل روکار 36 وات",6.74]
+  ["ظ…ط­ط§ظپط¸ ظˆظ„طھط§عک طھع©â€Œظپط§ط² 63 ط¢ظ…ظ¾ط±",0],
+  ["ظ…ط­ط§ظپط¸ ظˆظ„طھط§عک طھع©â€Œظپط§ط² 40 ط¢ظ…ظ¾ط±",0],
+  ["ظ…ط­ط§ظپط¸ ظˆظ„طھط§عک ط³ظ‡â€Œظپط§ط² 80 ط¢ظ…ظ¾ط±",0],
+  ["ظ…ط­ط§ظپط¸ ظˆظ„طھط§عک طھع©â€Œظپط§ط² 80 ط¢ظ…ظ¾ط±",0]
 ];
 
 let products = loadProducts();
 let editIndex = -1;
 let pendingEditIndex = -1;
 let deleteIndex = -1;
+let currentImageData = "";
 
 function loadProducts(){
   try{
     const raw = localStorage.getItem(PRODUCTS_KEY);
     if(raw){
       const parsed = JSON.parse(raw);
-      if(Array.isArray(parsed)) return parsed;
+      if(Array.isArray(parsed)){
+        return parsed.map(p=>({
+          name:p.name||"",
+          usd:Number(p.usd)||0,
+          image:p.image||""
+        }));
+      }
     }
   }catch(e){}
-  return defaultProducts.map(x=>({name:x[0],usd:x[1]}));
+  return defaultProducts.map(x=>({name:x[0], usd:x[1], image:""}));
 }
 function saveProducts(){ localStorage.setItem(PRODUCTS_KEY, JSON.stringify(products)); }
 function getRate(){ return Number($("rate").value) || 0; }
 function formatNumber(n){ return Number(n).toLocaleString("fa-IR"); }
 function formatPdfNumber(n){
   const en = Number(n).toLocaleString("en-US");
-  const faDigits = "۰۱۲۳۴۵۶۷۸۹";
+  const faDigits = "غ°غ±غ²غ³غ´غµغ¶غ·غ¸غ¹";
   return en.replace(/\d/g, d => faDigits[d]);
+}
+function toPersianDigits(value){
+  const faDigits = "غ°غ±غ²غ³غ´غµغ¶غ·غ¸غ¹";
+  return String(value).replace(/\d/g, d => faDigits[d]);
+}
+function getPriceMonth(){
+  return $("priceMonth").value || "ط´ظ‡ط±غŒظˆط±";
+}
+function getPriceYear(){
+  const y = $("priceYear").value.trim();
+  return y || "1405";
+}
+function getPdfPriceTitle(){
+  return "ظ„غŒط³طھ ظ‚غŒظ…طھ " + getPriceMonth() + " ظ…ط§ظ‡ " + toPersianDigits(getPriceYear());
 }
 function esc(s){
   return String(s).replace(/[&<>"']/g, ch => ({
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
   }[ch]));
+}
+function updateImagePreview(src){
+  const img = $("imagePreview");
+  if(src){
+    img.src = src;
+    img.style.display = "block";
+  }else{
+    img.removeAttribute("src");
+    img.style.display = "none";
+  }
 }
 function openModal(id){ $(id).classList.add("show"); }
 function closeModal(id){ $(id).classList.remove("show"); }
@@ -581,195 +569,381 @@ function render(){
   products.forEach((p,i)=>{
     const price = Math.round(Number(p.usd) * getRate());
     const tr = document.createElement("tr");
+    const imageCell = p.image
+      ? '<img class="productThumb" src="'+p.image+'" alt="ط¹ع©ط³ ظ…ط­طµظˆظ„">'
+      : '<span class="productThumbPlaceholder">â€”</span>';
+
     tr.innerHTML =
       "<td>"+formatNumber(i+1)+"</td>"+
+      "<td>"+imageCell+"</td>"+
       '<td class="product">'+esc(p.name)+"</td>"+
       "<td>"+formatNumber(p.usd)+"</td>"+
       "<td>"+formatNumber(price)+"</td>"+
       '<td class="ops">'+
-        '<button class="btn small secondary editBtn" type="button" data-i="'+i+'">ویرایش</button> '+
-        '<button class="btn small danger deleteBtn" type="button" data-i="'+i+'">حذف</button>'+
+        '<button class="btn small editBtn" type="button" data-action="edit" data-i="'+i+'">ظˆغŒط±ط§غŒط´</button> '+
+        '<button class="btn small danger deleteBtn" type="button" data-action="delete" data-i="'+i+'">ط­ط°ظپ</button>'+
       "</td>";
+
     body.appendChild(tr);
   });
 }
 
 function openAdd(){
-  editIndex=-1;
-  $("productTitle").textContent="افزودن محصول";
-  $("nameInput").value="";
-  $("usdInput").value="";
+  editIndex = -1;
+  currentImageData = "";
+  $("productTitle").textContent = "ط§ظپط²ظˆط¯ظ† ظ…ط­طµظˆظ„";
+  $("nameInput").value = "";
+  $("usdInput").value = "";
+  $("imageInput").value = "";
+  updateImagePreview("");
   openModal("productModal");
   setTimeout(()=>$("nameInput").focus(),50);
 }
 
 function openEdit(i){
-  pendingEditIndex=i;
-  $("passwordInput").value="";
+  pendingEditIndex = i;
+  $("passwordInput").value = "";
   openModal("passwordModal");
   setTimeout(()=>$("passwordInput").focus(),50);
 }
 
 function showEditForm(i){
-  editIndex=i;
-  $("productTitle").textContent="ویرایش محصول";
-  $("nameInput").value=products[i].name;
-  $("usdInput").value=products[i].usd;
+  editIndex = i;
+  currentImageData = products[i].image || "";
+  $("productTitle").textContent = "ظˆغŒط±ط§غŒط´ ظ…ط­طµظˆظ„";
+  $("nameInput").value = products[i].name;
+  $("usdInput").value = products[i].usd;
+  $("imageInput").value = "";
+  updateImagePreview(currentImageData);
   openModal("productModal");
   setTimeout(()=>$("nameInput").focus(),50);
 }
 
-$("addBtn").addEventListener("click",openAdd);
+$("addBtn").addEventListener("click", openAdd);
 
-$("saveProduct").addEventListener("click",()=>{
-  const name=$("nameInput").value.trim();
-  const usd=Number($("usdInput").value);
-  if(!name){ alert("نام محصول را وارد کنید."); return; }
-  if(!Number.isFinite(usd) || usd<0){ alert("قیمت دلار را درست وارد کنید."); return; }
+$("imageInput").addEventListener("change", e=>{
+  const file = e.target.files && e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    currentImageData = String(ev.target.result || "");
+    updateImagePreview(currentImageData);
+  };
+  reader.readAsDataURL(file);
+});
 
-  if(editIndex===-1) products.push({name:name,usd:usd});
-  else products[editIndex]={name:name,usd:usd};
+$("saveProduct").addEventListener("click", ()=>{
+  const name = $("nameInput").value.trim();
+  const usd = Number($("usdInput").value);
+
+  if(!name){ alert("ظ†ط§ظ… ظ…ط­طµظˆظ„ ط±ط§ ظˆط§ط±ط¯ ع©ظ†غŒط¯."); return; }
+  if(!Number.isFinite(usd) || usd < 0){ alert("ظ‚غŒظ…طھ ط¯ظ„ط§ط± ط±ط§ ط¯ط±ط³طھ ظˆط§ط±ط¯ ع©ظ†غŒط¯."); return; }
+
+  if(editIndex === -1){
+    products.push({name, usd, image: currentImageData || ""});
+  }else{
+    products[editIndex] = {name, usd, image: currentImageData || ""};
+  }
 
   saveProducts();
   render();
   closeModal("productModal");
 });
 
-$("tbody").addEventListener("click",e=>{
-  const edit=e.target.closest(".editBtn");
-  const del=e.target.closest(".deleteBtn");
+$("tbody").addEventListener("click", e=>{
+  const edit = e.target.closest(".editBtn");
+  const del = e.target.closest(".deleteBtn");
 
   if(edit) openEdit(Number(edit.dataset.i));
+
   if(del){
-    deleteIndex=Number(del.dataset.i);
-    $("deleteMessage").textContent="آیا محصول «"+products[deleteIndex].name+"» حذف شود؟";
+    deleteIndex = Number(del.dataset.i);
+    $("deleteMessage").textContent = "ط¢غŒط§ ظ…ط­طµظˆظ„ آ«"+products[deleteIndex].name+"آ» ط­ط°ظپ ط´ظˆط¯طں";
     openModal("deleteModal");
   }
 });
 
-$("passwordOk").addEventListener("click",()=>{
-  const saved=localStorage.getItem(PASS_KEY) || DEFAULT_PASS;
-  if($("passwordInput").value!==saved){
-    alert("رمز عبور اشتباه است.");
+$("passwordOk").addEventListener("click", ()=>{
+  const saved = localStorage.getItem(PASS_KEY) || DEFAULT_PASS;
+  if($("passwordInput").value !== saved){
+    alert("ط±ظ…ط² ط¹ط¨ظˆط± ط§ط´طھط¨ط§ظ‡ ط§ط³طھ.");
     return;
   }
   closeModal("passwordModal");
   showEditForm(pendingEditIndex);
 });
 
-$("deleteOk").addEventListener("click",()=>{
-  if(deleteIndex>=0){
+$("deleteOk").addEventListener("click", ()=>{
+  if(deleteIndex >= 0){
     products.splice(deleteIndex,1);
     saveProducts();
     render();
   }
-  deleteIndex=-1;
+  deleteIndex = -1;
   closeModal("deleteModal");
 });
 
-$("settingsBtn").addEventListener("click",()=>{
-  $("oldPass").value="";
-  $("newPass").value="";
-  $("repeatPass").value="";
+$("settingsBtn").addEventListener("click", ()=>{
+  $("oldPass").value = "";
+  $("newPass").value = "";
+  $("repeatPass").value = "";
   openModal("settingsModal");
   setTimeout(()=>$("oldPass").focus(),50);
 });
 
-$("changePass").addEventListener("click",()=>{
-  const saved=localStorage.getItem(PASS_KEY) || DEFAULT_PASS;
-  const old=$("oldPass").value;
-  const np=$("newPass").value;
-  const rp=$("repeatPass").value;
+$("changePass").addEventListener("click", ()=>{
+  const saved = localStorage.getItem(PASS_KEY) || DEFAULT_PASS;
+  const old = $("oldPass").value;
+  const np = $("newPass").value;
+  const rp = $("repeatPass").value;
 
-  if(old!==saved){ alert("رمز فعلی اشتباه است."); return; }
-  if(!np){ alert("رمز جدید را وارد کنید."); return; }
-  if(np!==rp){ alert("تکرار رمز جدید یکسان نیست."); return; }
+  if(old !== saved){ alert("ط±ظ…ط² ظپط¹ظ„غŒ ط§ط´طھط¨ط§ظ‡ ط§ط³طھ."); return; }
+  if(!np){ alert("ط±ظ…ط² ط¬ط¯غŒط¯ ط±ط§ ظˆط§ط±ط¯ ع©ظ†غŒط¯."); return; }
+  if(np !== rp){ alert("طھع©ط±ط§ط± ط±ظ…ط² ط¬ط¯غŒط¯ غŒع©ط³ط§ظ† ظ†غŒط³طھ."); return; }
 
   localStorage.setItem(PASS_KEY,np);
   closeModal("settingsModal");
-  alert("رمز ویرایش با موفقیت تغییر کرد.");
+  alert("ط±ظ…ط² ظˆغŒط±ط§غŒط´ ط¨ط§ ظ…ظˆظپظ‚غŒطھ طھط؛غŒغŒط± ع©ط±ط¯.");
 });
 
 $("rate").value = localStorage.getItem(RATE_KEY) || DEFAULT_RATE;
-$("rate").addEventListener("input",()=>{
-  localStorage.setItem(RATE_KEY,String(getRate()));
+$("rate").addEventListener("input", ()=>{
+  localStorage.setItem(RATE_KEY, String(getRate()));
   render();
 });
 
-/* خروجی PDF: صفحه تمیز چاپ می‌شود و در پنجره چاپ گزینه Save as PDF دارد. */
-$("pdfBtn").addEventListener("click",()=>{
-  const popup=window.open("","_blank");
+$("priceMonth").value = localStorage.getItem(MONTH_KEY) || "ط´ظ‡ط±غŒظˆط±";
+$("priceYear").value = localStorage.getItem(YEAR_KEY) || "1405";
+
+$("priceMonth").addEventListener("change", ()=>{
+  localStorage.setItem(MONTH_KEY, getPriceMonth());
+});
+
+$("priceYear").addEventListener("input", ()=>{
+  localStorage.setItem(YEAR_KEY, getPriceYear());
+});
+
+$("pdfBtn").addEventListener("click", ()=>{
+  const popup = window.open("", "_blank");
   if(!popup){
-    alert("باز شدن پنجره جدید توسط مرورگر مسدود شده است. اجازه Pop-up را برای سایت فعال کنید.");
+    alert("ط¨ط§ط² ط´ط¯ظ† ظ¾ظ†ط¬ط±ظ‡ ط¬ط¯غŒط¯ طھظˆط³ط· ظ…ط±ظˆط±ع¯ط± ظ…ط³ط¯ظˆط¯ ط´ط¯ظ‡ ط§ط³طھ. ط§ط¬ط§ط²ظ‡ Pop-up ط±ط§ ط¨ط±ط§غŒ ط³ط§غŒطھ ظپط¹ط§ظ„ ع©ظ†غŒط¯.");
     return;
   }
 
-  const rate=getRate();
-  const rows=products.map((p,i)=>{
-    const price=Math.round(Number(p.usd)*rate);
+  const rate = getRate();
+  const pdfTitle = getPdfPriceTitle();
+  const rows = products.map((p,i)=>{
+    const price = Math.round(Number(p.usd) * rate);
+    const imageCell = p.image
+      ? '<img class="pdfThumb" src="'+p.image+'" alt="ط¹ع©ط³ ظ…ط­طµظˆظ„">'
+      : '<span class="pdfThumbPlaceholder">â€”</span>';
     return "<tr>"+
-      "<td>"+formatPdfNumber(i+1)+"</td>"+
-      "<td>"+esc(p.name)+"</td>"+
-      "<td>"+formatPdfNumber(price)+"</td>"+
+      '<td class="colIndex">'+formatPdfNumber(i+1)+"</td>"+
+      '<td class="colImage">'+imageCell+"</td>"+
+      '<td class="colName productName">'+esc(p.name)+"</td>"+
+      '<td class="colPrice price">'+formatPdfNumber(price)+"</td>"+
       "</tr>";
   }).join("");
 
   popup.document.open();
-  popup.document.write(
-`<!doctype html>
+  popup.document.write(`<!doctype html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>REDSUN - لیست محصولات</title>
+<title>REDSUN - ${pdfTitle}</title>
 <style>
-@page{size:A4;margin:12mm}
-body{font-family:'IRANSansX',Tahoma,Arial,sans-serif;color:#5B2A86;margin:0}
-h1{text-align:center;font-size:25px;margin:0 0 8px;color:#5B2A86}
-.meta{text-align:center;color:#6F6875;font-size:13px;margin-bottom:18px}
-table{width:100%;border-collapse:collapse}
-th,td{border:1px solid #B9AFC1;padding:9px;font-size:13px}
-th{background:#EEE7F2}
-td{text-align:center}
-td:nth-child(2){text-align:right}
-.buttons{text-align:center;margin:22px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-button{border:0;background:#5B2A86;color:white;padding:11px 20px;border-radius:8px;font-family:'IRANSansX',Tahoma,Arial,sans-serif;cursor:pointer}
-.backBtn{background:#EFE7F5;color:#5B2A86;border:1px solid #CDBED6}
-@media print{.buttons{display:none}}
+@font-face{
+  font-family:'IRANSansX';
+  src:url('IRANSansX-Black.ttf') format('truetype');
+  font-weight:900;
+  font-style:normal;
+  font-display:swap;
+}
+@page{size:A4 portrait;margin:0}
+html,body,.page,.topTitle,.brandRow,table,thead,tbody,tr,th,td{
+  -webkit-print-color-adjust:exact !important;
+  print-color-adjust:exact !important;
+  color-adjust:exact !important;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  padding:8mm;
+  background:#fff !important;
+  color:#111;
+  font-family:'IRANSansX',Tahoma,Arial,sans-serif;
+}
+.page{
+  width:100%;
+  margin:0 auto;
+  border:2px solid #111;
+  background:#fff;
+}
+.topTitle{
+  height:46px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#7442A8 !important;
+  color:#fff !important;
+  font-size:20px;
+  font-weight:900;
+  border-bottom:2px solid #111;
+}
+.brandRow{
+  height:46px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff !important;
+  border-bottom:2px solid #111;
+}
+.brand{
+  color:#6C2FA3 !important;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:31px;
+  line-height:1;
+  font-style:normal;
+  font-weight:900;
+  letter-spacing:4px;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+}
+thead th{
+  height:48px;
+  background:#7442A8 !important;
+  color:#fff !important;
+  font-size:13px;
+  font-weight:900;
+  text-align:center;
+  border-left:1.5px solid #111;
+  border-bottom:1.5px solid #111;
+  padding:7px 5px;
+}
+thead th:last-child{border-left:0}
+tbody td{
+  height:69px;
+  color:#111 !important;
+  background:#fff !important;
+  font-size:12.5px;
+  font-weight:900;
+  text-align:center;
+  vertical-align:middle;
+  border-left:1.5px solid #111;
+  border-bottom:1.5px solid #111;
+  padding:5px 7px;
+}
+tbody tr:last-child td{border-bottom:0}
+tbody td:last-child{border-left:0}
+.colIndex{width:7%}
+.colImage{width:15%}
+.colName{width:57%}
+.colPrice{width:21%}
+.productName{
+  text-align:center !important;
+  white-space:normal;
+  line-height:1.75;
+  direction:rtl;
+}
+.price{
+  font-size:13px;
+  direction:ltr;
+  unicode-bidi:embed;
+  color:#111 !important;
+}
+.pdfThumb{
+  width:54px;
+  height:54px;
+  object-fit:contain;
+  display:block;
+  margin:auto;
+  background:#fff;
+}
+.pdfThumbPlaceholder{
+  width:54px;
+  height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:auto;
+  color:#999;
+  font-size:16px;
+}
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin:18px 0;
+}
+button{
+  border:0;
+  border-radius:8px;
+  padding:10px 18px;
+  font-family:'IRANSansX',Tahoma,Arial,sans-serif;
+  font-weight:900;
+  cursor:pointer;
+}
+.printBtn{background:#7442A8;color:#fff}
+.backBtn{background:#F0EBF4;color:#222;border:1px solid #CCC}
+@media print{
+  body{
+    background:#fff !important;
+    padding:8mm !important;
+    margin:0 !important;
+  }
+  .buttons{display:none !important}
+  .page{break-inside:avoid}
+}
 </style>
 </head>
 <body>
-<h1>REDSUN</h1>
-<div class="meta">لیست قیمت مصرف‌کننده محصولات</div>
-<table>
-<thead><tr><th>ردیف</th><th>محصول</th><th>قیمت مصرف‌کننده</th></tr></thead>
-<tbody>${rows}</tbody>
-</table>
-<div class="buttons">
-<button onclick="window.print()">چاپ / ذخیره به PDF</button>
-<button class="backBtn" onclick="if(window.opener){window.opener.focus();} window.close();">بازگشت</button>
-</div>
+  <div class="page">
+    <div class="topTitle">${pdfTitle}</div>
+
+    <div class="brandRow">
+      <div class="brand">REDSUN</div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th class="colIndex">ط±ط¯غŒظپ</th>
+          <th class="colImage">طھطµظˆغŒط± ظ…ط­طµظˆظ„</th>
+          <th class="colName">ظ†ط§ظ… ظ…ط­طµظˆظ„</th>
+          <th class="colPrice">ظ‚غŒظ…طھ (طھظˆظ…ط§ظ†)</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+  </div>
+
+  <div class="buttons">
+    <button class="printBtn" onclick="window.print()">ع†ط§ظ¾ / ط°ط®غŒط±ظ‡ ط¨ظ‡ PDF</button>
+    <button class="backBtn" onclick="if(window.opener){window.opener.focus();} window.close();">ط¨ط§ط²ع¯ط´طھ</button>
+  </div>
 </body>
-</html>`
-  );
+</html>`);
   popup.document.close();
 });
 
 document.querySelectorAll("[data-close]").forEach(btn=>{
-  btn.addEventListener("click",()=>closeModal(btn.dataset.close));
+  btn.addEventListener("click", ()=>closeModal(btn.dataset.close));
 });
 
 document.querySelectorAll(".modalBack").forEach(back=>{
-  back.addEventListener("click",e=>{
-    if(e.target===back) closeModal(back.id);
+  back.addEventListener("click", e=>{
+    if(e.target === back) closeModal(back.id);
   });
 });
 
-document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){
+document.addEventListener("keydown", e=>{
+  if(e.key === "Escape"){
     document.querySelectorAll(".modalBack.show").forEach(m=>closeModal(m.id));
   }
 });
-
 
 render();
 </script>
