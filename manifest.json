@@ -1,0 +1,22 @@
+{
+  "id": "./",
+  "name": "REDSUN",
+  "short_name": "REDSUN",
+  "description": "سامانه مدیریت و محاسبه قیمت محصولات REDSUN",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#12091f",
+  "theme_color": "#25123F",
+  "icons": [
+    {
+      "src": "./icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
