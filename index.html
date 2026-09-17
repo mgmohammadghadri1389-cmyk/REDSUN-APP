@@ -1,0 +1,4551 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="dark">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1,viewport-fit=cover"
+>
+
+<meta
+  id="themeColor"
+  name="theme-color"
+  content="#111418"
+>
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta
+  name="apple-mobile-web-app-status-bar-style"
+  content="black-translucent"
+>
+
+<meta
+  name="apple-mobile-web-app-title"
+  content="REDSUN"
+>
+
+<link rel="manifest" href="./manifest.json">
+
+<link
+  rel="apple-touch-icon"
+  href="./redsun-icon.png"
+>
+
+<link
+  rel="icon"
+  type="image/png"
+  href="./redsun-icon.png"
+>
+
+<title>REDSUN</title>
+
+
+<style>
+
+:root{
+
+  --red:#dc3039;
+  --red2:#ff5b64;
+  --red3:#9b1d25;
+
+  --green:#20a268;
+
+  --radius-xl:32px;
+  --radius-lg:25px;
+  --radius-md:19px;
+
+  --transition:.28s ease;
+
+}
+
+
+/* =====================
+   DARK
+===================== */
+
+html[data-theme="dark"]{
+
+  --bg:#0c0f12;
+  --bg2:#171b20;
+  --bg3:#252a30;
+
+  --glass:
+    rgba(38,43,49,.52);
+
+  --glassStrong:
+    rgba(52,58,65,.72);
+
+  --glassLight:
+    rgba(255,255,255,.075);
+
+  --border:
+    rgba(231,236,240,.20);
+
+  --borderSoft:
+    rgba(255,255,255,.085);
+
+  --text:#f8f9fa;
+
+  --muted:#aeb6bd;
+
+  --input:#f5f6f7;
+
+  --inputText:#1f2429;
+
+  --table:#fcfcfd;
+
+  --tableAlt:#f1f3f4;
+
+  --tableText:#1d2125;
+
+  --shadow:
+    0 30px 80px
+    rgba(0,0,0,.46);
+
+}
+
+
+/* =====================
+   LIGHT
+===================== */
+
+html[data-theme="light"]{
+
+  --bg:#e7ebee;
+  --bg2:#f5f7f8;
+  --bg3:#dce1e5;
+
+  --glass:
+    rgba(255,255,255,.57);
+
+  --glassStrong:
+    rgba(255,255,255,.82);
+
+  --glassLight:
+    rgba(255,255,255,.68);
+
+  --border:
+    rgba(76,86,95,.18);
+
+  --borderSoft:
+    rgba(60,70,80,.08);
+
+  --text:#24292e;
+
+  --muted:#69737c;
+
+  --input:#ffffff;
+
+  --inputText:#1e2327;
+
+  --table:#ffffff;
+
+  --tableAlt:#f5f7f8;
+
+  --tableText:#1e2327;
+
+  --shadow:
+    0 26px 65px
+    rgba(73,82,91,.15);
+
+}
+
+
+*{
+  box-sizing:border-box;
+}
+
+
+html,
+body{
+
+  margin:0;
+
+  min-height:100%;
+
+  font-family:
+    Tahoma,
+    Arial,
+    sans-serif;
+
+}
+
+
+html{
+
+  background:
+    var(--bg);
+
+}
+
+
+body{
+
+  min-height:100dvh;
+
+  overflow-x:hidden;
+
+  color:
+    var(--text);
+
+  background:
+
+    radial-gradient(
+      circle at 8% 8%,
+      rgba(255,255,255,.10),
+      transparent 23%
+    ),
+
+    radial-gradient(
+      circle at 92% 12%,
+      rgba(220,48,57,.22),
+      transparent 24%
+    ),
+
+    radial-gradient(
+      circle at 78% 87%,
+      rgba(220,48,57,.10),
+      transparent 25%
+    ),
+
+    linear-gradient(
+      145deg,
+      var(--bg),
+      var(--bg2) 48%,
+      var(--bg3)
+    );
+
+  transition:
+    background var(--transition),
+    color var(--transition);
+
+}
+
+
+/* =====================
+   BACKGROUND GLOW
+===================== */
+
+body::before{
+
+  content:"";
+
+  position:fixed;
+
+  width:640px;
+
+  height:300px;
+
+  right:-190px;
+
+  bottom:-70px;
+
+  pointer-events:none;
+
+  border-radius:50%;
+
+  filter:
+    blur(25px);
+
+  background:
+
+    radial-gradient(
+      ellipse at 30% 45%,
+      rgba(255,255,255,.15),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      ellipse at 65% 48%,
+      rgba(220,48,57,.33),
+      transparent 44%
+    );
+
+  animation:
+    ambient1
+    13s
+    ease-in-out
+    infinite alternate;
+
+}
+
+
+body::after{
+
+  content:"";
+
+  position:fixed;
+
+  width:540px;
+
+  height:270px;
+
+  left:-180px;
+
+  top:35%;
+
+  pointer-events:none;
+
+  border-radius:50%;
+
+  filter:
+    blur(30px);
+
+  background:
+
+    radial-gradient(
+      ellipse at 45% 42%,
+      rgba(255,255,255,.11),
+      transparent 35%
+    ),
+
+    radial-gradient(
+      ellipse at 67% 58%,
+      rgba(112,122,132,.14),
+      transparent 44%
+    );
+
+  animation:
+    ambient2
+    16s
+    ease-in-out
+    infinite alternate;
+
+}
+
+
+@keyframes ambient1{
+
+  to{
+
+    transform:
+      translate(-28px,-18px)
+      rotate(5deg);
+
+  }
+
+}
+
+
+@keyframes ambient2{
+
+  to{
+
+    transform:
+      translate(30px,20px)
+      rotate(-5deg);
+
+  }
+
+}
+
+
+button,
+input,
+select{
+
+  font:inherit;
+
+}
+
+
+button{
+
+  cursor:pointer;
+
+}
+
+
+svg{
+
+  display:block;
+
+}
+
+
+.app{
+
+  position:relative;
+
+  z-index:2;
+
+  width:min(1180px,100%);
+
+  margin:auto;
+
+  padding:
+    12px;
+
+}
+
+
+/* =====================
+   GLASS
+===================== */
+
+.glass{
+
+  position:relative;
+
+  overflow:hidden;
+
+  border:
+    1px solid
+    var(--border);
+
+  background:
+
+    linear-gradient(
+      135deg,
+      var(--glassStrong),
+      var(--glass)
+    );
+
+  box-shadow:
+
+    var(--shadow),
+
+    inset 0 1px 0
+    rgba(255,255,255,.17);
+
+  backdrop-filter:
+    blur(26px)
+    saturate(145%);
+
+  -webkit-backdrop-filter:
+    blur(26px)
+    saturate(145%);
+
+}
+
+
+.glass::before{
+
+  content:"";
+
+  position:absolute;
+
+  pointer-events:none;
+
+  height:1px;
+
+  left:24px;
+
+  right:24px;
+
+  top:0;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.55),
+      transparent
+    );
+
+}
+
+
+/* =====================
+   TOP APP BAR
+===================== */
+
+.appHeader{
+
+  border-radius:
+    var(--radius-xl);
+
+  padding:
+    15px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+
+  margin-bottom:13px;
+
+}
+
+
+.appIdentity{
+
+  display:flex;
+
+  align-items:center;
+
+  min-width:0;
+
+  gap:13px;
+
+}
+
+
+.appIcon{
+
+  width:62px;
+
+  height:62px;
+
+  flex:0 0 auto;
+
+  border-radius:20px;
+
+  object-fit:cover;
+
+  box-shadow:
+
+    0 13px 30px
+    rgba(0,0,0,.34),
+
+    0 0 22px
+    rgba(220,48,57,.15);
+
+}
+
+
+.appName{
+
+  font:
+    900 29px
+    Arial,
+    sans-serif;
+
+  letter-spacing:5px;
+
+}
+
+
+.appName span{
+
+  color:
+    var(--red2);
+
+}
+
+
+.appCaption{
+
+  margin-top:5px;
+
+  font-size:11px;
+
+  color:
+    var(--muted);
+
+}
+
+
+.topControls{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+}
+
+
+.statusDot{
+
+  width:10px;
+
+  height:10px;
+
+  border-radius:50%;
+
+  background:#26c078;
+
+  box-shadow:
+
+    0 0 14px
+    rgba(38,192,120,.80);
+
+}
+
+
+.statusPill{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:7px;
+
+  padding:
+    8px 11px;
+
+  border-radius:15px;
+
+  border:
+    1px solid
+    var(--border);
+
+  background:
+    var(--glassLight);
+
+  color:
+    var(--muted);
+
+  font-size:11px;
+
+}
+
+
+.iconButton{
+
+  width:48px;
+
+  height:48px;
+
+  border:1px solid
+    var(--border);
+
+  border-radius:17px;
+
+  display:grid;
+
+  place-items:center;
+
+  color:
+    var(--text);
+
+  background:
+    var(--glassLight);
+
+  box-shadow:
+
+    inset 0 1px 0
+    rgba(255,255,255,.14);
+
+}
+
+
+.iconButton svg{
+
+  width:24px;
+
+  height:24px;
+
+}
+
+
+.iconButton:active{
+
+  transform:
+    scale(.93);
+
+}
+
+
+.sunIcon,
+.moonIcon{
+
+  display:none;
+
+}
+
+
+html[data-theme="dark"]
+.moonIcon{
+
+  display:block;
+
+}
+
+
+html[data-theme="light"]
+.sunIcon{
+
+  display:block;
+
+}
+
+
+/* =====================
+   SECTION
+===================== */
+
+.section{
+
+  border-radius:
+    var(--radius-xl);
+
+  padding:17px;
+
+  margin-bottom:13px;
+
+}
+
+
+.sectionHead{
+
+  position:relative;
+
+  z-index:2;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:11px;
+
+  margin-bottom:17px;
+
+}
+
+
+.sectionIcon{
+
+  width:44px;
+
+  height:44px;
+
+  flex:0 0 auto;
+
+  border-radius:16px;
+
+  display:grid;
+
+  place-items:center;
+
+  color:#fff;
+
+  border:
+
+    1px solid
+    rgba(255,255,255,.18);
+
+  background:
+
+    radial-gradient(
+      circle at 25% 20%,
+      rgba(255,255,255,.30),
+      transparent 28%
+    ),
+
+    linear-gradient(
+      145deg,
+      #eb4d55,
+      #a51f27
+    );
+
+  box-shadow:
+
+    0 9px 23px
+    rgba(156,30,38,.28),
+
+    inset 0 1px 0
+    rgba(255,255,255,.18);
+
+}
+
+
+.sectionIcon.silver{
+
+  color:
+    var(--text);
+
+  background:
+
+    linear-gradient(
+      145deg,
+      rgba(207,214,220,.38),
+      rgba(90,97,104,.28)
+    );
+
+  box-shadow:
+
+    inset 0 1px 0
+    rgba(255,255,255,.22);
+
+}
+
+
+.sectionIcon svg{
+
+  width:23px;
+
+  height:23px;
+
+}
+
+
+.sectionTitle{
+
+  font-size:15px;
+
+  font-weight:800;
+
+}
+
+
+.sectionSubtitle{
+
+  color:
+    var(--muted);
+
+  font-size:11px;
+
+  margin-top:3px;
+
+}
+
+
+/* =====================
+   RATE CARD
+===================== */
+
+.rateGrid{
+
+  display:grid;
+
+  grid-template-columns:
+    1.4fr 1fr;
+
+  gap:12px;
+
+}
+
+
+.inputCard{
+
+  position:relative;
+
+  padding:14px;
+
+  border:
+
+    1px solid
+    var(--borderSoft);
+
+  border-radius:
+    var(--radius-lg);
+
+  background:
+    var(--glassLight);
+
+}
+
+
+.inputCard label{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  margin-bottom:9px;
+
+  font-size:12px;
+
+  color:
+    var(--muted);
+
+}
+
+
+.miniIcon{
+
+  width:20px;
+
+  height:20px;
+
+  color:
+    var(--red2);
+
+}
+
+
+input,
+select{
+
+  width:100%;
+
+  border:
+
+    1px solid
+    var(--border);
+
+  border-radius:
+    17px;
+
+  outline:none;
+
+  min-height:48px;
+
+  padding:
+    11px 13px;
+
+  color:
+    var(--inputText);
+
+  background:
+    var(--input);
+
+  box-shadow:
+
+    inset 0 1px 0
+    rgba(255,255,255,.68),
+
+    0 6px 15px
+    rgba(0,0,0,.06);
+
+}
+
+
+input:focus,
+select:focus{
+
+  border-color:
+    #e2525a;
+
+  box-shadow:
+
+    0 0 0 4px
+    rgba(220,48,57,.10),
+
+    0 0 20px
+    rgba(220,48,57,.11);
+
+}
+
+
+.periodGrid{
+
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:10px;
+
+}
+
+
+/* =====================
+   QUICK ACTIONS
+===================== */
+
+.quickActions{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:10px;
+
+}
+
+
+.actionCard{
+
+  position:relative;
+
+  overflow:hidden;
+
+  border:
+    1px solid
+    var(--border);
+
+  min-height:98px;
+
+  border-radius:
+    22px;
+
+  color:
+    var(--text);
+
+  background:
+    var(--glassLight);
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:9px;
+
+  box-shadow:
+
+    inset 0 1px 0
+    rgba(255,255,255,.13);
+
+}
+
+
+.actionCard::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:90px;
+
+  height:90px;
+
+  right:-45px;
+
+  top:-45px;
+
+  border-radius:50%;
+
+  background:
+    rgba(220,48,57,.12);
+
+}
+
+
+.actionIcon{
+
+  width:43px;
+
+  height:43px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:15px;
+
+  color:#fff;
+
+  background:
+
+    linear-gradient(
+      145deg,
+      #ed5059,
+      #a51e27
+    );
+
+  box-shadow:
+
+    0 8px 20px
+    rgba(165,30,39,.27);
+
+}
+
+
+.actionIcon.silver{
+
+  color:
+    var(--text);
+
+  background:
+
+    linear-gradient(
+      145deg,
+      rgba(215,220,224,.37),
+      rgba(91,98,105,.27)
+    );
+
+  box-shadow:none;
+
+}
+
+
+.actionIcon svg{
+
+  width:23px;
+
+  height:23px;
+
+}
+
+
+.actionLabel{
+
+  position:relative;
+
+  z-index:2;
+
+  font-size:12px;
+
+  font-weight:700;
+
+}
+
+
+/* =====================
+   TABLE
+===================== */
+
+.tableShell{
+
+  overflow:hidden;
+
+  border-radius:24px;
+
+  border:
+    1px solid
+    var(--border);
+
+  box-shadow:
+
+    inset 0 1px 0
+    rgba(255,255,255,.08);
+
+}
+
+
+.tableScroll{
+
+  overflow:auto;
+
+  -webkit-overflow-scrolling:
+    touch;
+
+}
+
+
+table{
+
+  width:100%;
+
+  min-width:970px;
+
+  table-layout:fixed;
+
+  border-collapse:separate;
+
+  border-spacing:0;
+
+}
+
+
+thead th{
+
+  position:sticky;
+
+  top:0;
+
+  z-index:3;
+
+  height:55px;
+
+  padding:
+    10px 8px;
+
+  text-align:center;
+
+  color:#fff;
+
+  background:
+
+    linear-gradient(
+      180deg,
+      #d8454d,
+      #a9242c
+    );
+
+  border-left:
+
+    1px solid
+    rgba(255,255,255,.12);
+
+  font-size:12px;
+
+}
+
+
+tbody td{
+
+  height:73px;
+
+  padding:
+    9px 8px;
+
+  text-align:center;
+
+  color:
+    var(--tableText);
+
+  background:
+    var(--table);
+
+  border-left:
+    1px solid #edf0f2;
+
+  border-bottom:
+    1px solid #dde1e4;
+
+}
+
+
+tbody tr:nth-child(even) td{
+
+  background:
+    var(--tableAlt);
+
+}
+
+
+td.product{
+
+  text-align:right;
+
+  font-weight:700;
+
+  line-height:1.8;
+
+  white-space:normal;
+
+}
+
+
+.colNo{width:7%}
+
+.colImage{width:11%}
+
+.colName{width:34%}
+
+.colDollar{width:12%}
+
+.colPrice{width:18%}
+
+.colActions{width:18%}
+
+
+.rowBadge{
+
+  width:34px;
+
+  height:34px;
+
+  margin:auto;
+
+  border-radius:12px;
+
+  display:grid;
+
+  place-items:center;
+
+  font-weight:800;
+
+  color:#971f27;
+
+  background:#f9e6e7;
+
+  border:
+    1px solid #edc7ca;
+
+}
+
+
+.productImage,
+.productPlaceholder{
+
+  width:54px;
+
+  height:54px;
+
+  border-radius:15px;
+
+  margin:auto;
+
+}
+
+
+.productImage{
+
+  display:block;
+
+  object-fit:cover;
+
+  background:#fff;
+
+  border:
+    1px solid #d9dde0;
+
+}
+
+
+.productPlaceholder{
+
+  display:grid;
+
+  place-items:center;
+
+  background:#e8ecef;
+
+  color:#879098;
+
+}
+
+
+.moneyBadge{
+
+  display:inline-block;
+
+  min-width:105px;
+
+  padding:
+    8px 9px;
+
+  border-radius:12px;
+
+  color:#921f27;
+
+  font-weight:800;
+
+  background:
+
+    linear-gradient(
+      180deg,
+      #fff2f3,
+      #f6e5e7
+    );
+
+  border:
+    1px solid #ecc3c6;
+
+}
+
+
+.dollarBadge{
+
+  display:inline-block;
+
+  min-width:68px;
+
+  padding:
+    7px 8px;
+
+  border-radius:11px;
+
+  color:#45505a;
+
+  background:#edf0f2;
+
+  border:
+    1px solid #d9dde0;
+
+}
+
+
+.tableActions{
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:6px;
+
+}
+
+
+/* =====================
+   BUTTONS
+===================== */
+
+.btn{
+
+  border:0;
+
+  min-height:36px;
+
+  border-radius:12px;
+
+  padding:
+    7px 11px;
+
+  color:#fff;
+
+  font-weight:700;
+
+}
+
+
+.editBtn{
+
+  background:
+
+    linear-gradient(
+      145deg,
+      #2cb070,
+      #197348
+    );
+
+}
+
+
+.deleteBtn{
+
+  background:
+
+    linear-gradient(
+      145deg,
+      #e44b5e,
+      #a32339
+    );
+
+}
+
+
+/* =====================
+   MODAL
+===================== */
+
+.modalBack{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:100;
+
+  display:none;
+
+  padding:9px;
+
+  background:
+    rgba(5,7,9,.70);
+
+  backdrop-filter:
+    blur(15px);
+
+  -webkit-backdrop-filter:
+    blur(15px);
+
+  overflow-y:auto;
+
+  -webkit-overflow-scrolling:
+    touch;
+
+  touch-action:
+    pan-y;
+
+  align-items:flex-start;
+
+  justify-content:center;
+
+}
+
+
+.modalBack.show{
+
+  display:flex;
+
+}
+
+
+.modal{
+
+  position:relative;
+
+  width:min(560px,100%);
+
+  margin:auto 0;
+
+  max-height:
+    calc(100dvh - 18px);
+
+  overflow-y:auto;
+
+  -webkit-overflow-scrolling:
+    touch;
+
+  touch-action:
+    pan-y;
+
+  border-radius:
+    31px;
+
+  padding:
+    20px 17px;
+
+}
+
+
+.modalTopIcon{
+
+  width:72px;
+
+  height:72px;
+
+  margin:
+    2px auto 12px;
+
+  border-radius:23px;
+
+  display:grid;
+
+  place-items:center;
+
+  color:#fff;
+
+  background:
+
+    radial-gradient(
+      circle at 24% 18%,
+      rgba(255,255,255,.28),
+      transparent 27%
+    ),
+
+    linear-gradient(
+      145deg,
+      #ea4e57,
+      #8f1c24
+    );
+
+  box-shadow:
+
+    0 13px 30px
+    rgba(143,28,36,.32),
+
+    inset 0 1px 0
+    rgba(255,255,255,.18);
+
+}
+
+
+.modalTopIcon svg{
+
+  width:35px;
+
+  height:35px;
+
+}
+
+
+.modal h2{
+
+  text-align:center;
+
+  margin:
+    0 45px 5px;
+
+  font-size:20px;
+
+}
+
+
+.modalDescription{
+
+  text-align:center;
+
+  color:
+    var(--muted);
+
+  font-size:11px;
+
+  margin-bottom:17px;
+
+}
+
+
+.closeModal{
+
+  position:absolute;
+
+  left:13px;
+
+  top:12px;
+
+  width:43px;
+
+  height:43px;
+
+  border-radius:50%;
+
+  border:
+    1px solid
+    var(--border);
+
+  color:
+    var(--text);
+
+  background:
+    var(--glassLight);
+
+  font-size:25px;
+
+}
+
+
+.field{
+
+  margin-bottom:14px;
+
+}
+
+
+.fieldLabel{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:7px;
+
+  margin-bottom:7px;
+
+  color:
+    var(--muted);
+
+  font-size:12px;
+
+}
+
+
+.fieldLabel svg{
+
+  width:18px;
+
+  height:18px;
+
+  color:
+    var(--red2);
+
+}
+
+
+.uploadBox{
+
+  position:relative;
+
+  border:
+    2px dashed
+    var(--border);
+
+  border-radius:20px;
+
+  padding:
+    20px;
+
+  text-align:center;
+
+  background:
+    var(--glassLight);
+
+}
+
+
+.uploadBox input{
+
+  position:absolute;
+
+  inset:0;
+
+  opacity:0;
+
+}
+
+
+.uploadIcon{
+
+  width:44px;
+
+  height:44px;
+
+  margin:
+    0 auto 8px;
+
+  color:
+    var(--red2);
+
+}
+
+
+.preview{
+
+  display:none;
+
+  width:100px;
+
+  height:82px;
+
+  object-fit:cover;
+
+  border-radius:15px;
+
+  margin-top:10px;
+
+}
+
+
+.modalButtons{
+
+  position:sticky;
+
+  bottom:-1px;
+
+  display:grid;
+
+  grid-template-columns:
+    1fr 1.2fr;
+
+  gap:9px;
+
+  margin-top:17px;
+
+  padding-top:12px;
+
+  background:
+
+    linear-gradient(
+      transparent,
+      var(--glassStrong) 34%
+    );
+
+}
+
+
+.modalButton{
+
+  min-height:47px;
+
+  border-radius:15px;
+
+  border:
+    1px solid
+    var(--border);
+
+  font-weight:800;
+
+}
+
+
+.cancelButton{
+
+  color:
+    var(--text);
+
+  background:
+    var(--glassLight);
+
+}
+
+
+.saveButton{
+
+  color:#fff;
+
+  background:
+
+    linear-gradient(
+      145deg,
+      #ed4f58,
+      #ae232b
+    );
+
+}
+
+
+.empty{
+
+  text-align:center;
+
+  padding:26px;
+
+  color:
+    var(--muted);
+
+}
+
+
+.footer{
+
+  text-align:center;
+
+  padding:
+    4px 0 14px;
+
+  color:
+    var(--muted);
+
+  font-size:10px;
+
+}
+
+
+/* =====================
+   MOBILE
+===================== */
+
+@media(max-width:700px){
+
+  .app{
+
+    padding:8px;
+
+  }
+
+
+  .appHeader{
+
+    border-radius:25px;
+
+    padding:12px;
+
+  }
+
+
+  .appIcon{
+
+    width:53px;
+
+    height:53px;
+
+    border-radius:17px;
+
+  }
+
+
+  .appName{
+
+    font-size:23px;
+
+  }
+
+
+  .appCaption{
+
+    font-size:10px;
+
+  }
+
+
+  .statusPill{
+
+    display:none;
+
+  }
+
+
+  .iconButton{
+
+    width:44px;
+
+    height:44px;
+
+  }
+
+
+  .section{
+
+    border-radius:25px;
+
+    padding:14px;
+
+  }
+
+
+  .rateGrid{
+
+    grid-template-columns:1fr;
+
+  }
+
+
+  .periodGrid{
+
+    grid-template-columns:
+      1fr 1fr;
+
+  }
+
+
+  .quickActions{
+
+    grid-template-columns:
+      repeat(3,1fr);
+
+  }
+
+
+  .actionCard{
+
+    min-height:92px;
+
+  }
+
+
+  .actionLabel{
+
+    font-size:11px;
+
+  }
+
+
+  .modal{
+
+    border-radius:26px;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- INTRO -->
+
+<div class="splash">
+
+  <div class="splashInner">
+
+    <img
+      class="splashIcon"
+      src="./redsun-icon.png"
+      alt="REDSUN"
+    >
+
+    <div class="splashLogo">
+      REDSUN
+    </div>
+
+    <div class="splashLine"></div>
+
+    <div class="splashText">
+      LIGHTING MANAGEMENT
+    </div>
+
+  </div>
+
+</div>
+
+
+<main class="app">
+
+
+<!-- HEADER -->
+
+<header class="appHeader glass">
+
+  <div class="appIdentity">
+
+    <img
+      class="appIcon"
+      src="./redsun-icon.png"
+      alt="REDSUN"
+    >
+
+    <div>
+
+      <div class="appName">
+        <span>R</span>EDSUN
+      </div>
+
+      <div class="appCaption">
+        سامانه مدیریت قیمت محصولات
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="topControls">
+
+    <div class="statusPill">
+
+      <span class="statusDot"></span>
+
+      آماده
+
+    </div>
+
+
+    <button
+      class="iconButton"
+      id="themeToggle"
+      type="button"
+      aria-label="حالت شب و روز"
+    >
+
+      <svg
+        class="moonIcon"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+
+        <path
+          d="M20 15.3A8 8 0 0 1 8.7 4a8.2 8.2 0 1 0 11.3 11.3Z"
+          stroke="currentColor"
+          stroke-width="1.8"
+        />
+
+      </svg>
+
+
+      <svg
+        class="sunIcon"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+
+        <circle
+          cx="12"
+          cy="12"
+          r="4"
+          stroke="currentColor"
+          stroke-width="1.8"
+        />
+
+        <path
+          d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        />
+
+      </svg>
+
+    </button>
+
+  </div>
+
+</header>
+
+
+<!-- PRICE SETTINGS -->
+
+<section class="section glass">
+
+
+<div class="sectionHead">
+
+  <div class="sectionIcon">
+
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+
+      <circle
+        cx="12"
+        cy="12"
+        r="8"
+        stroke="currentColor"
+        stroke-width="1.8"
+      />
+
+      <path
+        d="M9.5 9.2h4a2 2 0 0 1 0 4h-3a2 2 0 0 0 0 4h4M12 7v10"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+      />
+
+    </svg>
+
+  </div>
+
+
+  <div>
+
+    <div class="sectionTitle">
+      محاسبه قیمت
+    </div>
+
+    <div class="sectionSubtitle">
+      نرخ ارز و دوره لیست قیمت
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="rateGrid">
+
+
+<div class="inputCard">
+
+  <label>
+
+    <svg
+      class="miniIcon"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+
+      <path
+        d="M4 12h16M12 4v16"
+        stroke="currentColor"
+        stroke-width="1.8"
+      />
+
+    </svg>
+
+    قیمت دلار به تومان
+
+  </label>
+
+  <input
+    id="rate"
+    type="number"
+    inputmode="numeric"
+    value="234000"
+  >
+
+</div>
+
+
+<div class="periodGrid">
+
+
+<div class="inputCard">
+
+  <label>
+
+    <svg
+      class="miniIcon"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+
+      <rect
+        x="4"
+        y="5"
+        width="16"
+        height="15"
+        rx="3"
+        stroke="currentColor"
+        stroke-width="1.7"
+      />
+
+      <path
+        d="M8 3v4M16 3v4M4 9h16"
+        stroke="currentColor"
+        stroke-width="1.7"
+      />
+
+    </svg>
+
+    ماه
+
+  </label>
+
+  <select id="priceMonth">
+
+    <option>فروردین</option>
+    <option>اردیبهشت</option>
+    <option>خرداد</option>
+    <option>تیر</option>
+    <option>مرداد</option>
+    <option selected>شهریور</option>
+    <option>مهر</option>
+    <option>آبان</option>
+    <option>آذر</option>
+    <option>دی</option>
+    <option>بهمن</option>
+    <option>اسفند</option>
+
+  </select>
+
+</div>
+
+
+<div class="inputCard">
+
+  <label>
+
+    <svg
+      class="miniIcon"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+
+      <path
+        d="M6 5h12v14H6z"
+        stroke="currentColor"
+        stroke-width="1.7"
+      />
+
+      <path
+        d="M9 9h6M9 13h6"
+        stroke="currentColor"
+        stroke-width="1.7"
+      />
+
+    </svg>
+
+    سال
+
+  </label>
+
+  <input
+    id="priceYear"
+    type="number"
+    value="1405"
+  >
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- ACTIONS -->
+
+<section class="section glass">
+
+
+<div class="sectionHead">
+
+  <div class="sectionIcon silver">
+
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+
+      <path
+        d="M4 7h16M7 4v6M17 4v6"
+        stroke="currentColor"
+        stroke-width="1.8"
+      />
+
+      <rect
+        x="4"
+        y="5"
+        width="16"
+        height="15"
+        rx="4"
+        stroke="currentColor"
+        stroke-width="1.8"
+      />
+
+    </svg>
+
+  </div>
+
+
+  <div>
+
+    <div class="sectionTitle">
+      ابزارهای مدیریت
+    </div>
+
+    <div class="sectionSubtitle">
+      عملیات سریع برنامه
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="quickActions">
+
+
+<button
+  class="actionCard"
+  id="addBtn"
+  type="button"
+>
+
+  <span class="actionIcon">
+
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+
+      <rect
+        x="4"
+        y="4"
+        width="16"
+        height="16"
+        rx="5"
+        stroke="currentColor"
+        stroke-width="1.8"
+      />
+
+      <path
+        d="M12 8v8M8 12h8"
+        stroke="currentColor"
+        stroke-width="1.9"
+        stroke-linecap="round"
+      />
+
+    </svg>
+
+  </span>
+
+  <span class="actionLabel">
+    افزودن محصول
+  </span>
+
+</button>
+
+
+<button
+  class="actionCard"
+  id="pdfBtn"
+  type="button"
+>
+
+  <span class="actionIcon silver">
+
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+
+      <path
+        d="M7 3h7l4 4v14H7z"
+        stroke="currentColor"
+        stroke-width="1.7"
+      />
+
+      <path
+        d="M14 3v5h4M9 15h6"
+        stroke="currentColor"
+        stroke-width="1.7"
+      />
+
+    </svg>
+
+  </span>
+
+  <span class="actionLabel">
+    خروجی PDF
+  </span>
+
+</button>
+
+
+<button
+  class="actionCard"
+  id="settingsBtn"
+  type="button"
+>
+
+  <span class="actionIcon silver">
+
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+
+      <path
+        d="M7.5 10V8a4.5 4.5 0 0 1 9 0v2"
+        stroke="currentColor"
+        stroke-width="1.8"
+      />
+
+      <rect
+        x="5"
+        y="10"
+        width="14"
+        height="10"
+        rx="3"
+        stroke="currentColor"
+        stroke-width="1.8"
+      />
+
+      <circle
+        cx="12"
+        cy="15"
+        r="1.2"
+        fill="currentColor"
+      />
+
+    </svg>
+
+  </span>
+
+  <span class="actionLabel">
+    تنظیمات رمز
+  </span>
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section class="section glass">
+
+
+<div class="sectionHead">
+
+  <div class="sectionIcon">
+
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+
+      <path
+        d="M4 7 12 3l8 4-8 4z"
+        stroke="currentColor"
+        stroke-width="1.7"
+      />
+
+      <path
+        d="M4 7v10l8 4 8-4V7"
+        stroke="currentColor"
+        stroke-width="1.7"
+      />
+
+      <path
+        d="M12 11v10"
+        stroke="currentColor"
+        stroke-width="1.7"
+      />
+
+    </svg>
+
+  </div>
+
+
+  <div>
+
+    <div class="sectionTitle">
+      محصولات REDSUN
+    </div>
+
+    <div class="sectionSubtitle">
+      مدیریت قیمت، تصویر و اطلاعات محصول
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="tableShell">
+
+
+<div class="tableScroll">
+
+
+<table>
+
+
+<thead>
+
+
+<tr>
+
+<th class="colNo">
+ردیف
+</th>
+
+<th class="colImage">
+تصویر
+</th>
+
+<th class="colName">
+نام محصول
+</th>
+
+<th class="colDollar">
+دلار
+</th>
+
+<th class="colPrice">
+قیمت مصرف‌کننده
+</th>
+
+<th class="colActions">
+عملیات
+</th>
+
+</tr>
+
+
+</thead>
+
+
+<tbody id="tbody"></tbody>
+
+
+</table>
+
+
+<div
+  id="empty"
+  class="empty"
+  style="display:none"
+>
+محصولی ثبت نشده است.
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<div class="footer">
+REDSUN • SMART LIGHTING
+</div>
+
+
+</main>
+
+
+<!-- ADD / EDIT -->
+
+<div
+  class="modalBack"
+  id="productModal"
+>
+
+
+<section class="modal glass">
+
+
+<button
+  class="closeModal"
+  data-close="productModal"
+>
+×
+</button>
+
+
+<div class="modalTopIcon">
+
+<svg
+  viewBox="0 0 24 24"
+  fill="none"
+>
+
+<path
+  d="M5 8 12 4l7 4-7 4z"
+  stroke="currentColor"
+  stroke-width="1.7"
+/>
+
+<path
+  d="M5 8v8l7 4 7-4V8"
+  stroke="currentColor"
+  stroke-width="1.7"
+/>
+
+<path
+  d="M18 4v5M15.5 6.5h5"
+  stroke="currentColor"
+  stroke-width="1.8"
+  stroke-linecap="round"
+/>
+
+</svg>
+
+</div>
+
+
+<h2 id="productTitle">
+افزودن محصول
+</h2>
+
+
+<div class="modalDescription">
+مشخصات محصول را وارد کنید
+</div>
+
+
+<div class="field">
+
+<div class="fieldLabel">
+
+<svg
+  viewBox="0 0 24 24"
+  fill="none"
+>
+
+<path
+  d="M5 7h14v10H5z"
+  stroke="currentColor"
+  stroke-width="1.7"
+/>
+
+</svg>
+
+نام محصول
+
+</div>
+
+<input
+  id="nameInput"
+  type="text"
+  placeholder="نام محصول"
+>
+
+</div>
+
+
+<div class="field">
+
+<div class="fieldLabel">
+
+<svg
+  viewBox="0 0 24 24"
+  fill="none"
+>
+
+<circle
+  cx="12"
+  cy="12"
+  r="8"
+  stroke="currentColor"
+  stroke-width="1.7"
+/>
+
+<path
+  d="M9 10h5a2 2 0 0 1 0 4h-4a2 2 0 0 0 0 4h5"
+  stroke="currentColor"
+  stroke-width="1.5"
+/>
+
+</svg>
+
+قیمت دلاری
+
+</div>
+
+<input
+  id="usdInput"
+  type="number"
+  inputmode="decimal"
+  step="0.001"
+  placeholder="مثال: 1.25"
+>
+
+</div>
+
+
+<div class="field">
+
+<div class="fieldLabel">
+
+<svg
+  viewBox="0 0 24 24"
+  fill="none"
+>
+
+<rect
+  x="4"
+  y="5"
+  width="16"
+  height="14"
+  rx="3"
+  stroke="currentColor"
+  stroke-width="1.7"
+/>
+
+<circle
+  cx="9"
+  cy="10"
+  r="1.5"
+  stroke="currentColor"
+  stroke-width="1.5"
+/>
+
+<path
+  d="m6 17 4-4 3 3 2-2 3 3"
+  stroke="currentColor"
+  stroke-width="1.7"
+/>
+
+</svg>
+
+تصویر محصول
+
+</div>
+
+
+<label class="uploadBox">
+
+<svg
+  class="uploadIcon"
+  viewBox="0 0 24 24"
+  fill="none"
+>
+
+<path
+  d="M7 17h-1a4 4 0 0 1 0-8 6 6 0 0 1 11.5-1.5A4 4 0 0 1 18 15h-2"
+  stroke="currentColor"
+  stroke-width="1.7"
+/>
+
+<path
+  d="M12 9v9M9 12l3-3 3 3"
+  stroke="currentColor"
+  stroke-width="1.8"
+  stroke-linecap="round"
+/>
+
+</svg>
+
+
+<strong>
+انتخاب تصویر محصول
+</strong>
+
+
+<input
+  id="imageInput"
+  type="file"
+  accept="image/*"
+>
+
+
+</label>
+
+
+<img
+  id="imagePreview"
+  class="preview"
+>
+
+
+</div>
+
+
+<div class="modalButtons">
+
+<button
+  class="modalButton cancelButton"
+  data-close="productModal"
+>
+انصراف
+</button>
+
+
+<button
+  class="modalButton saveButton"
+  id="saveProduct"
+>
+ثبت محصول
+</button>
+
+</div>
+
+
+</section>
+
+
+</div>
+
+
+<!-- PASSWORD -->
+
+<div
+  class="modalBack"
+  id="passwordModal"
+>
+
+
+<section class="modal glass">
+
+
+<button
+  class="closeModal"
+  data-close="passwordModal"
+>
+×
+</button>
+
+
+<div class="modalTopIcon">
+
+<svg
+  viewBox="0 0 24 24"
+  fill="none"
+>
+
+<path
+  d="M7.5 10V8a4.5 4.5 0 0 1 9 0v2"
+  stroke="currentColor"
+  stroke-width="1.8"
+/>
+
+<rect
+  x="5"
+  y="10"
+  width="14"
+  height="10"
+  rx="3"
+  stroke="currentColor"
+  stroke-width="1.8"
+/>
+
+</svg>
+
+</div>
+
+
+<h2>
+رمز ویرایش
+</h2>
+
+
+<div class="modalDescription">
+برای ویرایش محصول رمز را وارد کنید
+</div>
+
+
+<div class="field">
+
+<div class="fieldLabel">
+رمز عبور
+</div>
+
+<input
+  id="passwordInput"
+  type="password"
+  inputmode="numeric"
+>
+
+</div>
+
+
+<div class="modalButtons">
+
+<button
+  class="modalButton cancelButton"
+  data-close="passwordModal"
+>
+انصراف
+</button>
+
+<button
+  class="modalButton saveButton"
+  id="passwordOk"
+>
+تأیید
+</button>
+
+</div>
+
+
+</section>
+
+</div>
+
+
+<!-- DELETE -->
+
+<div
+  class="modalBack"
+  id="deleteModal"
+>
+
+
+<section class="modal glass">
+
+
+<button
+  class="closeModal"
+  data-close="deleteModal"
+>
+×
+</button>
+
+
+<div class="modalTopIcon">
+
+<svg
+  viewBox="0 0 24 24"
+  fill="none"
+>
+
+<path
+  d="M7 7h10l-1 12H8z"
+  stroke="currentColor"
+  stroke-width="1.7"
+/>
+
+<path
+  d="M9 7V5h6v2M5 7h14"
+  stroke="currentColor"
+  stroke-width="1.7"
+/>
+
+</svg>
+
+</div>
+
+
+<h2>
+حذف محصول
+</h2>
+
+
+<div
+  class="modalDescription"
+  id="deleteMessage"
+></div>
+
+
+<div class="modalButtons">
+
+<button
+  class="modalButton cancelButton"
+  data-close="deleteModal"
+>
+انصراف
+</button>
+
+<button
+  class="modalButton saveButton"
+  id="deleteOk"
+>
+حذف
+</button>
+
+</div>
+
+
+</section>
+
+</div>
+
+
+<!-- SETTINGS -->
+
+<div
+  class="modalBack"
+  id="settingsModal"
+>
+
+
+<section class="modal glass">
+
+
+<button
+  class="closeModal"
+  data-close="settingsModal"
+>
+×
+</button>
+
+
+<div class="modalTopIcon">
+
+<svg
+  viewBox="0 0 24 24"
+  fill="none"
+>
+
+<path
+  d="M7.5 10V8a4.5 4.5 0 0 1 9 0v2"
+  stroke="currentColor"
+  stroke-width="1.8"
+/>
+
+<rect
+  x="5"
+  y="10"
+  width="14"
+  height="10"
+  rx="3"
+  stroke="currentColor"
+  stroke-width="1.8"
+/>
+
+<path
+  d="M12 14v2"
+  stroke="currentColor"
+  stroke-width="1.8"
+/>
+
+</svg>
+
+</div>
+
+
+<h2>
+تنظیمات امنیتی
+</h2>
+
+
+<div class="modalDescription">
+تغییر رمز ویرایش محصولات
+</div>
+
+
+<div class="field">
+
+<div class="fieldLabel">
+رمز فعلی
+</div>
+
+<input
+  id="oldPass"
+  type="password"
+>
+
+</div>
+
+
+<div class="field">
+
+<div class="fieldLabel">
+رمز جدید
+</div>
+
+<input
+  id="newPass"
+  type="password"
+>
+
+</div>
+
+
+<div class="field">
+
+<div class="fieldLabel">
+تکرار رمز جدید
+</div>
+
+<input
+  id="repeatPass"
+  type="password"
+>
+
+</div>
+
+
+<div class="modalButtons">
+
+<button
+  class="modalButton cancelButton"
+  data-close="settingsModal"
+>
+انصراف
+</button>
+
+<button
+  class="modalButton saveButton"
+  id="changePass"
+>
+ذخیره رمز
+</button>
+
+</div>
+
+
+</section>
+
+</div>
+
+
+<script>
+
+"use strict";
+
+
+const $ =
+id =>
+document.getElementById(id);
+
+
+const PRODUCTS_KEY =
+"redsun_pro_products_v1";
+
+const RATE_KEY =
+"redsun_pro_rate_v1";
+
+const PASS_KEY =
+"redsun_pro_pass_v1";
+
+const MONTH_KEY =
+"redsun_pro_month_v1";
+
+const YEAR_KEY =
+"redsun_pro_year_v1";
+
+const THEME_KEY =
+"redsun_pro_theme_v1";
+
+
+const DEFAULT_PASS =
+"1234";
+
+
+const defaults = [
+
+["لامپ اشکی 7 وات",0.72],
+["لامپ حبابی 9 وات",0.725],
+["لامپ حبابی 12 وات",0.912],
+["لامپ حبابی 15 وات",1.28],
+["لامپ حبابی 20 وات",1.7],
+["لامپ حبابی 25 وات",2.25],
+["لامپ استوانه ای 25 وات",2.59],
+["لامپ استوانه ای 30 وات",2.84],
+["لامپ استوانه ای 40 وات",3.82],
+["لامپ استوانه ای 50 وات",4.821],
+["پنل توکار سایز شو 10وات",1.8],
+["پنل توکار سایز شو 18 وات",2.714],
+["پنل توکار سایز شو 24 وات",3.84],
+["پنل توکار سایز شو 36 وات",5.908],
+["پنل روکار 18وات",3.513],
+["پنل روکار 24وات",4.872],
+["پنل روکار 36 وات",6.74]
+
+];
+
+
+let products =
+loadProducts();
+
+
+let editIndex =
+-1;
+
+let pendingEditIndex =
+-1;
+
+let deleteIndex =
+-1;
+
+let currentImage =
+"";
+
+
+function loadProducts(){
+
+try{
+
+const saved =
+JSON.parse(
+localStorage.getItem(
+PRODUCTS_KEY
+) ||
+"null"
+);
+
+
+if(
+Array.isArray(saved)
+){
+
+return saved;
+
+}
+
+}catch(e){}
+
+
+return defaults.map(
+item => ({
+
+name:item[0],
+
+usd:item[1],
+
+image:""
+
+})
+);
+
+}
+
+
+function saveProducts(){
+
+localStorage.setItem(
+PRODUCTS_KEY,
+JSON.stringify(products)
+);
+
+}
+
+
+function rate(){
+
+return Number(
+$("rate").value
+) || 0;
+
+}
+
+
+function faNumber(value){
+
+return Number(value)
+.toLocaleString(
+"fa-IR"
+);
+
+}
+
+
+function escapeHTML(value){
+
+return String(value)
+.replace(
+/[&<>"']/g,
+character => ({
+
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#39;"
+
+}[character])
+);
+
+}
+
+
+function openModal(id){
+
+const wrapper =
+$(id);
+
+
+wrapper.classList.add(
+"show"
+);
+
+
+wrapper.scrollTop =
+0;
+
+
+const modal =
+wrapper.querySelector(
+".modal"
+);
+
+
+if(modal){
+
+modal.scrollTop =
+0;
+
+}
+
+}
+
+
+function closeModal(id){
+
+$(id)
+.classList
+.remove(
+"show"
+);
+
+}
+
+
+function showPreview(src){
+
+const image =
+$("imagePreview");
+
+
+if(src){
+
+image.src =
+src;
+
+image.style.display =
+"block";
+
+}else{
+
+image.removeAttribute(
+"src"
+);
+
+image.style.display =
+"none";
+
+}
+
+}
+
+
+function render(){
+
+const tbody =
+$("tbody");
+
+
+tbody.innerHTML =
+"";
+
+
+$("empty")
+.style
+.display =
+products.length
+?
+"none"
+:
+"block";
+
+
+products.forEach(
+(product,index)=>{
+
+
+const price =
+Math.round(
+Number(
+product.usd
+) *
+rate()
+);
+
+
+const image =
+
+product.image
+
+?
+
+'<img class="productImage" src="' +
+product.image +
+'">'
+
+:
+
+'<div class="productPlaceholder">—</div>';
+
+
+const row =
+document.createElement(
+"tr"
+);
+
+
+row.innerHTML =
+
+'<td><div class="rowBadge">' +
+faNumber(index+1) +
+'</div></td>' +
+
+'<td>' +
+image +
+'</td>' +
+
+'<td class="product">' +
+escapeHTML(
+product.name
+) +
+'</td>' +
+
+'<td><span class="dollarBadge">' +
+faNumber(
+product.usd
+) +
+'</span></td>' +
+
+'<td><span class="moneyBadge">' +
+faNumber(
+price
+) +
+'</span></td>' +
+
+'<td><div class="tableActions">' +
+
+'<button class="btn editBtn" data-i="' +
+index +
+'">ویرایش</button>' +
+
+'<button class="btn deleteBtn" data-i="' +
+index +
+'">حذف</button>' +
+
+'</div></td>';
+
+
+tbody.appendChild(
+row
+);
+
+
+}
+);
+
+}
+
+
+/* THEME */
+
+function setTheme(theme){
+
+const value =
+theme === "light"
+?
+"light"
+:
+"dark";
+
+
+document
+.documentElement
+.dataset
+.theme =
+value;
+
+
+localStorage.setItem(
+THEME_KEY,
+value
+);
+
+
+$("themeColor")
+.setAttribute(
+"content",
+value === "light"
+?
+"#eef1f3"
+:
+"#111418"
+);
+
+}
+
+
+function initTheme(){
+
+const saved =
+localStorage.getItem(
+THEME_KEY
+);
+
+
+if(saved){
+
+setTheme(saved);
+
+return;
+
+}
+
+
+const systemLight =
+
+window.matchMedia &&
+
+window.matchMedia(
+"(prefers-color-scheme: light)"
+).matches;
+
+
+setTheme(
+systemLight
+?
+"light"
+:
+"dark"
+);
+
+}
+
+
+$("themeToggle")
+.addEventListener(
+"click",
+()=>{
+
+
+const current =
+
+document
+.documentElement
+.dataset
+.theme;
+
+
+setTheme(
+current === "dark"
+?
+"light"
+:
+"dark"
+);
+
+
+}
+);
+
+
+/* ADD */
+
+$("addBtn")
+.addEventListener(
+"click",
+()=>{
+
+
+editIndex =
+-1;
+
+
+currentImage =
+"";
+
+
+$("productTitle")
+.textContent =
+"افزودن محصول";
+
+
+$("nameInput")
+.value =
+"";
+
+
+$("usdInput")
+.value =
+"";
+
+
+$("imageInput")
+.value =
+"";
+
+
+showPreview("");
+
+
+openModal(
+"productModal"
+);
+
+
+}
+);
+
+
+/* IMAGE */
+
+$("imageInput")
+.addEventListener(
+"change",
+event=>{
+
+
+const file =
+
+event.target.files &&
+event.target.files[0];
+
+
+if(!file){
+return;
+}
+
+
+const reader =
+new FileReader();
+
+
+reader.onload =
+e => {
+
+
+currentImage =
+String(
+e.target.result ||
+""
+);
+
+
+showPreview(
+currentImage
+);
+
+
+};
+
+
+reader.readAsDataURL(
+file
+);
+
+
+}
+);
+
+
+/* SAVE */
+
+$("saveProduct")
+.addEventListener(
+"click",
+()=>{
+
+
+const name =
+
+$("nameInput")
+.value
+.trim();
+
+
+const usd =
+
+Number(
+$("usdInput").value
+);
+
+
+if(!name){
+
+alert(
+"نام محصول را وارد کنید."
+);
+
+return;
+
+}
+
+
+if(
+!Number.isFinite(usd) ||
+usd < 0
+){
+
+alert(
+"قیمت دلار درست نیست."
+);
+
+return;
+
+}
+
+
+const item = {
+
+name:name,
+
+usd:usd,
+
+image:
+currentImage ||
+""
+
+};
+
+
+if(
+editIndex < 0
+){
+
+products.push(
+item
+);
+
+}else{
+
+products[
+editIndex
+] =
+item;
+
+}
+
+
+saveProducts();
+
+render();
+
+closeModal(
+"productModal"
+);
+
+
+}
+);
+
+
+/* TABLE ACTION */
+
+$("tbody")
+.addEventListener(
+"click",
+event=>{
+
+
+const edit =
+event.target.closest(
+".editBtn"
+);
+
+
+const del =
+event.target.closest(
+".deleteBtn"
+);
+
+
+if(edit){
+
+pendingEditIndex =
+Number(
+edit.dataset.i
+);
+
+
+$("passwordInput")
+.value =
+"";
+
+
+openModal(
+"passwordModal"
+);
+
+}
+
+
+if(del){
+
+deleteIndex =
+Number(
+del.dataset.i
+);
+
+
+$("deleteMessage")
+.textContent =
+
+"آیا محصول «" +
+
+products[
+deleteIndex
+].name +
+
+"» حذف شود؟";
+
+
+openModal(
+"deleteModal"
+);
+
+}
+
+
+}
+);
+
+
+/* EDIT PASSWORD */
+
+$("passwordOk")
+.addEventListener(
+"click",
+()=>{
+
+
+const savedPass =
+
+localStorage.getItem(
+PASS_KEY
+) ||
+
+DEFAULT_PASS;
+
+
+if(
+$("passwordInput")
+.value !==
+savedPass
+){
+
+alert(
+"رمز عبور اشتباه است."
+);
+
+return;
+
+}
+
+
+closeModal(
+"passwordModal"
+);
+
+
+editIndex =
+pendingEditIndex;
+
+
+currentImage =
+products[
+editIndex
+].image ||
+"";
+
+
+$("productTitle")
+.textContent =
+"ویرایش محصول";
+
+
+$("nameInput")
+.value =
+products[
+editIndex
+].name;
+
+
+$("usdInput")
+.value =
+products[
+editIndex
+].usd;
+
+
+$("imageInput")
+.value =
+"";
+
+
+showPreview(
+currentImage
+);
+
+
+openModal(
+"productModal"
+);
+
+
+}
+);
+
+
+/* DELETE */
+
+$("deleteOk")
+.addEventListener(
+"click",
+()=>{
+
+
+if(
+deleteIndex >= 0
+){
+
+products.splice(
+deleteIndex,
+1
+);
+
+
+saveProducts();
+
+render();
+
+}
+
+
+deleteIndex =
+-1;
+
+
+closeModal(
+"deleteModal"
+);
+
+
+}
+);
+
+
+/* SECURITY */
+
+$("settingsBtn")
+.addEventListener(
+"click",
+()=>{
+
+
+$("oldPass")
+.value =
+"";
+
+
+$("newPass")
+.value =
+"";
+
+
+$("repeatPass")
+.value =
+"";
+
+
+openModal(
+"settingsModal"
+);
+
+
+}
+);
+
+
+$("changePass")
+.addEventListener(
+"click",
+()=>{
+
+
+const savedPass =
+
+localStorage.getItem(
+PASS_KEY
+) ||
+
+DEFAULT_PASS;
+
+
+const oldPass =
+$("oldPass").value;
+
+
+const newPass =
+$("newPass").value;
+
+
+const repeat =
+$("repeatPass").value;
+
+
+if(
+oldPass !==
+savedPass
+){
+
+alert(
+"رمز فعلی اشتباه است."
+);
+
+return;
+
+}
+
+
+if(!newPass){
+
+alert(
+"رمز جدید را وارد کنید."
+);
+
+return;
+
+}
+
+
+if(
+newPass !==
+repeat
+){
+
+alert(
+"تکرار رمز یکسان نیست."
+);
+
+return;
+
+}
+
+
+localStorage.setItem(
+PASS_KEY,
+newPass
+);
+
+
+closeModal(
+"settingsModal"
+);
+
+
+alert(
+"رمز جدید ذخیره شد."
+);
+
+
+}
+);
+
+
+/* RATE */
+
+$("rate")
+.value =
+
+localStorage.getItem(
+RATE_KEY
+) ||
+
+234000;
+
+
+$("rate")
+.addEventListener(
+"input",
+()=>{
+
+
+localStorage.setItem(
+RATE_KEY,
+String(
+rate()
+)
+);
+
+
+render();
+
+
+}
+);
+
+
+/* DATE */
+
+$("priceMonth")
+.value =
+
+localStorage.getItem(
+MONTH_KEY
+) ||
+
+"شهریور";
+
+
+$("priceMonth")
+.addEventListener(
+"change",
+()=>{
+
+
+localStorage.setItem(
+MONTH_KEY,
+$("priceMonth").value
+);
+
+
+}
+);
+
+
+$("priceYear")
+.value =
+
+localStorage.getItem(
+YEAR_KEY
+) ||
+
+"1405";
+
+
+$("priceYear")
+.addEventListener(
+"input",
+()=>{
+
+
+localStorage.setItem(
+YEAR_KEY,
+$("priceYear").value
+);
+
+
+}
+);
+
+
+/* PDF */
+
+$("pdfBtn")
+.addEventListener(
+"click",
+()=>{
+
+
+const printWindow =
+window.open(
+"",
+"_blank"
+);
+
+
+if(!printWindow){
+
+alert(
+"مرورگر اجازه باز شدن صفحه PDF را نداده است."
+);
+
+return;
+
+}
+
+
+const faDigits =
+value =>
+
+String(value)
+.replace(
+/\d/g,
+d =>
+"۰۱۲۳۴۵۶۷۸۹"[d]
+);
+
+
+const pdfNumber =
+value =>
+
+Number(value)
+.toLocaleString(
+"en-US"
+)
+.replace(
+/\d/g,
+d =>
+"۰۱۲۳۴۵۶۷۸۹"[d]
+);
+
+
+const title =
+
+"لیست قیمت " +
+
+$("priceMonth").value +
+
+" ماه " +
+
+faDigits(
+$("priceYear").value
+);
+
+
+const rows =
+
+products.map(
+(product,index)=>{
+
+
+const price =
+
+Math.round(
+Number(
+product.usd
+) *
+rate()
+);
+
+
+const image =
+
+product.image
+
+?
+
+'<img class="pic" src="' +
+product.image +
+'">'
+
+:
+
+"—";
+
+
+return(
+
+"<tr>" +
+
+"<td>" +
+pdfNumber(index+1) +
+"</td>" +
+
+"<td>" +
+image +
+"</td>" +
+
+"<td>" +
+escapeHTML(
+product.name
+) +
+"</td>" +
+
+"<td>" +
+pdfNumber(
+price
+) +
+"</td>" +
+
+"</tr>"
+
+);
+
+
+}
+)
+.join("");
+
+
+printWindow.document.write(
+`<!doctype html>
+
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>REDSUN</title>
+
+<style>
+
+@page{
+size:A4 portrait;
+margin:0;
+}
+
+*{
+box-sizing:border-box;
+-webkit-print-color-adjust:exact!important;
+print-color-adjust:exact!important;
+}
+
+body{
+margin:0;
+padding:8mm;
+font-family:Tahoma,Arial,sans-serif;
+background:#fff;
+}
+
+.page{
+border:2px solid #202326;
+}
+
+.title{
+height:50px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#c83942!important;
+color:#fff!important;
+font-size:20px;
+font-weight:800;
+}
+
+.brand{
+height:58px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+background:#f2f4f5!important;
+border-bottom:2px solid #202326;
+font:900 30px Arial;
+letter-spacing:4px;
+color:#c62d36!important;
+}
+
+.brand img{
+width:39px;
+height:39px;
+border-radius:11px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+table-layout:fixed;
+}
+
+th{
+height:47px;
+background:#c83942!important;
+color:#fff!important;
+border:1px solid #202326;
+}
+
+td{
+height:67px;
+text-align:center;
+border:1px solid #202326;
+font-weight:700;
+}
+
+tr:nth-child(even) td{
+background:#f3f4f5!important;
+}
+
+th:nth-child(1),
+td:nth-child(1){
+width:7%;
+}
+
+th:nth-child(2),
+td:nth-child(2){
+width:15%;
+}
+
+th:nth-child(3),
+td:nth-child(3){
+width:57%;
+}
+
+th:nth-child(4),
+td:nth-child(4){
+width:21%;
+}
+
+.pic{
+width:52px;
+height:52px;
+object-fit:contain;
+}
+
+.controls{
+text-align:center;
+margin:18px;
+}
+
+button{
+border:0;
+border-radius:9px;
+padding:11px 18px;
+margin:4px;
+font-weight:700;
+}
+
+.print{
+background:#c83942;
+color:#fff;
+}
+
+.close{
+background:#ddd;
+}
+
+@media print{
+
+.controls{
+display:none!important;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<div class="page">
+
+
+<div class="title">
+${title}
+</div>
+
+
+<div class="brand">
+
+<img src="./redsun-icon.png">
+
+REDSUN
+
+</div>
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>ردیف</th>
+
+<th>تصویر محصول</th>
+
+<th>نام محصول</th>
+
+<th>قیمت (تومان)</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+${rows}
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+<div class="controls">
+
+<button
+class="print"
+onclick="window.print()"
+>
+چاپ / ذخیره PDF
+</button>
+
+<button
+class="close"
+onclick="window.close()"
+>
+بازگشت
+</button>
+
+</div>
+
+
+</body>
+
+</html>`
+);
+
+
+printWindow.document.close();
+
+
+}
+);
+
+
+/* CLOSE MODALS */
+
+document
+.querySelectorAll(
+"[data-close]"
+)
+.forEach(
+button=>{
+
+
+button
+.addEventListener(
+"click",
+()=>{
+
+
+closeModal(
+button.dataset.close
+);
+
+
+}
+);
+
+
+}
+);
+
+
+document
+.querySelectorAll(
+".modalBack"
+)
+.forEach(
+modal=>{
+
+
+modal
+.addEventListener(
+"click",
+event=>{
+
+
+if(
+event.target ===
+modal
+){
+
+closeModal(
+modal.id
+);
+
+}
+
+
+}
+);
+
+
+}
+);
+
+
+/* SERVICE WORKER */
+
+if(
+"serviceWorker"
+in navigator
+){
+
+window.addEventListener(
+"load",
+()=>{
+
+
+navigator
+.serviceWorker
+.register(
+"./service-worker.js"
+)
+.catch(()=>{});
+
+
+}
+);
+
+}
+
+
+initTheme();
+
+render();
+
+</script>
+
+
+</body>
+
+  </html>
