@@ -2,134 +2,222 @@
 <html lang="fa" dir="rtl" data-theme="dark">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 
-<meta id="themeColor" name="theme-color" content="#0f1216">
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1,viewport-fit=cover"
+>
+
+<meta
+  id="themeColor"
+  name="theme-color"
+  content="#0d1014"
+>
+
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="REDSUN">
+
+<meta
+  name="apple-mobile-web-app-status-bar-style"
+  content="black-translucent"
+>
+
+<meta
+  name="apple-mobile-web-app-title"
+  content="REDSUN"
+>
 
 <link rel="manifest" href="./manifest.json">
-<link rel="apple-touch-icon" href="./redsun-icon.png">
-<link rel="icon" type="image/png" href="./redsun-icon.png">
 
-<title>REDSUN | مدیریت قیمت محصولات</title>
+<link
+  rel="apple-touch-icon"
+  href="./redsun-icon.png"
+>
+
+<link
+  rel="icon"
+  type="image/png"
+  href="./redsun-icon.png"
+>
+
+<title>REDSUN</title>
+
 
 <style>
-:root{
-  --red:#d62f38;
-  --red2:#ff5962;
-  --red3:#941e25;
 
-  --green:#229764;
-  --danger:#c6324d;
+:root{
+
+  --red:#d92f39;
+  --red2:#f34d57;
+  --red3:#a81f29;
+
+  --green:#1f9d63;
+  --green2:#157346;
+
+  --danger:#c9314b;
 
   --radius-xl:30px;
   --radius-lg:24px;
   --radius-md:18px;
 
-  --transition:.28s ease;
+  --transition:.24s ease;
 }
 
-/* =========================
+
+/* =====================================
    NIGHT
-========================= */
+===================================== */
 
 html[data-theme="dark"]{
-  --bg:#0d1013;
+
+  --bg:#0c0f13;
   --bg2:#171b20;
-  --bg3:#272c32;
+  --bg3:#282d33;
 
-  --glass:rgba(35,40,46,.54);
-  --glass-strong:rgba(53,59,66,.72);
-  --glass-soft:rgba(255,255,255,.07);
+  --glass:
+    rgba(34,39,45,.54);
 
-  --border:rgba(230,235,239,.19);
-  --border-soft:rgba(255,255,255,.08);
+  --glass-strong:
+    rgba(53,59,66,.72);
 
-  --text:#f7f9fa;
-  --muted:#aeb7bf;
+  --glass-soft:
+    rgba(255,255,255,.065);
 
-  --input:#f6f7f8;
-  --input-text:#1f2429;
+  --line:
+    rgba(230,235,239,.18);
+
+  --line-soft:
+    rgba(255,255,255,.075);
+
+  --text:#f8f9fa;
+
+  --muted:#abb4bd;
+
+  --field:#f7f8f9;
+
+  --field-text:#1f2429;
 
   --table:#ffffff;
-  --table-alt:#f3f5f6;
+
+  --table-alt:#f4f5f6;
+
   --table-text:#1d2125;
 
   --shadow:
-    0 28px 78px rgba(0,0,0,.42);
+    0 28px 80px
+    rgba(0,0,0,.43);
+
 }
 
-/* =========================
+
+/* =====================================
    DAY
-========================= */
+===================================== */
 
 html[data-theme="light"]{
+
   --bg:#e9edf0;
-  --bg2:#f8f9fa;
+  --bg2:#f7f9fa;
   --bg3:#dce2e7;
 
-  --glass:rgba(255,255,255,.60);
-  --glass-strong:rgba(255,255,255,.84);
-  --glass-soft:rgba(255,255,255,.56);
+  --glass:
+    rgba(255,255,255,.60);
 
-  --border:rgba(88,98,108,.18);
-  --border-soft:rgba(60,70,80,.08);
+  --glass-strong:
+    rgba(255,255,255,.84);
+
+  --glass-soft:
+    rgba(255,255,255,.56);
+
+  --line:
+    rgba(90,100,110,.17);
+
+  --line-soft:
+    rgba(60,70,80,.075);
 
   --text:#24292e;
-  --muted:#68727b;
 
-  --input:#ffffff;
-  --input-text:#1e2327;
+  --muted:#6d767e;
+
+  --field:#ffffff;
+
+  --field-text:#1d2227;
 
   --table:#ffffff;
+
   --table-alt:#f5f7f8;
-  --table-text:#1e2327;
+
+  --table-text:#1d2227;
 
   --shadow:
-    0 24px 60px rgba(65,75,85,.15);
+    0 25px 65px
+    rgba(65,75,85,.15);
+
 }
+
+
+/* =====================================
+   GLOBAL
+===================================== */
 
 *{
   box-sizing:border-box;
+
+  -webkit-tap-highlight-color:
+    transparent !important;
 }
+
 
 html,
 body{
+
   margin:0;
+
   min-height:100%;
-  font-family:Tahoma,Arial,sans-serif;
+
+  font-family:
+    Tahoma,
+    Arial,
+    sans-serif;
+
 }
+
 
 html{
-  background:var(--bg);
+
+  background:
+    var(--bg);
+
 }
 
+
 body{
-  min-height:100dvh;
+
+  min-height:
+    100dvh;
 
   overflow-x:hidden;
 
-  color:var(--text);
+  color:
+    var(--text);
 
   background:
+
     radial-gradient(
-      circle at 8% 8%,
+      circle at 8% 7%,
       rgba(255,255,255,.10),
       transparent 23%
     ),
 
     radial-gradient(
-      circle at 92% 10%,
-      rgba(214,47,56,.22),
-      transparent 24%
+      circle at 92% 11%,
+      rgba(218,47,57,.21),
+      transparent 25%
     ),
 
     radial-gradient(
-      circle at 79% 87%,
-      rgba(214,47,56,.09),
-      transparent 26%
+      circle at 80% 88%,
+      rgba(218,47,57,.08),
+      transparent 25%
     ),
 
     linear-gradient(
@@ -142,14 +230,13 @@ body{
   transition:
     background var(--transition),
     color var(--transition);
+
 }
 
-/* =========================
-   BACKGROUND GLOW
-========================= */
 
 body::before,
 body::after{
+
   content:"";
 
   position:fixed;
@@ -158,115 +245,237 @@ body::after{
 
   z-index:0;
 
-  filter:blur(24px);
+  filter:
+    blur(26px);
 
-  opacity:.9;
 }
 
+
 body::before{
-  width:640px;
-  height:300px;
+
+  width:650px;
+
+  height:310px;
 
   right:-190px;
-  bottom:-70px;
+
+  bottom:-80px;
 
   border-radius:50%;
 
   background:
+
     radial-gradient(
-      ellipse at 30% 45%,
+      ellipse at 30% 44%,
       rgba(255,255,255,.14),
       transparent 31%
     ),
 
     radial-gradient(
       ellipse at 65% 48%,
-      rgba(214,47,56,.31),
+      rgba(218,47,57,.30),
       transparent 44%
     );
 
   animation:
-    ambient1
+    ambientOne
     13s
     ease-in-out
     infinite alternate;
+
 }
 
-body::after{
-  width:540px;
-  height:270px;
 
-  left:-185px;
-  top:34%;
+body::after{
+
+  width:560px;
+
+  height:280px;
+
+  left:-200px;
+
+  top:36%;
 
   border-radius:50%;
 
   background:
+
     radial-gradient(
       ellipse at 45% 42%,
-      rgba(255,255,255,.10),
+      rgba(255,255,255,.09),
       transparent 35%
     ),
 
     radial-gradient(
       ellipse at 67% 58%,
-      rgba(115,125,135,.14),
+      rgba(115,125,135,.13),
       transparent 44%
     );
 
   animation:
-    ambient2
+    ambientTwo
     16s
     ease-in-out
     infinite alternate;
+
 }
 
-@keyframes ambient1{
+
+@keyframes ambientOne{
+
   to{
+
     transform:
       translate(-28px,-18px)
       rotate(5deg);
+
   }
+
 }
 
-@keyframes ambient2{
+
+@keyframes ambientTwo{
+
   to{
+
     transform:
       translate(30px,20px)
       rotate(-5deg);
+
   }
+
 }
+
 
 button,
 input,
 select{
+
   font:inherit;
+
+  -webkit-tap-highlight-color:
+    transparent !important;
+
 }
+
 
 button{
+
   cursor:pointer;
+
+  outline:none !important;
+
+  user-select:none;
+
 }
+
+
+button:focus,
+button:active,
+button:focus-visible{
+
+  outline:none !important;
+
+}
+
 
 svg{
+
   display:block;
+
 }
 
+
 .app{
+
   position:relative;
+
   z-index:2;
 
-  width:min(1180px,100%);
+  width:
+    min(1180px,100%);
 
   margin:auto;
 
-  padding:10px;
+  padding:9px;
+
 }
 
-/* =========================
-   SPLASH / LOGO MOTION
-========================= */
+
+/* =====================================
+   GLOW GLASS
+===================================== */
+
+.glass{
+
+  position:relative;
+
+  overflow:hidden;
+
+  border:
+    1px solid
+    var(--line);
+
+  background:
+
+    linear-gradient(
+      135deg,
+      var(--glass-strong),
+      var(--glass)
+    );
+
+  box-shadow:
+
+    var(--shadow),
+
+    inset 0 1px 0
+    rgba(255,255,255,.17);
+
+  backdrop-filter:
+    blur(26px)
+    saturate(145%);
+
+  -webkit-backdrop-filter:
+    blur(26px)
+    saturate(145%);
+
+}
+
+
+.glass::before{
+
+  content:"";
+
+  position:absolute;
+
+  pointer-events:none;
+
+  height:1px;
+
+  left:24px;
+
+  right:24px;
+
+  top:0;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.50),
+      transparent
+    );
+
+}
+
+
+/* =====================================
+   INTRO
+===================================== */
 
 .splash{
+
   position:fixed;
 
   inset:0;
@@ -282,6 +491,7 @@ svg{
   overflow:hidden;
 
   background:
+
     radial-gradient(
       circle at 50% 38%,
       rgba(255,255,255,.13),
@@ -289,8 +499,8 @@ svg{
     ),
 
     radial-gradient(
-      circle at 50% 54%,
-      rgba(214,47,56,.23),
+      circle at 50% 55%,
+      rgba(218,47,57,.22),
       transparent 32%
     ),
 
@@ -298,25 +508,30 @@ svg{
       145deg,
       #0d1013,
       #1d2228 54%,
-      #343a40
+      #353a40
     );
 
   animation:
     splashExit
-    .75s
+    .7s
     ease
-    4.15s forwards;
+    3.9s forwards;
+
 }
 
+
 .splash::before{
+
   content:"";
 
   position:absolute;
 
   width:760px;
+
   height:330px;
 
   left:50%;
+
   bottom:-165px;
 
   transform:
@@ -327,36 +542,38 @@ svg{
     58% 42% 58% 42%;
 
   background:
+
     radial-gradient(
       ellipse at 30% 35%,
-      rgba(255,255,255,.18),
+      rgba(255,255,255,.17),
       transparent 32%
     ),
 
     radial-gradient(
       ellipse at 65% 45%,
-      rgba(214,47,56,.44),
+      rgba(218,47,57,.43),
       transparent 42%
     );
 
-  filter:blur(12px);
+  filter:
+    blur(12px);
 
-  animation:
-    splashWave
-    3.6s
-    ease-in-out
-    infinite alternate;
 }
 
+
 .splashInner{
+
   position:relative;
 
   z-index:2;
 
   text-align:center;
+
 }
 
+
 .splashLogo{
+
   font:
     900 42px
     Arial,
@@ -370,29 +587,41 @@ svg{
   opacity:0;
 
   transform:
-    scale(.72)
-    translateY(12px);
+    scale(.74);
 
   text-shadow:
-    0 0 10px rgba(255,255,255,.22),
-    0 0 28px rgba(214,47,56,.35);
+
+    0 0 12px
+    rgba(255,255,255,.20),
+
+    0 0 30px
+    rgba(218,47,57,.35);
 
   animation:
-    logoReveal
-    1.05s
+    revealLogo
+    1s
     cubic-bezier(.2,.8,.2,1)
-    .25s forwards;
+    .2s forwards;
+
 }
+
 
 .splashLogo span{
-  color:#f04b54;
+
+  color:
+    #f34d57;
 
   text-shadow:
-    0 0 24px rgba(240,75,84,.55);
+    0 0 24px
+    rgba(243,77,87,.52);
+
 }
 
+
 .splashLine{
+
   width:0;
+
   height:3px;
 
   margin:
@@ -401,30 +630,30 @@ svg{
   border-radius:99px;
 
   background:
+
     linear-gradient(
       90deg,
       transparent,
-      #bcc3c8,
+      #c1c6ca,
       #fff,
-      #d92f38,
+      #d92f39,
       transparent
     );
 
-  box-shadow:
-    0 0 16px rgba(255,255,255,.28),
-    0 0 24px rgba(214,47,56,.32);
-
   animation:
-    lineReveal
-    .75s
+    revealLine
+    .7s
     ease
-    1.55s forwards;
+    1.35s forwards;
+
 }
 
+
 .splashText{
+
   margin-top:12px;
 
-  color:#dfe3e6;
+  color:#dce1e4;
 
   font-size:12px;
 
@@ -433,163 +662,104 @@ svg{
   opacity:0;
 
   animation:
-    textReveal
-    .55s
+    revealText
+    .5s
     ease
-    2s forwards;
+    1.85s forwards;
+
 }
 
-@keyframes logoReveal{
-  0%{
-    opacity:0;
 
-    transform:
-      scale(.72)
-      translateY(12px);
-  }
+@keyframes revealLogo{
 
-  65%{
-    opacity:1;
+  to{
 
-    transform:
-      scale(1.06);
-  }
-
-  100%{
     opacity:1;
 
     transform:
       scale(1);
+
   }
+
 }
 
-@keyframes textReveal{
-  to{
-    opacity:1;
-  }
-}
 
-@keyframes lineReveal{
+@keyframes revealLine{
+
   to{
+
     width:225px;
+
   }
+
 }
 
-@keyframes splashWave{
-  from{
-    transform:
-      translateX(-50%)
-      rotate(-4deg);
-  }
+
+@keyframes revealText{
 
   to{
-    transform:
-      translateX(-50%)
-      translateY(-20px)
-      rotate(4deg);
+
+    opacity:1;
+
   }
+
 }
+
 
 @keyframes splashExit{
+
   to{
+
     opacity:0;
 
     visibility:hidden;
 
     pointer-events:none;
 
-    transform:
-      scale(1.03);
   }
+
 }
 
-/* =========================
-   GLASS
-========================= */
 
-.glass{
-  position:relative;
-
-  overflow:hidden;
-
-  border:
-    1px solid
-    var(--border);
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--glass-strong),
-      var(--glass)
-    );
-
-  box-shadow:
-    var(--shadow),
-    inset 0 1px 0
-    rgba(255,255,255,.17);
-
-  backdrop-filter:
-    blur(26px)
-    saturate(145%);
-
-  -webkit-backdrop-filter:
-    blur(26px)
-    saturate(145%);
-}
-
-.glass::before{
-  content:"";
-
-  position:absolute;
-
-  pointer-events:none;
-
-  height:1px;
-
-  left:24px;
-  right:24px;
-  top:0;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,.55),
-      transparent
-    );
-}
-
-/* =========================
+/* =====================================
    HEADER
-========================= */
+===================================== */
 
 .appHeader{
+
   border-radius:
     var(--radius-xl);
 
   padding:
-    15px 16px;
+    14px 16px;
+
+  margin-bottom:11px;
 
   display:flex;
 
   align-items:center;
 
-  justify-content:space-between;
+  justify-content:
+    space-between;
 
-  gap:12px;
+  gap:10px;
 
-  margin-bottom:12px;
 }
 
+
 .identity{
+
   position:relative;
 
   z-index:2;
 
   min-width:0;
+
 }
 
+
 .brandMark{
+
   font:
     900 31px
     Arial,
@@ -599,17 +769,24 @@ svg{
   letter-spacing:6px;
 
   white-space:nowrap;
+
 }
+
 
 .brandMark .r{
-  color:var(--red2);
+
+  color:
+    var(--red2);
 
   text-shadow:
-    0 0 16px
-    rgba(255,89,98,.32);
+    0 0 14px
+    rgba(243,77,87,.30);
+
 }
 
+
 .brandSub{
+
   margin-top:4px;
 
   color:
@@ -617,14 +794,11 @@ svg{
 
   font-size:11px;
 
-  white-space:nowrap;
-
-  overflow:hidden;
-
-  text-overflow:ellipsis;
 }
 
+
 .topControls{
+
   position:relative;
 
   z-index:2;
@@ -634,9 +808,12 @@ svg{
   align-items:center;
 
   gap:8px;
+
 }
 
-.statusPill{
+
+.status{
+
   display:flex;
 
   align-items:center;
@@ -644,13 +821,13 @@ svg{
   gap:7px;
 
   padding:
-    8px 11px;
+    8px 10px;
 
   border:
     1px solid
-    var(--border);
+    var(--line);
 
-  border-radius:15px;
+  border-radius:14px;
 
   background:
     var(--glass-soft);
@@ -658,33 +835,39 @@ svg{
   color:
     var(--muted);
 
-  font-size:11px;
+  font-size:10px;
+
 }
 
-.statusDot{
-  width:9px;
 
-  height:9px;
+.dot{
+
+  width:8px;
+
+  height:8px;
 
   border-radius:50%;
 
-  background:#25bf79;
+  background:#25bd78;
 
   box-shadow:
-    0 0 13px
-    rgba(37,191,121,.85);
+    0 0 12px
+    rgba(37,189,120,.80);
+
 }
 
-.iconButton{
-  width:48px;
 
-  height:48px;
+.themeButton{
+
+  width:46px;
+
+  height:46px;
 
   border:
     1px solid
-    var(--border);
+    var(--line);
 
-  border-radius:17px;
+  border-radius:16px;
 
   display:grid;
 
@@ -698,49 +881,76 @@ svg{
 
   box-shadow:
     inset 0 1px 0
-    rgba(255,255,255,.14);
+    rgba(255,255,255,.12);
+
+  transition:
+    transform .12s ease;
+
 }
 
-.iconButton:active{
+
+.themeButton:active{
+
   transform:
     scale(.94);
+
+  background:
+    var(--glass-soft);
+
 }
 
-.iconButton svg{
-  width:24px;
 
-  height:24px;
+.themeButton svg{
+
+  width:23px;
+
+  height:23px;
+
 }
+
 
 .sunIcon,
 .moonIcon{
+
   display:none;
+
 }
+
 
 html[data-theme="dark"]
 .moonIcon{
+
   display:block;
+
 }
+
 
 html[data-theme="light"]
 .sunIcon{
+
   display:block;
+
 }
 
-/* =========================
+
+/* =====================================
    SECTIONS
-========================= */
+===================================== */
 
 .section{
+
   border-radius:
     var(--radius-xl);
 
-  padding:16px;
+  padding:15px;
 
-  margin-bottom:12px;
+  margin-bottom:11px;
+
 }
 
+
 .sectionHead{
+
   position:relative;
 
   z-index:2;
@@ -749,35 +959,41 @@ html[data-theme="light"]
 
   align-items:center;
 
-  gap:10px;
+  gap:9px;
 
-  margin-bottom:16px;
+  margin-bottom:15px;
+
 }
 
+
 .sectionTitle{
+
   font-size:15px;
 
   font-weight:800;
+
 }
 
-.sectionSubtitle{
+
+.sectionSub{
+
   margin-top:3px;
+
+  font-size:11px;
 
   color:
     var(--muted);
 
-  font-size:11px;
 }
 
-/* =========================
-   ICONS
-   بعضی نمادها بدون کادر
-========================= */
+
+/* icon without card */
 
 .freeIcon{
-  width:30px;
 
-  height:30px;
+  width:29px;
+
+  height:29px;
 
   flex:
     0 0 auto;
@@ -787,205 +1003,237 @@ html[data-theme="light"]
 
   filter:
     drop-shadow(
-      0 0 10px
-      rgba(255,89,98,.22)
+      0 0 9px
+      rgba(243,77,87,.22)
     );
+
 }
 
+
 .freeIcon.silver{
+
   color:
     var(--text);
 
-  opacity:.9;
+  opacity:.88;
 
   filter:none;
+
 }
 
-/* فقط جاهایی که واقعاً لازم است قاب دارد */
 
-.framedIcon{
+/* Only important product section gets framed mark */
+
+.productMark{
+
   width:44px;
 
   height:44px;
+
+  display:grid;
+
+  place-items:center;
 
   flex:
     0 0 auto;
 
   border-radius:15px;
 
-  display:grid;
-
-  place-items:center;
-
   color:#fff;
 
   background:
+
     radial-gradient(
-      circle at 25% 20%,
-      rgba(255,255,255,.28),
+      circle at 26% 20%,
+      rgba(255,255,255,.26),
       transparent 28%
     ),
 
     linear-gradient(
       145deg,
-      #ed4f57,
-      #a51f27
+      #eb4d56,
+      #aa2029
     );
 
   border:
     1px solid
-    rgba(255,255,255,.16);
+    rgba(255,255,255,.15);
 
   box-shadow:
-    0 9px 23px
-    rgba(156,30,38,.27),
+    0 8px 22px
+    rgba(166,31,40,.25);
 
-    inset 0 1px 0
-    rgba(255,255,255,.18);
 }
 
-.framedIcon svg{
+
+.productMark svg{
+
   width:23px;
 
   height:23px;
+
 }
 
-/* =========================
-   RATE
-========================= */
+
+/* =====================================
+   PRICE SETTINGS
+===================================== */
 
 .rateGrid{
+
   display:grid;
 
   grid-template-columns:
     1.45fr 1fr;
 
-  gap:12px;
+  gap:11px;
+
 }
 
-.inputCard{
-  position:relative;
 
-  padding:13px;
+.periodGrid{
+
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:9px;
+
+}
+
+
+.fieldCard{
+
+  padding:12px;
 
   border:
     1px solid
-    var(--border-soft);
+    var(--line-soft);
 
   border-radius:
-    var(--radius-lg);
+    22px;
 
   background:
     var(--glass-soft);
+
 }
 
-.inputLabel{
+
+.fieldName{
+
   display:flex;
 
   align-items:center;
 
-  gap:8px;
+  gap:7px;
 
   margin-bottom:8px;
 
   color:
     var(--muted);
 
-  font-size:12px;
+  font-size:11px;
+
 }
 
-.inputLabel svg{
-  width:19px;
 
-  height:19px;
+.fieldName svg{
+
+  width:18px;
+
+  height:18px;
 
   color:
     var(--red2);
+
 }
 
-.periodGrid{
-  display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:10px;
-}
 
 input,
 select{
+
   width:100%;
 
   min-height:48px;
 
   border:
     1px solid
-    var(--border);
+    var(--line);
 
-  border-radius:17px;
+  border-radius:16px;
 
   outline:none;
 
   padding:
-    11px 13px;
+    10px 13px;
 
   color:
-    var(--input-text);
+    var(--field-text);
 
   background:
-    var(--input);
+    var(--field);
 
   box-shadow:
     inset 0 1px 0
-    rgba(255,255,255,.68),
+    rgba(255,255,255,.70),
 
-    0 6px 15px
-    rgba(0,0,0,.06);
+    0 5px 14px
+    rgba(0,0,0,.055);
+
 }
+
 
 input:focus,
 select:focus{
-  border-color:#e2525a;
+
+  outline:none;
+
+  border-color:
+    rgba(218,47,57,.45);
 
   box-shadow:
-    0 0 0 4px
-    rgba(214,47,56,.10),
+    0 0 0 3px
+    rgba(218,47,57,.08);
 
-    0 0 20px
-    rgba(214,47,56,.11);
 }
 
-/* =========================
-   ACTIONS
-========================= */
+
+/* =====================================
+   MANAGEMENT BUTTONS
+===================================== */
 
 .quickActions{
+
   display:grid;
 
   grid-template-columns:
     repeat(3,1fr);
 
-  gap:10px;
+  gap:9px;
+
 }
 
-.actionCard{
+
+.actionButton{
+
   position:relative;
 
   overflow:hidden;
 
+  min-height:92px;
+
   border:
     1px solid
-    var(--border);
+    var(--line);
 
-  min-height:96px;
-
-  border-radius:22px;
-
-  color:
-    var(--text);
+  border-radius:21px;
 
   background:
     var(--glass-soft);
+
+  color:
+    var(--text);
 
   display:flex;
 
@@ -999,100 +1247,137 @@ select:focus{
 
   box-shadow:
     inset 0 1px 0
-    rgba(255,255,255,.13);
+    rgba(255,255,255,.10);
+
+  transition:
+    transform .12s ease,
+    border-color .12s ease,
+    background .12s ease;
+
 }
 
-.actionCard::after{
+
+.actionButton::after{
+
   content:"";
 
   position:absolute;
 
-  width:90px;
+  width:82px;
 
-  height:90px;
+  height:82px;
 
-  right:-45px;
+  top:-42px;
 
-  top:-45px;
+  right:-42px;
 
   border-radius:50%;
 
   background:
-    rgba(214,47,56,.11);
+    rgba(218,47,57,.09);
+
 }
 
-/* نمادهای عملیات خودشان کادر جدا ندارند */
 
-.actionGlyph{
-  width:34px;
+.actionButton:hover{
 
-  height:34px;
+  border-color:
+    rgba(218,47,57,.22);
 
-  display:grid;
+}
 
-  place-items:center;
+
+.actionButton:active{
+
+  transform:
+    scale(.975);
+
+  background:
+    var(--glass-soft);
+
+  color:
+    var(--text);
+
+}
+
+
+.actionButton:focus{
+
+  background:
+    var(--glass-soft);
+
+  color:
+    var(--text);
+
+}
+
+
+.actionIcon{
 
   position:relative;
 
   z-index:2;
+
+  width:31px;
+
+  height:31px;
 
   color:
     var(--red2);
+
 }
 
-.actionGlyph.silver{
+
+.actionIcon.silver{
+
   color:
     var(--text);
+
 }
 
-.actionGlyph svg{
-  width:30px;
-
-  height:30px;
-
-  filter:
-    drop-shadow(
-      0 0 8px
-      rgba(214,47,56,.14)
-    );
-}
 
 .actionLabel{
+
   position:relative;
 
   z-index:2;
 
-  font-size:12px;
+  font-size:11px;
 
   font-weight:700;
+
 }
 
-/* =========================
+
+/* =====================================
    TABLE
-========================= */
+===================================== */
 
 .tableShell{
+
   overflow:hidden;
 
-  border-radius:24px;
+  border-radius:23px;
 
   border:
     1px solid
-    var(--border);
+    var(--line);
 
-  box-shadow:
-    inset 0 1px 0
-    rgba(255,255,255,.08);
 }
 
+
 .tableScroll{
+
   overflow:auto;
 
   -webkit-overflow-scrolling:
     touch;
+
 }
 
+
 table{
+
   width:100%;
 
   min-width:970px;
@@ -1102,16 +1387,19 @@ table{
   border-collapse:separate;
 
   border-spacing:0;
+
 }
 
+
 thead th{
+
   position:sticky;
 
   top:0;
 
   z-index:3;
 
-  height:55px;
+  height:54px;
 
   padding:
     10px 8px;
@@ -1121,21 +1409,25 @@ thead th{
   color:#fff;
 
   background:
+
     linear-gradient(
       180deg,
-      #d8454d,
-      #a9242c
+      #da3e47,
+      #af252e
     );
 
   border-left:
     1px solid
-    rgba(255,255,255,.12);
+    rgba(255,255,255,.11);
 
   font-size:12px;
+
 }
 
+
 tbody td{
-  height:73px;
+
+  height:72px;
 
   padding:
     9px 8px;
@@ -1155,22 +1447,28 @@ tbody td{
   border-bottom:
     1px solid
     #dde1e4;
+
 }
+
 
 tbody tr:nth-child(even) td{
+
   background:
     var(--table-alt);
+
 }
 
+
 td.product{
+
   text-align:right;
 
   font-weight:700;
 
   line-height:1.8;
 
-  white-space:normal;
 }
+
 
 .colNo{
   width:7%;
@@ -1196,42 +1494,53 @@ td.product{
   width:18%;
 }
 
-.rowBadge{
+
+.rowNo{
+
   width:34px;
 
   height:34px;
-
-  margin:auto;
-
-  border-radius:12px;
 
   display:grid;
 
   place-items:center;
 
-  font-weight:800;
+  margin:auto;
 
-  color:#971f27;
+  border-radius:11px;
 
-  background:#f9e6e7;
+  color:#99222a;
+
+  background:#f8e6e7;
 
   border:
-    1px solid
-    #edc7ca;
+    1px solid #ecc8cb;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-weight:700;
+
 }
+
 
 .productImage,
 .productPlaceholder{
+
   width:54px;
 
   height:54px;
 
-  border-radius:15px;
-
   margin:auto;
+
+  border-radius:14px;
+
 }
 
+
 .productImage{
+
   display:block;
 
   object-fit:cover;
@@ -1239,132 +1548,183 @@ td.product{
   background:#fff;
 
   border:
-    1px solid
-    #d9dde0;
+    1px solid #d9dde0;
+
 }
 
+
 .productPlaceholder{
+
   display:grid;
 
   place-items:center;
 
-  background:#e8ecef;
+  background:#e9ecef;
 
-  color:#879098;
+  color:#7e878f;
+
 }
 
-.moneyBadge{
+
+/* No capsules around dollar values */
+
+.dollarValue{
+
+  direction:ltr;
+
+  unicode-bidi:isolate;
+
   display:inline-block;
 
-  min-width:105px;
+  color:#353b40;
 
-  padding:
-    8px 9px;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  border-radius:12px;
+  font-size:14px;
 
-  color:#921f27;
+  font-weight:700;
+
+}
+
+
+/* Clean consumer price */
+
+.priceValue{
+
+  direction:ltr;
+
+  unicode-bidi:isolate;
+
+  display:inline-block;
+
+  color:#a3242d;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:15px;
 
   font-weight:800;
 
-  background:
-    linear-gradient(
-      180deg,
-      #fff2f3,
-      #f6e5e7
-    );
-
-  border:
-    1px solid
-    #ecc3c6;
 }
 
-.dollarBadge{
-  display:inline-block;
 
-  min-width:68px;
+/* =====================================
+   TABLE BUTTONS
+===================================== */
 
-  padding:
-    7px 8px;
+.tableButtons{
 
-  border-radius:11px;
-
-  color:#45505a;
-
-  background:#edf0f2;
-
-  border:
-    1px solid
-    #d9dde0;
-}
-
-.tableActions{
   display:flex;
+
+  align-items:center;
 
   justify-content:center;
 
   gap:6px;
+
 }
 
-.btn{
-  border:0;
 
-  min-height:36px;
+.smallButton{
+
+  min-height:38px;
+
+  min-width:66px;
+
+  border:0;
 
   border-radius:12px;
 
   padding:
-    7px 11px;
+    7px 10px;
 
   color:#fff;
 
+  font-size:11px;
+
   font-weight:700;
+
+  transition:
+    transform .12s ease,
+    opacity .12s ease;
+
 }
 
-.editBtn{
+
+.smallButton:active{
+
+  transform:
+    scale(.96);
+
+}
+
+
+.editButton{
+
   background:
+
     linear-gradient(
       145deg,
-      #2cb070,
-      #197348
+      #28aa6b,
+      #18804e
     );
+
 }
 
-.deleteBtn{
+
+.deleteButton{
+
   background:
+
     linear-gradient(
       145deg,
-      #e44b5e,
-      #a32339
+      #dc4157,
+      #a82338
     );
+
 }
 
-.empty{
-  text-align:center;
 
-  padding:26px;
+.editButton:focus,
+.editButton:active{
 
-  color:
-    var(--muted);
+  background:
+
+    linear-gradient(
+      145deg,
+      #28aa6b,
+      #18804e
+    );
+
 }
 
-.footer{
-  text-align:center;
 
-  padding:
-    4px 0 14px;
+.deleteButton:focus,
+.deleteButton:active{
 
-  color:
-    var(--muted);
+  background:
 
-  font-size:10px;
+    linear-gradient(
+      145deg,
+      #dc4157,
+      #a82338
+    );
+
 }
 
-/* =========================
+
+/* =====================================
    MODALS
-========================= */
+===================================== */
 
 .modalBack{
+
   position:fixed;
 
   inset:0;
@@ -1376,110 +1736,149 @@ td.product{
   padding:9px;
 
   background:
-    rgba(5,7,9,.70);
+    rgba(6,8,10,.66);
 
   backdrop-filter:
-    blur(15px);
+    blur(13px);
 
   -webkit-backdrop-filter:
-    blur(15px);
+    blur(13px);
 
   overflow-y:auto;
 
   -webkit-overflow-scrolling:
     touch;
 
-  touch-action:
-    pan-y;
+  touch-action:pan-y;
 
   align-items:flex-start;
 
   justify-content:center;
+
 }
+
 
 .modalBack.show{
+
   display:flex;
+
 }
 
+
 .modal{
+
   position:relative;
 
   width:
     min(560px,100%);
 
-  margin:
-    auto 0;
+  margin:auto 0;
 
   max-height:
     calc(100dvh - 18px);
 
   overflow-y:auto;
 
+  overflow-x:hidden;
+
   -webkit-overflow-scrolling:
     touch;
 
-  touch-action:
-    pan-y;
+  touch-action:pan-y;
 
-  border-radius:31px;
+  border-radius:30px;
 
   padding:
-    20px 17px;
+    19px 16px 18px;
+
 }
 
-.modalTopIcon{
-  width:66px;
 
-  height:66px;
+/* Important:
+   NO sticky white rectangular bar
+*/
 
-  margin:
-    2px auto 12px;
+.modalActions{
 
-  border-radius:22px;
+  display:grid;
+
+  grid-template-columns:
+    1fr 1.15fr;
+
+  gap:10px;
+
+  margin-top:18px;
+
+  padding:0;
+
+  background:none !important;
+
+  position:static;
+
+}
+
+
+.modalHero{
+
+  width:64px;
+
+  height:64px;
 
   display:grid;
 
   place-items:center;
 
+  margin:
+    3px auto 12px;
+
+  border-radius:21px;
+
   color:#fff;
 
   background:
+
     radial-gradient(
       circle at 24% 18%,
-      rgba(255,255,255,.28),
-      transparent 27%
+      rgba(255,255,255,.25),
+      transparent 28%
     ),
 
     linear-gradient(
       145deg,
-      #ea4e57,
-      #8f1c24
+      #ea4b54,
+      #a5212a
     );
 
   box-shadow:
-    0 13px 30px
-    rgba(143,28,36,.32),
+    0 11px 27px
+    rgba(165,33,42,.28);
 
-    inset 0 1px 0
-    rgba(255,255,255,.18);
 }
 
-.modalTopIcon svg{
-  width:32px;
 
-  height:32px;
+.modalHero svg{
+
+  width:31px;
+
+  height:31px;
+
 }
+
 
 .modal h2{
+
   text-align:center;
 
   margin:
-    0 45px 5px;
+    0 42px 5px;
 
   font-size:20px;
+
 }
 
+
 .modalDescription{
+
   text-align:center;
 
   color:
@@ -1487,25 +1886,28 @@ td.product{
 
   font-size:11px;
 
-  margin-bottom:17px;
+  margin-bottom:18px;
+
 }
 
-.closeModal{
+
+.closeButton{
+
   position:absolute;
 
   left:13px;
 
   top:12px;
 
-  width:43px;
+  width:42px;
 
-  height:43px;
-
-  border-radius:50%;
+  height:42px;
 
   border:
     1px solid
-    var(--border);
+    var(--line);
+
+  border-radius:50%;
 
   color:
     var(--text);
@@ -1513,19 +1915,37 @@ td.product{
   background:
     var(--glass-soft);
 
-  font-size:25px;
+  font-size:24px;
+
+  line-height:1;
+
+  display:grid;
+
+  place-items:center;
+
 }
 
-.field{
-  margin-bottom:14px;
+
+.closeButton:active,
+.closeButton:focus{
+
+  background:
+    var(--glass-soft);
+
+  color:
+    var(--text);
+
 }
 
-.fieldLabel{
-  display:flex;
 
-  align-items:center;
+.formField{
 
-  gap:7px;
+  margin-bottom:15px;
+
+}
+
+
+.formLabel{
 
   margin-bottom:7px;
 
@@ -1533,196 +1953,413 @@ td.product{
     var(--muted);
 
   font-size:12px;
+
 }
 
-.fieldLabel svg{
+
+/* No ugly little square icons beside form labels */
+
+.formLabelRow{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:flex-start;
+
+  gap:7px;
+
+}
+
+
+.formLabelRow svg{
+
   width:18px;
 
   height:18px;
 
   color:
     var(--red2);
+
+  flex:
+    0 0 auto;
+
 }
 
+
+.modal input{
+
+  min-height:58px;
+
+  border-radius:18px;
+
+  font-size:16px;
+
+}
+
+
+/* Image uploader */
+
 .uploadBox{
+
   position:relative;
 
+  width:100%;
+
+  min-height:125px;
+
   border:
-    2px dashed
-    var(--border);
+    1.5px dashed
+    rgba(150,158,165,.42);
 
   border-radius:20px;
 
-  padding:20px;
+  display:flex;
 
-  text-align:center;
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:8px;
 
   background:
     var(--glass-soft);
+
+  overflow:hidden;
+
 }
 
+
 .uploadBox input{
+
   position:absolute;
 
   inset:0;
 
+  width:100%;
+
+  height:100%;
+
   opacity:0;
+
+  cursor:pointer;
+
 }
 
+
 .uploadIcon{
-  width:42px;
 
-  height:42px;
+  width:36px;
 
-  margin:
-    0 auto 8px;
+  height:36px;
 
   color:
     var(--red2);
+
 }
+
+
+.uploadText{
+
+  color:
+    var(--text);
+
+  font-size:13px;
+
+  font-weight:700;
+
+}
+
+
+.uploadHint{
+
+  color:
+    var(--muted);
+
+  font-size:10px;
+
+}
+
 
 .preview{
+
   display:none;
 
-  width:100px;
+  width:100%;
 
-  height:82px;
+  max-width:190px;
 
-  object-fit:cover;
+  height:120px;
 
-  border-radius:15px;
+  object-fit:contain;
 
-  margin-top:10px;
-}
+  border-radius:16px;
 
-.modalButtons{
-  position:sticky;
-
-  bottom:-1px;
-
-  display:grid;
-
-  grid-template-columns:
-    1fr 1.2fr;
-
-  gap:9px;
-
-  margin-top:17px;
-
-  padding-top:12px;
+  margin:
+    10px auto 0;
 
   background:
-    linear-gradient(
-      transparent,
-      var(--glass-strong) 34%
-    );
+    rgba(255,255,255,.25);
+
 }
 
-.modalButton{
-  min-height:47px;
 
-  border-radius:15px;
+/* =====================================
+   MODAL BUTTONS
+===================================== */
+
+.modalButton{
+
+  min-height:54px;
 
   border:
     1px solid
-    var(--border);
+    var(--line);
+
+  border-radius:17px;
+
+  padding:
+    10px 14px;
+
+  font-size:14px;
 
   font-weight:800;
+
+  transition:
+    transform .12s ease;
+
 }
 
+
+.modalButton:active{
+
+  transform:
+    scale(.975);
+
+}
+
+
 .cancelButton{
+
   color:
     var(--text);
 
   background:
     var(--glass-soft);
+
 }
 
+
+.cancelButton:focus,
+.cancelButton:active{
+
+  color:
+    var(--text);
+
+  background:
+    var(--glass-soft);
+
+}
+
+
 .saveButton{
+
+  color:#fff;
+
+  border-color:
+    rgba(206,48,57,.30);
+
+  background:
+
+    linear-gradient(
+      145deg,
+      #ef4e58,
+      #c92c36
+    );
+
+  box-shadow:
+    0 9px 20px
+    rgba(182,39,48,.18);
+
+}
+
+
+.saveButton:focus,
+.saveButton:active{
+
   color:#fff;
 
   background:
+
     linear-gradient(
       145deg,
-      #ed4f58,
-      #ae232b
+      #ef4e58,
+      #c92c36
     );
+
 }
 
-/* =========================
+
+/* =====================================
+   EMPTY / FOOTER
+===================================== */
+
+.empty{
+
+  text-align:center;
+
+  padding:27px;
+
+  color:
+    var(--muted);
+
+}
+
+
+.footer{
+
+  text-align:center;
+
+  padding:
+    4px 0 14px;
+
+  color:
+    var(--muted);
+
+  font-size:10px;
+
+}
+
+
+/* =====================================
    MOBILE
-========================= */
+===================================== */
 
 @media(max-width:700px){
 
   .app{
-    padding:8px;
+
+    padding:7px;
+
   }
+
 
   .appHeader{
-    border-radius:25px;
 
     padding:12px;
+
+    border-radius:24px;
+
   }
+
 
   .brandMark{
-    font-size:24px;
+
+    font-size:23px;
+
   }
+
 
   .brandSub{
-    font-size:10px;
+
+    font-size:9.5px;
+
   }
 
-  .statusPill{
+
+  .status{
+
     display:none;
+
   }
 
-  .iconButton{
-    width:44px;
 
-    height:44px;
+  .themeButton{
+
+    width:43px;
+
+    height:43px;
+
   }
+
 
   .section{
-    border-radius:25px;
 
-    padding:14px;
+    padding:13px;
+
+    border-radius:24px;
+
   }
+
 
   .rateGrid{
-    grid-template-columns:1fr;
+
+    grid-template-columns:
+      1fr;
+
   }
+
 
   .periodGrid{
+
     grid-template-columns:
       1fr 1fr;
+
   }
+
 
   .quickActions{
+
     grid-template-columns:
       repeat(3,1fr);
+
   }
 
-  .actionCard{
-    min-height:90px;
+
+  .actionButton{
+
+    min-height:86px;
+
   }
+
 
   .actionLabel{
-    font-size:11px;
+
+    font-size:10.5px;
+
   }
 
+
   .modal{
+
     border-radius:26px;
+
+    padding:
+      18px 14px;
+
+  }
+
+
+  .modalActions{
+
+    grid-template-columns:
+      1fr 1.15fr;
+
   }
 
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<!-- لوگوموشن بدون عکس آیکون -->
+
+<!-- INTRO -->
 
 <div class="splash">
 
@@ -1765,9 +2402,9 @@ td.product{
 
   <div class="topControls">
 
-    <div class="statusPill">
+    <div class="status">
 
-      <span class="statusDot"></span>
+      <span class="dot"></span>
 
       آماده
 
@@ -1775,10 +2412,10 @@ td.product{
 
 
     <button
-      class="iconButton"
+      class="themeButton"
       id="themeToggle"
       type="button"
-      aria-label="حالت شب و روز"
+      aria-label="تغییر حالت"
     >
 
       <svg
@@ -1826,13 +2463,13 @@ td.product{
 </header>
 
 
-<!-- قیمت -->
+<!-- PRICE -->
 
 <section class="section glass">
 
   <div class="sectionHead">
 
-    <!-- نماد پول بدون کادر -->
+    <!-- money icon without frame -->
 
     <svg
       class="freeIcon"
@@ -1849,7 +2486,7 @@ td.product{
       />
 
       <path
-        d="M9.2 9.5h4.5a2 2 0 0 1 0 4h-3.4a2 2 0 0 0 0 4h4.5M12 7v10"
+        d="M9.2 9.4h4.5a2 2 0 1 1 0 4h-3.4a2 2 0 0 0 0 4h4.4M12 7v10"
         stroke="currentColor"
         stroke-width="1.6"
         stroke-linecap="round"
@@ -1864,7 +2501,7 @@ td.product{
         محاسبه قیمت
       </div>
 
-      <div class="sectionSubtitle">
+      <div class="sectionSub">
         نرخ ارز و دوره لیست قیمت
       </div>
 
@@ -1876,9 +2513,9 @@ td.product{
   <div class="rateGrid">
 
 
-    <div class="inputCard">
+    <div class="fieldCard">
 
-      <div class="inputLabel">
+      <div class="fieldName">
 
         <svg
           viewBox="0 0 24 24"
@@ -1886,14 +2523,7 @@ td.product{
         >
 
           <path
-            d="M4 12h16"
-            stroke="currentColor"
-            stroke-width="1.8"
-            stroke-linecap="round"
-          />
-
-          <path
-            d="M12 5v14"
+            d="M4 12h16M12 5v14"
             stroke="currentColor"
             stroke-width="1.8"
             stroke-linecap="round"
@@ -1918,9 +2548,9 @@ td.product{
     <div class="periodGrid">
 
 
-      <div class="inputCard">
+      <div class="fieldCard">
 
-        <div class="inputLabel">
+        <div class="fieldName">
 
           <svg
             viewBox="0 0 24 24"
@@ -1973,9 +2603,9 @@ td.product{
       </div>
 
 
-      <div class="inputCard">
+      <div class="fieldCard">
 
-        <div class="inputLabel">
+        <div class="fieldName">
 
           <svg
             viewBox="0 0 24 24"
@@ -2011,20 +2641,16 @@ td.product{
 
     </div>
 
-
   </div>
-
 
 </section>
 
 
-<!-- ابزارها -->
+<!-- MANAGEMENT -->
 
 <section class="section glass">
 
   <div class="sectionHead">
-
-    <!-- این نماد هم بدون قاب -->
 
     <svg
       class="freeIcon silver"
@@ -2032,18 +2658,18 @@ td.product{
       fill="none"
     >
 
-      <path
-        d="M4 7h16M7 4v6M17 4v6"
-        stroke="currentColor"
-        stroke-width="1.8"
-      />
-
       <rect
         x="4"
         y="5"
         width="16"
         height="15"
         rx="4"
+        stroke="currentColor"
+        stroke-width="1.8"
+      />
+
+      <path
+        d="M7 4v4M17 4v4M4 10h16"
         stroke="currentColor"
         stroke-width="1.8"
       />
@@ -2057,7 +2683,7 @@ td.product{
         ابزارهای مدیریت
       </div>
 
-      <div class="sectionSubtitle">
+      <div class="sectionSub">
         عملیات سریع برنامه
       </div>
 
@@ -2070,38 +2696,35 @@ td.product{
 
 
     <button
-      class="actionCard"
+      class="actionButton"
       id="addBtn"
       type="button"
     >
 
-      <span class="actionGlyph">
+      <svg
+        class="actionIcon"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
 
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-        >
+        <rect
+          x="4"
+          y="4"
+          width="16"
+          height="16"
+          rx="5"
+          stroke="currentColor"
+          stroke-width="1.8"
+        />
 
-          <rect
-            x="4"
-            y="4"
-            width="16"
-            height="16"
-            rx="5"
-            stroke="currentColor"
-            stroke-width="1.8"
-          />
+        <path
+          d="M12 8v8M8 12h8"
+          stroke="currentColor"
+          stroke-width="1.9"
+          stroke-linecap="round"
+        />
 
-          <path
-            d="M12 8v8M8 12h8"
-            stroke="currentColor"
-            stroke-width="1.9"
-            stroke-linecap="round"
-          />
-
-        </svg>
-
-      </span>
+      </svg>
 
       <span class="actionLabel">
         افزودن محصول
@@ -2111,33 +2734,30 @@ td.product{
 
 
     <button
-      class="actionCard"
+      class="actionButton"
       id="pdfBtn"
       type="button"
     >
 
-      <span class="actionGlyph silver">
+      <svg
+        class="actionIcon silver"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
 
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-        >
+        <path
+          d="M7 3h7l4 4v14H7z"
+          stroke="currentColor"
+          stroke-width="1.7"
+        />
 
-          <path
-            d="M7 3h7l4 4v14H7z"
-            stroke="currentColor"
-            stroke-width="1.7"
-          />
+        <path
+          d="M14 3v5h4M9 15h6"
+          stroke="currentColor"
+          stroke-width="1.7"
+        />
 
-          <path
-            d="M14 3v5h4M9 15h6"
-            stroke="currentColor"
-            stroke-width="1.7"
-          />
-
-        </svg>
-
-      </span>
+      </svg>
 
       <span class="actionLabel">
         خروجی PDF
@@ -2147,44 +2767,41 @@ td.product{
 
 
     <button
-      class="actionCard"
+      class="actionButton"
       id="settingsBtn"
       type="button"
     >
 
-      <span class="actionGlyph silver">
+      <svg
+        class="actionIcon silver"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
 
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-        >
+        <path
+          d="M7.5 10V8a4.5 4.5 0 0 1 9 0v2"
+          stroke="currentColor"
+          stroke-width="1.8"
+        />
 
-          <path
-            d="M7.5 10V8a4.5 4.5 0 0 1 9 0v2"
-            stroke="currentColor"
-            stroke-width="1.8"
-          />
+        <rect
+          x="5"
+          y="10"
+          width="14"
+          height="10"
+          rx="3"
+          stroke="currentColor"
+          stroke-width="1.8"
+        />
 
-          <rect
-            x="5"
-            y="10"
-            width="14"
-            height="10"
-            rx="3"
-            stroke="currentColor"
-            stroke-width="1.8"
-          />
+        <circle
+          cx="12"
+          cy="15"
+          r="1.2"
+          fill="currentColor"
+        />
 
-          <circle
-            cx="12"
-            cy="15"
-            r="1.2"
-            fill="currentColor"
-          />
-
-        </svg>
-
-      </span>
+      </svg>
 
       <span class="actionLabel">
         تنظیمات رمز
@@ -2195,19 +2812,16 @@ td.product{
 
   </div>
 
-
 </section>
 
 
-<!-- محصولات -->
+<!-- PRODUCTS -->
 
 <section class="section glass">
 
   <div class="sectionHead">
 
-    <!-- این بخش کادر دارد چون بخش اصلی محصول است -->
-
-    <div class="framedIcon">
+    <div class="productMark">
 
       <svg
         viewBox="0 0 24 24"
@@ -2243,7 +2857,7 @@ td.product{
         محصولات REDSUN
       </div>
 
-      <div class="sectionSubtitle">
+      <div class="sectionSub">
         مدیریت قیمت، تصویر و اطلاعات محصولات
       </div>
 
@@ -2290,6 +2904,7 @@ td.product{
 
         </thead>
 
+
         <tbody id="tbody"></tbody>
 
       </table>
@@ -2300,27 +2915,29 @@ td.product{
         class="empty"
         style="display:none"
       >
-        محصولی ثبت نشده است.
-      </div>
 
+        محصولی ثبت نشده است.
+
+      </div>
 
     </div>
 
   </div>
 
-
 </section>
 
 
 <div class="footer">
-REDSUN • SMART LIGHTING
+  REDSUN • SMART LIGHTING
 </div>
 
 
 </main>
 
 
-<!-- افزودن / ویرایش -->
+<!-- =====================================
+     ADD / EDIT PRODUCT
+===================================== -->
 
 <div
   class="modalBack"
@@ -2330,7 +2947,7 @@ REDSUN • SMART LIGHTING
   <section class="modal glass">
 
     <button
-      class="closeModal"
+      class="closeButton"
       data-close="productModal"
       type="button"
     >
@@ -2338,7 +2955,7 @@ REDSUN • SMART LIGHTING
     </button>
 
 
-    <div class="modalTopIcon">
+    <div class="modalHero">
 
       <svg
         viewBox="0 0 24 24"
@@ -2379,24 +2996,28 @@ REDSUN • SMART LIGHTING
     </div>
 
 
-    <div class="field">
+    <div class="formField">
 
-      <div class="fieldLabel">
+      <div class="formLabel">
 
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-        >
+        <div class="formLabelRow">
 
-          <path
-            d="M5 7h14v10H5z"
-            stroke="currentColor"
-            stroke-width="1.7"
-          />
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+          >
 
-        </svg>
+            <path
+              d="M5 7h14v10H5z"
+              stroke="currentColor"
+              stroke-width="1.7"
+            />
 
-        نام محصول
+          </svg>
+
+          نام محصول
+
+        </div>
 
       </div>
 
@@ -2409,32 +3030,36 @@ REDSUN • SMART LIGHTING
     </div>
 
 
-    <div class="field">
+    <div class="formField">
 
-      <div class="fieldLabel">
+      <div class="formLabel">
 
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-        >
+        <div class="formLabelRow">
 
-          <circle
-            cx="12"
-            cy="12"
-            r="8"
-            stroke="currentColor"
-            stroke-width="1.7"
-          />
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+          >
 
-          <path
-            d="M9 10h5a2 2 0 0 1 0 4h-4a2 2 0 0 0 0 4h5"
-            stroke="currentColor"
-            stroke-width="1.5"
-          />
+            <circle
+              cx="12"
+              cy="12"
+              r="8"
+              stroke="currentColor"
+              stroke-width="1.7"
+            />
 
-        </svg>
+            <path
+              d="M9 10h5a2 2 0 0 1 0 4h-4a2 2 0 0 0 0 4h5"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
 
-        قیمت دلاری
+          </svg>
+
+          قیمت دلاری
+
+        </div>
 
       </div>
 
@@ -2449,42 +3074,46 @@ REDSUN • SMART LIGHTING
     </div>
 
 
-    <div class="field">
+    <div class="formField">
 
-      <div class="fieldLabel">
+      <div class="formLabel">
 
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-        >
+        <div class="formLabelRow">
 
-          <rect
-            x="4"
-            y="5"
-            width="16"
-            height="14"
-            rx="3"
-            stroke="currentColor"
-            stroke-width="1.7"
-          />
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+          >
 
-          <circle
-            cx="9"
-            cy="10"
-            r="1.5"
-            stroke="currentColor"
-            stroke-width="1.5"
-          />
+            <rect
+              x="4"
+              y="5"
+              width="16"
+              height="14"
+              rx="3"
+              stroke="currentColor"
+              stroke-width="1.7"
+            />
 
-          <path
-            d="m6 17 4-4 3 3 2-2 3 3"
-            stroke="currentColor"
-            stroke-width="1.7"
-          />
+            <circle
+              cx="9"
+              cy="10"
+              r="1.5"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
 
-        </svg>
+            <path
+              d="m6 17 4-4 3 3 2-2 3 3"
+              stroke="currentColor"
+              stroke-width="1.7"
+            />
 
-        تصویر محصول
+          </svg>
+
+          تصویر محصول
+
+        </div>
 
       </div>
 
@@ -2513,9 +3142,13 @@ REDSUN • SMART LIGHTING
         </svg>
 
 
-        <strong>
+        <div class="uploadText">
           انتخاب تصویر محصول
-        </strong>
+        </div>
+
+        <div class="uploadHint">
+          برای انتخاب عکس این قسمت را لمس کنید
+        </div>
 
 
         <input
@@ -2536,7 +3169,11 @@ REDSUN • SMART LIGHTING
     </div>
 
 
-    <div class="modalButtons">
+    <!--
+      بدون نوار سفید پشت دکمه‌ها
+    -->
+
+    <div class="modalActions">
 
       <button
         class="modalButton cancelButton"
@@ -2562,7 +3199,9 @@ REDSUN • SMART LIGHTING
 </div>
 
 
-<!-- رمز -->
+<!-- =====================================
+     EDIT PASSWORD
+===================================== -->
 
 <div
   class="modalBack"
@@ -2572,7 +3211,7 @@ REDSUN • SMART LIGHTING
   <section class="modal glass">
 
     <button
-      class="closeModal"
+      class="closeButton"
       data-close="passwordModal"
       type="button"
     >
@@ -2580,7 +3219,7 @@ REDSUN • SMART LIGHTING
     </button>
 
 
-    <div class="modalTopIcon">
+    <div class="modalHero">
 
       <svg
         viewBox="0 0 24 24"
@@ -2618,9 +3257,9 @@ REDSUN • SMART LIGHTING
     </div>
 
 
-    <div class="field">
+    <div class="formField">
 
-      <div class="fieldLabel">
+      <div class="formLabel">
         رمز عبور
       </div>
 
@@ -2633,7 +3272,7 @@ REDSUN • SMART LIGHTING
     </div>
 
 
-    <div class="modalButtons">
+    <div class="modalActions">
 
       <button
         class="modalButton cancelButton"
@@ -2659,7 +3298,9 @@ REDSUN • SMART LIGHTING
 </div>
 
 
-<!-- حذف -->
+<!-- =====================================
+     DELETE
+===================================== -->
 
 <div
   class="modalBack"
@@ -2669,7 +3310,7 @@ REDSUN • SMART LIGHTING
   <section class="modal glass">
 
     <button
-      class="closeModal"
+      class="closeButton"
       data-close="deleteModal"
       type="button"
     >
@@ -2677,7 +3318,7 @@ REDSUN • SMART LIGHTING
     </button>
 
 
-    <div class="modalTopIcon">
+    <div class="modalHero">
 
       <svg
         viewBox="0 0 24 24"
@@ -2707,12 +3348,12 @@ REDSUN • SMART LIGHTING
 
 
     <div
-      class="modalDescription"
       id="deleteMessage"
+      class="modalDescription"
     ></div>
 
 
-    <div class="modalButtons">
+    <div class="modalActions">
 
       <button
         class="modalButton cancelButton"
@@ -2738,7 +3379,9 @@ REDSUN • SMART LIGHTING
 </div>
 
 
-<!-- تنظیمات -->
+<!-- =====================================
+     SETTINGS
+===================================== -->
 
 <div
   class="modalBack"
@@ -2748,7 +3391,7 @@ REDSUN • SMART LIGHTING
   <section class="modal glass">
 
     <button
-      class="closeModal"
+      class="closeButton"
       data-close="settingsModal"
       type="button"
     >
@@ -2756,7 +3399,7 @@ REDSUN • SMART LIGHTING
     </button>
 
 
-    <div class="modalTopIcon">
+    <div class="modalHero">
 
       <svg
         viewBox="0 0 24 24"
@@ -2800,9 +3443,9 @@ REDSUN • SMART LIGHTING
     </div>
 
 
-    <div class="field">
+    <div class="formField">
 
-      <div class="fieldLabel">
+      <div class="formLabel">
         رمز فعلی
       </div>
 
@@ -2814,9 +3457,9 @@ REDSUN • SMART LIGHTING
     </div>
 
 
-    <div class="field">
+    <div class="formField">
 
-      <div class="fieldLabel">
+      <div class="formLabel">
         رمز جدید
       </div>
 
@@ -2828,9 +3471,9 @@ REDSUN • SMART LIGHTING
     </div>
 
 
-    <div class="field">
+    <div class="formField">
 
-      <div class="fieldLabel">
+      <div class="formLabel">
         تکرار رمز جدید
       </div>
 
@@ -2842,7 +3485,7 @@ REDSUN • SMART LIGHTING
     </div>
 
 
-    <div class="modalButtons">
+    <div class="modalActions">
 
       <button
         class="modalButton cancelButton"
@@ -2869,79 +3512,157 @@ REDSUN • SMART LIGHTING
 
 
 <script>
+
 "use strict";
 
-const $ = id => document.getElementById(id);
 
-const PRODUCTS_KEY = "redsun_pro_products_v2";
-const RATE_KEY = "redsun_pro_rate_v2";
-const PASS_KEY = "redsun_pro_pass_v2";
-const MONTH_KEY = "redsun_pro_month_v2";
-const YEAR_KEY = "redsun_pro_year_v2";
-const THEME_KEY = "redsun_pro_theme_v2";
+const $ =
+id =>
+document.getElementById(id);
 
-const DEFAULT_PASS = "1234";
 
-const defaults = [
+const PRODUCTS_KEY =
+"redsun_final_products_v4";
+
+const RATE_KEY =
+"redsun_final_rate_v4";
+
+const PASS_KEY =
+"redsun_final_pass_v4";
+
+const MONTH_KEY =
+"redsun_final_month_v4";
+
+const YEAR_KEY =
+"redsun_final_year_v4";
+
+const THEME_KEY =
+"redsun_final_theme_v4";
+
+
+const DEFAULT_PASS =
+"1234";
+
+
+const defaultProducts = [
+
   ["لامپ اشکی 7 وات",0.72],
+
   ["لامپ حبابی 9 وات",0.725],
+
   ["لامپ حبابی 12 وات",0.912],
+
   ["لامپ حبابی 15 وات",1.28],
+
   ["لامپ حبابی 20 وات",1.7],
+
   ["لامپ حبابی 25 وات",2.25],
+
   ["لامپ استوانه ای 25 وات",2.59],
+
   ["لامپ استوانه ای 30 وات",2.84],
+
   ["لامپ استوانه ای 40 وات",3.82],
+
   ["لامپ استوانه ای 50 وات",4.821],
+
   ["پنل توکار سایز شو 10وات",1.8],
+
   ["پنل توکار سایز شو 18 وات",2.714],
+
   ["پنل توکار سایز شو 24 وات",3.84],
+
   ["پنل توکار سایز شو 36 وات",5.908],
+
   ["پنل روکار 18وات",3.513],
+
   ["پنل روکار 24وات",4.872],
+
   ["پنل روکار 36 وات",6.74]
+
 ];
 
-let products = loadProducts();
-let editIndex = -1;
-let pendingEditIndex = -1;
-let deleteIndex = -1;
-let currentImage = "";
+
+let products =
+loadProducts();
+
+
+let editIndex =
+-1;
+
+
+let pendingEditIndex =
+-1;
+
+
+let deleteIndex =
+-1;
+
+
+let currentImage =
+"";
+
+
+/* =====================================
+   LOAD PRODUCTS
+===================================== */
 
 function loadProducts(){
 
-  const oldKeys = [
+  const possibleKeys = [
+
     PRODUCTS_KEY,
+
+    "redsun_pro_products_v2",
+
+    "redsun_pro_products_v1",
+
     "redsun_products_new_v1",
-    "redsun_glass_products_v3",
-    "redsun_water_glass_products_v2",
-    "redsun_final_products_v1"
+
+    "redsun_glass_products_v3"
+
   ];
 
-  for(const key of oldKeys){
+
+  for(
+    const key of possibleKeys
+  ){
 
     try{
 
-      const saved =
-        JSON.parse(
-          localStorage.getItem(key) ||
-          "null"
+      const value =
+      JSON.parse(
+
+        localStorage
+        .getItem(key)
+
+        ||
+
+        "null"
+
+      );
+
+
+      if(
+        Array.isArray(value)
+      ){
+
+        return value.map(
+          item => ({
+
+            name:
+              item.name || "",
+
+            usd:
+              Number(
+                item.usd
+              ) || 0,
+
+            image:
+              item.image || ""
+
+          })
         );
-
-      if(Array.isArray(saved)){
-
-        return saved.map(item => ({
-
-          name:
-            item.name || "",
-
-          usd:
-            Number(item.usd) || 0,
-
-          image:
-            item.image || ""
-
-        }));
 
       }
 
@@ -2949,28 +3670,46 @@ function loadProducts(){
 
   }
 
-  return defaults.map(item => ({
 
-    name:item[0],
+  return defaultProducts.map(
+    item => ({
 
-    usd:item[1],
+      name:item[0],
 
-    image:""
+      usd:item[1],
 
-  }));
+      image:""
 
-}
-
-function saveProducts(){
-
-  localStorage.setItem(
-    PRODUCTS_KEY,
-    JSON.stringify(products)
+    })
   );
 
 }
 
-function rate(){
+
+/* =====================================
+   SAVE
+===================================== */
+
+function saveProducts(){
+
+  localStorage.setItem(
+
+    PRODUCTS_KEY,
+
+    JSON.stringify(
+      products
+    )
+
+  );
+
+}
+
+
+/* =====================================
+   RATE
+===================================== */
+
+function getRate(){
 
   return Number(
     $("rate").value
@@ -2978,110 +3717,190 @@ function rate(){
 
 }
 
-function faNumber(value){
+
+/* =====================================
+   NUMBER FORMATTING
+===================================== */
+
+/*
+  Consumer price:
+  168,480
+  397,800
+
+  Dollar:
+  0.72
+  1.28
+
+  This avoids Persian zero baseline issue.
+*/
+
+function formatPrice(value){
+
+  const number =
+  Number(value);
+
+
+  if(
+    !Number.isFinite(number)
+  ){
+
+    return "0";
+
+  }
+
+
+  return number.toLocaleString(
+
+    "en-US",
+
+    {
+
+      minimumFractionDigits:0,
+
+      maximumFractionDigits:0
+
+    }
+
+  );
+
+}
+
+
+function formatUSD(value){
+
+  const number =
+  Number(value);
+
+
+  if(
+    !Number.isFinite(number)
+  ){
+
+    return "0";
+
+  }
+
+
+  return number.toLocaleString(
+
+    "en-US",
+
+    {
+
+      minimumFractionDigits:0,
+
+      maximumFractionDigits:3
+
+    }
+
+  );
+
+}
+
+
+function formatIndex(value){
 
   return Number(value)
-    .toLocaleString(
-      "fa-IR"
-    );
+  .toLocaleString(
+    "en-US"
+  );
 
 }
 
-function faDigits(value){
 
-  return String(value)
-    .replace(
-      /\d/g,
-      d =>
-        "۰۱۲۳۴۵۶۷۸۹"[d]
-    );
-
-}
-
-function pdfNumber(value){
-
-  return Number(value)
-    .toLocaleString(
-      "en-US"
-    )
-    .replace(
-      /\d/g,
-      d =>
-        "۰۱۲۳۴۵۶۷۸۹"[d]
-    );
-
-}
+/* =====================================
+   ESCAPE
+===================================== */
 
 function escapeHTML(value){
 
   return String(value)
-    .replace(
-      /[&<>"']/g,
-      ch => ({
+  .replace(
 
-        "&":"&amp;",
+    /[&<>"']/g,
 
-        "<":"&lt;",
+    character => ({
 
-        ">":"&gt;",
+      "&":"&amp;",
 
-        '"':"&quot;",
+      "<":"&lt;",
 
-        "'":"&#39;"
+      ">":"&gt;",
 
-      }[ch])
-    );
+      '"':"&quot;",
+
+      "'":"&#39;"
+
+    }[character])
+
+  );
 
 }
+
+
+/* =====================================
+   MODALS
+===================================== */
 
 function openModal(id){
 
   const wrapper =
-    $(id);
+  $(id);
+
 
   wrapper.classList.add(
     "show"
   );
 
+
   wrapper.scrollTop =
-    0;
+  0;
+
 
   const modal =
-    wrapper.querySelector(
-      ".modal"
-    );
+  wrapper.querySelector(
+    ".modal"
+  );
+
 
   if(modal){
 
     modal.scrollTop =
-      0;
+    0;
 
   }
 
 }
 
+
 function closeModal(id){
 
   $(id)
-    .classList
-    .remove(
-      "show"
-    );
+  .classList
+  .remove(
+    "show"
+  );
 
 }
+
+
+/* =====================================
+   IMAGE PREVIEW
+===================================== */
 
 function showPreview(src){
 
   const image =
-    $("imagePreview");
+  $("imagePreview");
+
 
   if(src){
 
     image.src =
-      src;
+    src;
 
     image.style.display =
-      "block";
+    "block";
 
   }else{
 
@@ -3090,856 +3909,1144 @@ function showPreview(src){
     );
 
     image.style.display =
-      "none";
+    "none";
 
   }
 
 }
 
-/* =========================
+
+/* =====================================
    THEME
-========================= */
+===================================== */
 
 function setTheme(theme){
 
   const value =
-    theme === "light"
-      ? "light"
-      : "dark";
+
+  theme === "light"
+
+  ?
+
+  "light"
+
+  :
+
+  "dark";
+
 
   document
-    .documentElement
-    .dataset
-    .theme =
-      value;
+  .documentElement
+  .dataset
+  .theme =
+  value;
+
 
   localStorage.setItem(
+
     THEME_KEY,
+
     value
+
   );
 
+
   $("themeColor")
-    .setAttribute(
-      "content",
-      value === "light"
-        ? "#eef1f3"
-        : "#0f1216"
-    );
+  .setAttribute(
+
+    "content",
+
+    value === "light"
+
+    ?
+
+    "#eef1f3"
+
+    :
+
+    "#0d1014"
+
+  );
 
 }
+
 
 function initTheme(){
 
   const saved =
-    localStorage.getItem(
-      THEME_KEY
-    );
+  localStorage.getItem(
+    THEME_KEY
+  );
+
 
   if(saved){
 
-    setTheme(saved);
+    setTheme(
+      saved
+    );
 
     return;
 
   }
 
-  const systemLight =
 
-    window.matchMedia &&
+  const light =
 
-    window.matchMedia(
-      "(prefers-color-scheme: light)"
-    ).matches;
+  window.matchMedia
+
+  &&
+
+  window.matchMedia(
+    "(prefers-color-scheme: light)"
+  ).matches;
+
 
   setTheme(
-    systemLight
-      ? "light"
-      : "dark"
+
+    light
+
+    ?
+
+    "light"
+
+    :
+
+    "dark"
+
   );
 
 }
 
+
 $("themeToggle")
-  .addEventListener(
-    "click",
-    ()=>{
+.addEventListener(
 
-      setTheme(
+  "click",
 
-        document
-          .documentElement
-          .dataset
-          .theme === "dark"
+  ()=>{
 
-          ? "light"
+    const current =
 
-          : "dark"
+    document
+    .documentElement
+    .dataset
+    .theme;
 
-      );
 
-    }
-  );
+    setTheme(
 
-/* =========================
-   RENDER TABLE
-========================= */
+      current === "dark"
+
+      ?
+
+      "light"
+
+      :
+
+      "dark"
+
+    );
+
+  }
+
+);
+
+
+/* =====================================
+   RENDER
+===================================== */
 
 function render(){
 
   const tbody =
-    $("tbody");
+  $("tbody");
+
 
   tbody.innerHTML =
-    "";
+  "";
+
 
   $("empty")
-    .style
-    .display =
-      products.length
-        ? "none"
-        : "block";
+  .style
+  .display =
+
+  products.length
+
+  ?
+
+  "none"
+
+  :
+
+  "block";
+
 
   products.forEach(
+
     (product,index)=>{
 
-      const price =
-        Math.round(
-          Number(product.usd) *
-          rate()
-        );
 
-      const image =
+      const consumerPrice =
 
-        product.image
+      Math.round(
 
-        ?
+        Number(
+          product.usd
+        )
 
-        '<img class="productImage" src="' +
-        product.image +
-        '" alt="عکس محصول">'
+        *
 
-        :
+        getRate()
 
-        '<div class="productPlaceholder">—</div>';
+      );
+
+
+      const imageHTML =
+
+      product.image
+
+      ?
+
+      '<img class="productImage" src="' +
+      product.image +
+      '" alt="عکس محصول">'
+
+      :
+
+      '<div class="productPlaceholder">—</div>';
+
 
       const row =
-        document
-          .createElement(
-            "tr"
-          );
+      document.createElement(
+        "tr"
+      );
+
 
       row.innerHTML =
 
-        '<td>' +
+      '<td>' +
 
-        '<div class="rowBadge">' +
-        faNumber(index+1) +
+        '<div class="rowNo">' +
+        formatIndex(
+          index + 1
+        ) +
         '</div>' +
 
-        '</td>' +
+      '</td>' +
 
 
-        '<td>' +
-        image +
-        '</td>' +
+      '<td>' +
+
+        imageHTML +
+
+      '</td>' +
 
 
-        '<td class="product">' +
+      '<td class="product">' +
+
         escapeHTML(
           product.name
         ) +
-        '</td>' +
+
+      '</td>' +
 
 
-        '<td>' +
+      '<td>' +
 
-        '<span class="dollarBadge">' +
-        faNumber(
-          product.usd
-        ) +
+        '<span class="dollarValue">' +
+
+          formatUSD(
+            product.usd
+          ) +
+
         '</span>' +
 
-        '</td>' +
+      '</td>' +
 
 
-        '<td>' +
+      '<td>' +
 
-        '<span class="moneyBadge">' +
-        faNumber(
-          price
-        ) +
+        '<span class="priceValue">' +
+
+          formatPrice(
+            consumerPrice
+          ) +
+
         '</span>' +
 
-        '</td>' +
+      '</td>' +
 
 
-        '<td>' +
+      '<td>' +
 
-        '<div class="tableActions">' +
+        '<div class="tableButtons">' +
 
-        '<button class="btn editBtn" data-i="' +
-        index +
-        '">' +
-        'ویرایش' +
-        '</button>' +
+          '<button type="button" class="smallButton editButton" data-i="' +
+          index +
+          '">' +
 
-        '<button class="btn deleteBtn" data-i="' +
-        index +
-        '">' +
-        'حذف' +
-        '</button>' +
+          'ویرایش' +
+
+          '</button>' +
+
+          '<button type="button" class="smallButton deleteButton" data-i="' +
+          index +
+          '">' +
+
+          'حذف' +
+
+          '</button>' +
 
         '</div>' +
 
-        '</td>';
+      '</td>';
+
 
       tbody.appendChild(
         row
       );
 
     }
+
   );
 
 }
 
-/* =========================
-   ADD
-========================= */
+
+/* =====================================
+   ADD PRODUCT
+===================================== */
 
 $("addBtn")
-  .addEventListener(
-    "click",
-    ()=>{
+.addEventListener(
 
-      editIndex =
-        -1;
+  "click",
 
-      currentImage =
-        "";
+  ()=>{
 
-      $("productTitle")
-        .textContent =
-          "افزودن محصول";
 
-      $("nameInput")
-        .value =
-          "";
+    editIndex =
+    -1;
 
-      $("usdInput")
-        .value =
-          "";
 
-      $("imageInput")
-        .value =
-          "";
+    currentImage =
+    "";
 
-      showPreview("");
 
-      openModal(
-        "productModal"
-      );
+    $("productTitle")
+    .textContent =
+    "افزودن محصول";
 
-    }
-  );
 
-/* =========================
+    $("nameInput")
+    .value =
+    "";
+
+
+    $("usdInput")
+    .value =
+    "";
+
+
+    $("imageInput")
+    .value =
+    "";
+
+
+    showPreview(
+      ""
+    );
+
+
+    openModal(
+      "productModal"
+    );
+
+  }
+
+);
+
+
+/* =====================================
    IMAGE
-========================= */
+===================================== */
 
 $("imageInput")
-  .addEventListener(
-    "change",
-    event=>{
+.addEventListener(
 
-      const file =
+  "change",
 
-        event.target.files &&
+  event=>{
 
-        event.target.files[0];
 
-      if(!file){
-        return;
-      }
+    const file =
 
-      const reader =
-        new FileReader();
+    event.target.files
 
-      reader.onload =
-        e => {
+    &&
 
-          currentImage =
-            String(
-              e.target.result ||
-              ""
-            );
+    event.target.files[0];
 
-          showPreview(
-            currentImage
-          );
 
-        };
+    if(!file){
 
-      reader.readAsDataURL(
-        file
-      );
+      return;
 
     }
-  );
 
-/* =========================
-   SAVE PRODUCT
-========================= */
 
-$("saveProduct")
-  .addEventListener(
-    "click",
-    ()=>{
+    const reader =
+    new FileReader();
 
-      const name =
-        $("nameInput")
-          .value
-          .trim();
 
-      const usd =
-        Number(
-          $("usdInput").value
-        );
+    reader.onload =
+    e=>{
 
-      if(!name){
-
-        alert(
-          "نام محصول را وارد کنید."
-        );
-
-        return;
-
-      }
-
-      if(
-        !Number.isFinite(usd) ||
-        usd < 0
-      ){
-
-        alert(
-          "قیمت دلار درست نیست."
-        );
-
-        return;
-
-      }
-
-      const item = {
-
-        name:name,
-
-        usd:usd,
-
-        image:
-          currentImage ||
-          ""
-
-      };
-
-      if(
-        editIndex < 0
-      ){
-
-        products.push(
-          item
-        );
-
-      }else{
-
-        products[
-          editIndex
-        ] =
-          item;
-
-      }
-
-      saveProducts();
-
-      render();
-
-      closeModal(
-        "productModal"
-      );
-
-    }
-  );
-
-/* =========================
-   EDIT / DELETE
-========================= */
-
-$("tbody")
-  .addEventListener(
-    "click",
-    event=>{
-
-      const edit =
-        event.target.closest(
-          ".editBtn"
-        );
-
-      const del =
-        event.target.closest(
-          ".deleteBtn"
-        );
-
-      if(edit){
-
-        pendingEditIndex =
-          Number(
-            edit.dataset.i
-          );
-
-        $("passwordInput")
-          .value =
-            "";
-
-        openModal(
-          "passwordModal"
-        );
-
-      }
-
-      if(del){
-
-        deleteIndex =
-          Number(
-            del.dataset.i
-          );
-
-        $("deleteMessage")
-          .textContent =
-
-            "آیا محصول «" +
-
-            products[
-              deleteIndex
-            ].name +
-
-            "» حذف شود؟";
-
-        openModal(
-          "deleteModal"
-        );
-
-      }
-
-    }
-  );
-
-/* =========================
-   PASSWORD EDIT
-========================= */
-
-$("passwordOk")
-  .addEventListener(
-    "click",
-    ()=>{
-
-      const savedPass =
-
-        localStorage
-          .getItem(
-            PASS_KEY
-          ) ||
-
-        DEFAULT_PASS;
-
-      if(
-        $("passwordInput")
-          .value !==
-        savedPass
-      ){
-
-        alert(
-          "رمز عبور اشتباه است."
-        );
-
-        return;
-
-      }
-
-      closeModal(
-        "passwordModal"
-      );
-
-      editIndex =
-        pendingEditIndex;
 
       currentImage =
 
-        products[
-          editIndex
-        ].image ||
+      String(
 
-        "";
+        e.target.result
 
-      $("productTitle")
-        .textContent =
-          "ویرایش محصول";
+        ||
 
-      $("nameInput")
-        .value =
-          products[
-            editIndex
-          ].name;
+        ""
 
-      $("usdInput")
-        .value =
-          products[
-            editIndex
-          ].usd;
+      );
 
-      $("imageInput")
-        .value =
-          "";
 
       showPreview(
         currentImage
       );
 
+    };
+
+
+    reader.readAsDataURL(
+      file
+    );
+
+  }
+
+);
+
+
+/* =====================================
+   SAVE PRODUCT
+===================================== */
+
+$("saveProduct")
+.addEventListener(
+
+  "click",
+
+  ()=>{
+
+
+    const name =
+
+    $("nameInput")
+    .value
+    .trim();
+
+
+    const usd =
+
+    Number(
+      $("usdInput").value
+    );
+
+
+    if(!name){
+
+      alert(
+        "نام محصول را وارد کنید."
+      );
+
+      return;
+
+    }
+
+
+    if(
+
+      !Number.isFinite(usd)
+
+      ||
+
+      usd < 0
+
+    ){
+
+      alert(
+        "قیمت دلاری را درست وارد کنید."
+      );
+
+      return;
+
+    }
+
+
+    const item = {
+
+      name:name,
+
+      usd:usd,
+
+      image:
+      currentImage || ""
+
+    };
+
+
+    if(
+      editIndex < 0
+    ){
+
+      products.push(
+        item
+      );
+
+    }else{
+
+      products[
+        editIndex
+      ] =
+      item;
+
+    }
+
+
+    saveProducts();
+
+
+    render();
+
+
+    closeModal(
+      "productModal"
+    );
+
+  }
+
+);
+
+
+/* =====================================
+   TABLE ACTIONS
+===================================== */
+
+$("tbody")
+.addEventListener(
+
+  "click",
+
+  event=>{
+
+
+    const edit =
+
+    event.target.closest(
+      ".editButton"
+    );
+
+
+    const remove =
+
+    event.target.closest(
+      ".deleteButton"
+    );
+
+
+    if(edit){
+
+      pendingEditIndex =
+
+      Number(
+        edit.dataset.i
+      );
+
+
+      $("passwordInput")
+      .value =
+      "";
+
+
       openModal(
-        "productModal"
+        "passwordModal"
       );
 
     }
-  );
 
-/* =========================
-   DELETE
-========================= */
 
-$("deleteOk")
-  .addEventListener(
-    "click",
-    ()=>{
-
-      if(
-        deleteIndex >= 0
-      ){
-
-        products.splice(
-          deleteIndex,
-          1
-        );
-
-        saveProducts();
-
-        render();
-
-      }
+    if(remove){
 
       deleteIndex =
-        -1;
 
-      closeModal(
+      Number(
+        remove.dataset.i
+      );
+
+
+      $("deleteMessage")
+      .textContent =
+
+      "آیا محصول «"
+
+      +
+
+      products[
+        deleteIndex
+      ].name
+
+      +
+
+      "» حذف شود؟";
+
+
+      openModal(
         "deleteModal"
       );
 
     }
-  );
 
-/* =========================
-   SECURITY
-========================= */
+  }
 
-$("settingsBtn")
-  .addEventListener(
-    "click",
-    ()=>{
+);
 
-      $("oldPass")
-        .value =
-          "";
 
-      $("newPass")
-        .value =
-          "";
+/* =====================================
+   PASSWORD FOR EDIT
+===================================== */
 
-      $("repeatPass")
-        .value =
-          "";
+$("passwordOk")
+.addEventListener(
 
-      openModal(
-        "settingsModal"
-      );
+  "click",
 
-    }
-  );
+  ()=>{
 
-$("changePass")
-  .addEventListener(
-    "click",
-    ()=>{
 
-      const savedPass =
+    const savedPass =
 
-        localStorage
-          .getItem(
-            PASS_KEY
-          ) ||
+    localStorage.getItem(
+      PASS_KEY
+    )
 
-        DEFAULT_PASS;
+    ||
 
-      const oldPass =
-        $("oldPass").value;
+    DEFAULT_PASS;
 
-      const newPass =
-        $("newPass").value;
 
-      const repeat =
-        $("repeatPass").value;
+    if(
 
-      if(
-        oldPass !==
-        savedPass
-      ){
+      $("passwordInput")
+      .value
 
-        alert(
-          "رمز فعلی اشتباه است."
-        );
+      !==
 
-        return;
+      savedPass
 
-      }
-
-      if(!newPass){
-
-        alert(
-          "رمز جدید را وارد کنید."
-        );
-
-        return;
-
-      }
-
-      if(
-        newPass !==
-        repeat
-      ){
-
-        alert(
-          "تکرار رمز یکسان نیست."
-        );
-
-        return;
-
-      }
-
-      localStorage.setItem(
-        PASS_KEY,
-        newPass
-      );
-
-      closeModal(
-        "settingsModal"
-      );
+    ){
 
       alert(
-        "رمز جدید ذخیره شد."
+        "رمز عبور اشتباه است."
       );
 
+      return;
+
     }
-  );
 
-/* =========================
-   RATE
-========================= */
 
-$("rate")
-  .value =
+    closeModal(
+      "passwordModal"
+    );
 
-    localStorage
-      .getItem(
-        RATE_KEY
-      ) ||
 
-    234000;
+    editIndex =
+    pendingEditIndex;
 
-$("rate")
-  .addEventListener(
-    "input",
-    ()=>{
 
-      localStorage
-        .setItem(
-          RATE_KEY,
-          String(
-            rate()
-          )
-        );
+    currentImage =
+
+    products[
+      editIndex
+    ].image
+
+    ||
+
+    "";
+
+
+    $("productTitle")
+    .textContent =
+    "ویرایش محصول";
+
+
+    $("nameInput")
+    .value =
+
+    products[
+      editIndex
+    ].name;
+
+
+    $("usdInput")
+    .value =
+
+    products[
+      editIndex
+    ].usd;
+
+
+    $("imageInput")
+    .value =
+    "";
+
+
+    showPreview(
+      currentImage
+    );
+
+
+    openModal(
+      "productModal"
+    );
+
+  }
+
+);
+
+
+/* =====================================
+   DELETE
+===================================== */
+
+$("deleteOk")
+.addEventListener(
+
+  "click",
+
+  ()=>{
+
+
+    if(
+      deleteIndex >= 0
+    ){
+
+      products.splice(
+        deleteIndex,
+        1
+      );
+
+
+      saveProducts();
+
 
       render();
 
     }
-  );
 
-/* =========================
+
+    deleteIndex =
+    -1;
+
+
+    closeModal(
+      "deleteModal"
+    );
+
+  }
+
+);
+
+
+/* =====================================
+   SETTINGS
+===================================== */
+
+$("settingsBtn")
+.addEventListener(
+
+  "click",
+
+  ()=>{
+
+
+    $("oldPass")
+    .value =
+    "";
+
+
+    $("newPass")
+    .value =
+    "";
+
+
+    $("repeatPass")
+    .value =
+    "";
+
+
+    openModal(
+      "settingsModal"
+    );
+
+  }
+
+);
+
+
+$("changePass")
+.addEventListener(
+
+  "click",
+
+  ()=>{
+
+
+    const savedPass =
+
+    localStorage.getItem(
+      PASS_KEY
+    )
+
+    ||
+
+    DEFAULT_PASS;
+
+
+    const oldPass =
+    $("oldPass").value;
+
+
+    const newPass =
+    $("newPass").value;
+
+
+    const repeat =
+    $("repeatPass").value;
+
+
+    if(
+      oldPass !== savedPass
+    ){
+
+      alert(
+        "رمز فعلی اشتباه است."
+      );
+
+      return;
+
+    }
+
+
+    if(!newPass){
+
+      alert(
+        "رمز جدید را وارد کنید."
+      );
+
+      return;
+
+    }
+
+
+    if(
+      newPass !== repeat
+    ){
+
+      alert(
+        "تکرار رمز جدید یکسان نیست."
+      );
+
+      return;
+
+    }
+
+
+    localStorage.setItem(
+
+      PASS_KEY,
+
+      newPass
+
+    );
+
+
+    closeModal(
+      "settingsModal"
+    );
+
+
+    alert(
+      "رمز جدید ذخیره شد."
+    );
+
+  }
+
+);
+
+
+/* =====================================
+   RATE
+===================================== */
+
+$("rate")
+.value =
+
+localStorage.getItem(
+  RATE_KEY
+)
+
+||
+
+234000;
+
+
+$("rate")
+.addEventListener(
+
+  "input",
+
+  ()=>{
+
+
+    localStorage.setItem(
+
+      RATE_KEY,
+
+      String(
+        getRate()
+      )
+
+    );
+
+
+    render();
+
+  }
+
+);
+
+
+/* =====================================
    DATE
-========================= */
+===================================== */
 
 $("priceMonth")
-  .value =
+.value =
 
-    localStorage
-      .getItem(
-        MONTH_KEY
-      ) ||
+localStorage.getItem(
+  MONTH_KEY
+)
 
-    "شهریور";
+||
+
+"شهریور";
+
 
 $("priceMonth")
-  .addEventListener(
-    "change",
-    ()=>{
+.addEventListener(
 
-      localStorage
-        .setItem(
-          MONTH_KEY,
-          $("priceMonth").value
-        );
+  "change",
 
-    }
-  );
+  ()=>{
 
-$("priceYear")
-  .value =
 
-    localStorage
-      .getItem(
-        YEAR_KEY
-      ) ||
+    localStorage.setItem(
 
-    "1405";
+      MONTH_KEY,
+
+      $("priceMonth").value
+
+    );
+
+  }
+
+);
+
 
 $("priceYear")
-  .addEventListener(
-    "input",
-    ()=>{
+.value =
 
-      localStorage
-        .setItem(
-          YEAR_KEY,
-          $("priceYear").value ||
-          "1405"
-        );
+localStorage.getItem(
+  YEAR_KEY
+)
 
-    }
-  );
+||
 
-/* =========================
+"1405";
+
+
+$("priceYear")
+.addEventListener(
+
+  "input",
+
+  ()=>{
+
+
+    localStorage.setItem(
+
+      YEAR_KEY,
+
+      $("priceYear").value
+
+      ||
+
+      "1405"
+
+    );
+
+  }
+
+);
+
+
+/* =====================================
    PDF
-   هیچ عکس آیکونی در PDF نیست
-========================= */
+===================================== */
 
 $("pdfBtn")
-  .addEventListener(
-    "click",
-    ()=>{
+.addEventListener(
 
-      const printWindow =
-        window.open(
-          "",
-          "_blank"
+  "click",
+
+  ()=>{
+
+
+    const printWindow =
+
+    window.open(
+      "",
+      "_blank"
+    );
+
+
+    if(!printWindow){
+
+      alert(
+        "مرورگر اجازه باز شدن صفحه PDF را نداده است."
+      );
+
+      return;
+
+    }
+
+
+    const title =
+
+    "لیست قیمت "
+
+    +
+
+    $("priceMonth").value
+
+    +
+
+    " ماه "
+
+    +
+
+    $("priceYear").value;
+
+
+    const rows =
+
+    products.map(
+
+      (product,index)=>{
+
+
+        const price =
+
+        Math.round(
+
+          Number(
+            product.usd
+          )
+
+          *
+
+          getRate()
+
         );
 
-      if(!printWindow){
 
-        alert(
-          "مرورگر اجازه باز شدن صفحه PDF را نداده است."
+        const image =
+
+        product.image
+
+        ?
+
+        '<img class="pic" src="' +
+        product.image +
+        '" alt="">'
+
+        :
+
+        "—";
+
+
+        return(
+
+          "<tr>" +
+
+          "<td>" +
+
+          formatIndex(
+            index + 1
+          ) +
+
+          "</td>" +
+
+
+          "<td>" +
+
+          image +
+
+          "</td>" +
+
+
+          "<td>" +
+
+          escapeHTML(
+            product.name
+          ) +
+
+          "</td>" +
+
+
+          "<td>" +
+
+          formatPrice(
+            price
+          ) +
+
+          "</td>" +
+
+
+          "</tr>"
+
         );
-
-        return;
 
       }
 
-      const title =
+    )
+    .join("");
 
-        "لیست قیمت " +
 
-        $("priceMonth").value +
+    printWindow
+    .document
+    .open();
 
-        " ماه " +
 
-        faDigits(
-          $("priceYear").value ||
-          "1405"
-        );
+    printWindow
+    .document
+    .write(
 
-      const rows =
-
-        products
-          .map(
-            (product,index)=>{
-
-              const price =
-
-                Math.round(
-                  Number(
-                    product.usd
-                  ) *
-                  rate()
-                );
-
-              const image =
-
-                product.image
-
-                ?
-
-                '<img class="pic" src="' +
-                product.image +
-                '" alt="">'
-
-                :
-
-                "—";
-
-              return(
-
-                "<tr>" +
-
-                "<td>" +
-                pdfNumber(
-                  index+1
-                ) +
-                "</td>" +
-
-                "<td>" +
-                image +
-                "</td>" +
-
-                "<td>" +
-                escapeHTML(
-                  product.name
-                ) +
-                "</td>" +
-
-                "<td>" +
-                pdfNumber(
-                  price
-                ) +
-                "</td>" +
-
-                "</tr>"
-
-              );
-
-            }
-          )
-          .join("");
-
-      printWindow
-        .document
-        .open();
-
-      printWindow
-        .document
-        .write(
 `<!doctype html>
 
 <html lang="fa" dir="rtl">
@@ -3948,50 +5055,56 @@ $("pdfBtn")
 
 <meta charset="UTF-8">
 
-<title>
-REDSUN - ${title}
-</title>
+<title>REDSUN</title>
 
 <style>
 
 @page{
+
   size:A4 portrait;
+
   margin:0;
+
 }
 
 *{
+
   box-sizing:border-box;
 
   -webkit-print-color-adjust:
-    exact !important;
+  exact !important;
 
   print-color-adjust:
-    exact !important;
+  exact !important;
+
 }
 
 body{
+
   margin:0;
 
   padding:8mm;
 
-  font-family:
-    Tahoma,
-    Arial,
-    sans-serif;
-
   background:#fff;
 
   color:#111;
+
+  font-family:
+  Tahoma,
+  Arial,
+  sans-serif;
+
 }
 
 .page{
-  border:
-    2px solid #202326;
 
-  background:#fff;
+  border:
+  2px solid #25282b;
+
 }
 
 .title{
+
   height:50px;
 
   display:flex;
@@ -4001,20 +5114,19 @@ body{
   justify-content:center;
 
   background:
-    #c83942 !important;
+  #c83a43 !important;
 
   color:
-    #fff !important;
+  #fff !important;
 
   font-size:20px;
 
   font-weight:800;
 
-  border-bottom:
-    2px solid #202326;
 }
 
 .brand{
+
   height:58px;
 
   display:flex;
@@ -4024,120 +5136,153 @@ body{
   justify-content:center;
 
   background:
-    #f2f4f5 !important;
+  #f3f4f5 !important;
 
   border-bottom:
-    2px solid #202326;
+  2px solid #25282b;
+
+  color:
+  #c72f38 !important;
 
   font:
-    900 30px Arial;
+  900 31px Arial;
 
   letter-spacing:5px;
 
-  color:
-    #c62d36 !important;
 }
 
 table{
+
   width:100%;
 
   border-collapse:
-    collapse;
+  collapse;
 
   table-layout:
-    fixed;
+  fixed;
+
 }
 
 th{
-  height:47px;
+
+  height:48px;
 
   background:
-    #c83942 !important;
+  #c83a43 !important;
 
   color:
-    #fff !important;
+  #fff !important;
 
   border:
-    1px solid #202326;
+  1px solid #25282b;
+
+  font-size:12px;
+
 }
 
 td{
-  height:67px;
+
+  height:68px;
 
   text-align:center;
 
   border:
-    1px solid #202326;
+  1px solid #25282b;
 
   font-weight:700;
+
 }
 
 tr:nth-child(even) td{
+
   background:
-    #f3f4f5 !important;
+  #f4f5f6 !important;
+
 }
 
 th:nth-child(1),
 td:nth-child(1){
+
   width:7%;
+
 }
 
 th:nth-child(2),
 td:nth-child(2){
+
   width:15%;
+
 }
 
 th:nth-child(3),
 td:nth-child(3){
+
   width:57%;
+
 }
 
 th:nth-child(4),
 td:nth-child(4){
+
   width:21%;
+
 }
 
 .pic{
+
   width:52px;
 
   height:52px;
 
   object-fit:contain;
+
 }
 
 .controls{
+
   text-align:center;
 
   margin:18px;
+
 }
 
 .controls button{
+
   border:0;
 
   border-radius:9px;
 
   padding:
-    11px 18px;
+  11px 18px;
 
   margin:4px;
 
   font-weight:700;
+
 }
 
 .print{
-  background:#c83942;
+
+  background:#c83a43;
 
   color:#fff;
+
 }
 
 .close{
-  background:#ddd;
+
+  background:#dedede;
+
+  color:#222;
+
 }
 
 @media print{
 
   .controls{
+
     display:none !important;
+
   }
 
 }
@@ -4146,68 +5291,77 @@ td:nth-child(4){
 
 </head>
 
+
 <body>
+
 
 <div class="page">
 
-  <div class="title">
-    ${title}
-  </div>
 
-  <div class="brand">
-    REDSUN
-  </div>
+<div class="title">
+${title}
+</div>
 
-  <table>
 
-    <thead>
+<div class="brand">
+REDSUN
+</div>
 
-      <tr>
 
-        <th>
-          ردیف
-        </th>
+<table>
 
-        <th>
-          تصویر محصول
-        </th>
 
-        <th>
-          نام محصول
-        </th>
+<thead>
 
-        <th>
-          قیمت (تومان)
-        </th>
+<tr>
 
-      </tr>
+<th>
+ردیف
+</th>
 
-    </thead>
+<th>
+تصویر محصول
+</th>
 
-    <tbody>
-      ${rows}
-    </tbody>
+<th>
+نام محصول
+</th>
 
-  </table>
+<th>
+قیمت (تومان)
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+${rows}
+</tbody>
+
+
+</table>
+
 
 </div>
 
 
 <div class="controls">
 
-  <button
-    class="print"
-    onclick="window.print()"
-  >
-    چاپ / ذخیره PDF
-  </button>
+<button
+class="print"
+onclick="window.print()"
+>
+چاپ / ذخیره PDF
+</button>
 
-  <button
-    class="close"
-    onclick="window.close()"
-  >
-    بازگشت
-  </button>
+<button
+class="close"
+onclick="window.close()"
+>
+بازگشت
+</button>
 
 </div>
 
@@ -4215,133 +5369,174 @@ td:nth-child(4){
 </body>
 
 </html>`
-        );
 
-      printWindow
-        .document
-        .close();
+    );
 
-    }
-  );
 
-/* =========================
-   CLOSE MODALS
-========================= */
+    printWindow
+    .document
+    .close();
 
-document
-  .querySelectorAll(
-    "[data-close]"
-  )
-  .forEach(
-    button=>{
+  }
 
-      button
-        .addEventListener(
-          "click",
-          ()=>{
+);
 
-            closeModal(
-              button.dataset.close
-            );
 
-          }
-        );
-
-    }
-  );
+/* =====================================
+   CLOSE BUTTONS
+===================================== */
 
 document
-  .querySelectorAll(
-    ".modalBack"
-  )
-  .forEach(
-    modal=>{
+.querySelectorAll(
+  "[data-close]"
+)
+.forEach(
 
-      modal
-        .addEventListener(
-          "click",
-          event=>{
+  button=>{
 
-            if(
-              event.target ===
-              modal
-            ){
 
-              closeModal(
-                modal.id
-              );
+    button.addEventListener(
 
-            }
+      "click",
 
-          }
+      ()=>{
+
+
+        closeModal(
+          button.dataset.close
         );
-
-    }
-  );
-
-document
-  .addEventListener(
-    "keydown",
-    event=>{
-
-      if(
-        event.key ===
-        "Escape"
-      ){
-
-        document
-          .querySelectorAll(
-            ".modalBack.show"
-          )
-          .forEach(
-            modal=>{
-
-              closeModal(
-                modal.id
-              );
-
-            }
-          );
 
       }
 
-    }
-  );
+    );
 
-/* =========================
-   PWA
-========================= */
+  }
+
+);
+
+
+/* =====================================
+   BACKDROP CLOSE
+===================================== */
+
+document
+.querySelectorAll(
+  ".modalBack"
+)
+.forEach(
+
+  modal=>{
+
+
+    modal.addEventListener(
+
+      "click",
+
+      event=>{
+
+
+        if(
+          event.target === modal
+        ){
+
+          closeModal(
+            modal.id
+          );
+
+        }
+
+      }
+
+    );
+
+  }
+
+);
+
+
+/* =====================================
+   ESC
+===================================== */
+
+document.addEventListener(
+
+  "keydown",
+
+  event=>{
+
+
+    if(
+      event.key === "Escape"
+    ){
+
+      document
+      .querySelectorAll(
+        ".modalBack.show"
+      )
+      .forEach(
+
+        modal=>{
+
+          closeModal(
+            modal.id
+          );
+
+        }
+
+      );
+
+    }
+
+  }
+
+);
+
+
+/* =====================================
+   SERVICE WORKER
+===================================== */
 
 if(
   "serviceWorker"
   in navigator
 ){
 
-  window
-    .addEventListener(
-      "load",
-      ()=>{
+  window.addEventListener(
 
-        navigator
-          .serviceWorker
-          .register(
-            "./service-worker.js",
-            {
-              scope:"./"
-            }
-          )
-          .catch(()=>{});
+    "load",
 
-      }
-    );
+    ()=>{
+
+
+      navigator
+      .serviceWorker
+      .register(
+
+        "./service-worker.js",
+
+        {
+          scope:"./"
+        }
+
+      )
+      .catch(
+        ()=>{}
+      );
+
+    }
+
+  );
 
 }
 
+
 initTheme();
+
 
 render();
 
 </script>
 
+
 </body>
-  </html>
+    </html>
