@@ -1,5 +1,5 @@
 const CACHE_NAME =
-  "redsun-glow-professional-v2";
+  "redsun-final-glow-v4";
 
 const APP_SHELL = [
   "./",
@@ -37,6 +37,7 @@ self.addEventListener(
         .keys()
         .then(
           keys =>
+
             Promise.all(
 
               keys
@@ -47,9 +48,7 @@ self.addEventListener(
                 )
                 .map(
                   key =>
-                    caches.delete(
-                      key
-                    )
+                    caches.delete(key)
                 )
 
             )
@@ -72,11 +71,13 @@ self.addEventListener(
     const request =
       event.request;
 
+
     if(
-      request.method !==
-      "GET"
+      request.method !== "GET"
     ){
+
       return;
+
     }
 
 
@@ -90,7 +91,9 @@ self.addEventListener(
       url.origin !==
       self.location.origin
     ){
+
       return;
+
     }
 
 
@@ -109,6 +112,7 @@ self.addEventListener(
               const copy =
                 response.clone();
 
+
               caches
                 .open(
                   CACHE_NAME
@@ -123,6 +127,7 @@ self.addEventListener(
 
                   }
                 );
+
 
               return response;
 
@@ -139,9 +144,7 @@ self.addEventListener(
                 .then(
                   response =>
                     response ||
-                    caches.match(
-                      "./"
-                    )
+                    caches.match("./")
                 )
 
           )
@@ -161,14 +164,19 @@ self.addEventListener(
         .then(
           cached => {
 
+
             if(cached){
+
               return cached;
+
             }
+
 
             return fetch(request)
 
               .then(
                 response => {
+
 
                   if(
                     !response ||
@@ -180,8 +188,10 @@ self.addEventListener(
 
                   }
 
+
                   const copy =
                     response.clone();
+
 
                   caches
                     .open(
@@ -197,6 +207,7 @@ self.addEventListener(
 
                       }
                     );
+
 
                   return response;
 
